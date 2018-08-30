@@ -276,8 +276,6 @@ DWORD WINAPI Hook(LPVOID lpThreadParameter)
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpReserved)
 {
-	// BOOL bReturnValue = TRUE;
-
 	if (dwReason == DLL_QUERY_HMODULE)
 	{
 		if (lpReserved != NULL)
@@ -302,6 +300,5 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpReserved)
 			CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)Hook, NULL, NULL, NULL);
 		}
 	}
-
-	return TRUE;//git test
+	return TRUE;
 }
