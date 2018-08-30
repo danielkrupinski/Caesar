@@ -33,7 +33,7 @@
 #include <gl\GL.h>
 
 #pragma comment(lib, "OpenGL32.lib")
-#pragma comment(lib, "vgui.lib")
+//#pragma comment(lib, "vgui.lib")
 
 using namespace std;
 
