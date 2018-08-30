@@ -190,6 +190,7 @@ string GetUrlData(string url)
 	return request_data;
 }
 
+/*
 BOOL License()
 {
 	VIRTUALIZER_START
@@ -452,6 +453,7 @@ BOOL License()
 	VIRTUALIZER_END
 	return 1;
 }
+*/
 
 DWORD WINAPI Hook(LPVOID lpThreadParameter)
 {
