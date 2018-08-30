@@ -187,9 +187,7 @@ void HUD_Frame_init(double time)
 	if (!g_pConsole->IsConsoleVisible())
 		g_pConsole->Activate();
 
-	g_pConsole->DPrintf("\n\tNorAdrenaline loaded.\n");
-	g_pConsole->DPrintf("\n\tSite: hack.ovh\n");
-	g_pConsole->DPrintf("\n\tSupport: noradrenalinehelp@hack.ovh\n");
+	g_pConsole->DPrintf("\n\tCaesar loaded successfully!\n");
 
 	g_pClient->HUD_Frame = HUD_Frame;
 
