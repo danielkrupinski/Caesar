@@ -122,6 +122,8 @@ std::string base64_decode(std::string const& encoded_string) {
 	return ret;
 }
 
+/*
+
 string StringToHex(const string input)
 {
 	const char* lut = "0123456789ABCDEF";
@@ -139,6 +141,8 @@ string StringToHex(const string input)
 
 	return output;
 }
+
+*/
 
 std::string encryptDecrypt(std::string toEncrypt)
 {
