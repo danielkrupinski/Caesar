@@ -129,7 +129,7 @@
       <GenerateMapFile>true</GenerateMapFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)Release\$(ProjectName).dll ..\bin</Command>
+      <Command>copy $(SolutionDir)Release\$(ProjectName).dll $(SolutionDir)\$(ProjectName).dll</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
