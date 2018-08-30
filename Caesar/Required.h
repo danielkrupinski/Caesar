@@ -91,7 +91,7 @@ void HookOpenGL();
 
 std::string base64_encode(const std::string &in);
 std::string base64_decode(const std::string &in);
-std::string encryptDecrypt(std::string toEncrypt);
+// std::string encryptDecrypt(std::string toEncrypt);
 //string StringToHex(const string input);
 
 string GetUrlData(string url);

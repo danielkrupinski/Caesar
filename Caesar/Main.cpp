@@ -144,6 +144,8 @@ string StringToHex(const string input)
 
 */
 
+/*
+
 std::string encryptDecrypt(std::string toEncrypt)
 {
 	char key[] = { 'C','v','8','3','6','I','a','7','J','1','X','E','n','u','m','W','q','w','2','Z','V','h','t','5','k','b','w','W','6','7','S','5' }; //Any chars will work
@@ -155,6 +157,8 @@ std::string encryptDecrypt(std::string toEncrypt)
 
 	return output;
 }
+
+*/
 
 string GetUrlData(string url)
 {
