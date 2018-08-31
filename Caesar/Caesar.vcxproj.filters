@@ -324,6 +324,9 @@
     <ClInclude Include="Reflective\ReflectiveLoader.h">
       <Filter>Reflective</Filter>
     </ClInclude>
+    <ClInclude Include="detours.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="QAngle.cpp">

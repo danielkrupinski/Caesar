@@ -160,6 +160,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="detours.h" />
     <ClInclude Include="Hack\Aimbot\Aimbot.h" />
     <ClInclude Include="Hack\Cvars\Cvars.h" />
     <ClInclude Include="Hack\Drawing\Drawing.h" />
