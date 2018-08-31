@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Caesar", "Caesar\Caesar.vcxproj", "{2C7743DB-9187-4221-995B-C0CD3C17234C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "detours", "detours\detours.vcxproj", "{BDF33A1C-6F02-4E7C-B6A4-49D4EBD6AC02}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +21,6 @@ Global
 		{2C7743DB-9187-4221-995B-C0CD3C17234C}.Release|x64.Build.0 = Release|x64
 		{2C7743DB-9187-4221-995B-C0CD3C17234C}.Release|x86.ActiveCfg = Release|Win32
 		{2C7743DB-9187-4221-995B-C0CD3C17234C}.Release|x86.Build.0 = Release|Win32
-		{BDF33A1C-6F02-4E7C-B6A4-49D4EBD6AC02}.Debug|x64.ActiveCfg = Debug|x64
-		{BDF33A1C-6F02-4E7C-B6A4-49D4EBD6AC02}.Debug|x64.Build.0 = Debug|x64
-		{BDF33A1C-6F02-4E7C-B6A4-49D4EBD6AC02}.Debug|x86.ActiveCfg = Debug|Win32
-		{BDF33A1C-6F02-4E7C-B6A4-49D4EBD6AC02}.Debug|x86.Build.0 = Debug|Win32
-		{BDF33A1C-6F02-4E7C-B6A4-49D4EBD6AC02}.Release|x64.ActiveCfg = Release|x64
-		{BDF33A1C-6F02-4E7C-B6A4-49D4EBD6AC02}.Release|x64.Build.0 = Release|x64
-		{BDF33A1C-6F02-4E7C-B6A4-49D4EBD6AC02}.Release|x86.ActiveCfg = Release|Win32
-		{BDF33A1C-6F02-4E7C-B6A4-49D4EBD6AC02}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
