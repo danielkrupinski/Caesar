@@ -133,10 +133,10 @@ void APIENTRY Hooked_glViewport(GLint x, GLint y, GLsizei width, GLsizei height)
 void HookOpenGL()
 {
 	HMODULE hmOpenGL = GetModuleHandle("opengl32.dll");
-	pglBegin = (glBegin_t)DetourFunction((LPBYTE)GetProcAddress(hmOpenGL, "glBegin"), (LPBYTE)&Hooked_glBegin);
-	pglColor4f = (glColor4f_t)DetourFunction((LPBYTE)GetProcAddress(hmOpenGL, "glColor4f"), (LPBYTE)&Hooked_glColor4f);
-	pglVertex3fv = (glVertex3fv_t)DetourFunction((LPBYTE)GetProcAddress(hmOpenGL, "glVertex3fv"), (LPBYTE)&Hooked_glVertex3fv);
-	pglClear = (glClear_t)DetourFunction((LPBYTE)GetProcAddress(hmOpenGL, "glClear"), (LPBYTE)&Hooked_glClear);
-	pwglSwapBuffers = (wglSwapBuffers_t)DetourFunction((LPBYTE)GetProcAddress(hmOpenGL, "wglSwapBuffers"), (LPBYTE)&Hooked_wglSwapBuffers);
-	pglViewport = (glViewport_t)DetourFunction((LPBYTE)GetProcAddress(hmOpenGL, "glViewport"), (LPBYTE)&Hooked_glViewport);
+	pglBegin = (glBegin_t)DetourAttach((PVOID*)GetProcAddress(hmOpenGL, "glBegin"), (PVOID)&Hooked_glBegin);
+	pglColor4f = (glColor4f_t)DetourAttach((PVOID*)GetProcAddress(hmOpenGL, "glColor4f"), (PVOID)&Hooked_glColor4f);
+	pglVertex3fv = (glVertex3fv_t)DetourAttach((PVOID*)GetProcAddress(hmOpenGL, "glVertex3fv"), (PVOID)&Hooked_glVertex3fv);
+	pglClear = (glClear_t)DetourAttach((PVOID*)GetProcAddress(hmOpenGL, "glClear"), (PVOID)&Hooked_glClear);
+	pwglSwapBuffers = (wglSwapBuffers_t)DetourAttach((PVOID*)GetProcAddress(hmOpenGL, "wglSwapBuffers"), (PVOID)&Hooked_wglSwapBuffers);
+	pglViewport = (glViewport_t)DetourAttach((PVOID*)GetProcAddress(hmOpenGL, "glViewport"), (PVOID)&Hooked_glViewport);
 }
