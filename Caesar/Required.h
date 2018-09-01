@@ -10,7 +10,6 @@
 #include <sstream>
 
 #pragma comment(lib, "wbemuuid.lib")
-#pragma comment(lib,"Wininet.lib")
 
 #define M_PI 3.14159265358979323846
 #include "Vector.h"
