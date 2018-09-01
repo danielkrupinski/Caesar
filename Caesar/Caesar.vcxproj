@@ -180,8 +180,6 @@
     <ClInclude Include="Hook.h" />
     <ClInclude Include="Offsets.h" />
     <ClInclude Include="QAngle.h" />
-    <ClInclude Include="Reflective\ReflectiveDLLInjection.h" />
-    <ClInclude Include="Reflective\ReflectiveLoader.h" />
     <ClInclude Include="Required.h" />
     <ClInclude Include="Structures.h" />
     <ClInclude Include="StudioModelRenderer.h" />
@@ -278,7 +276,6 @@
     <ClCompile Include="Offsets.cpp" />
     <ClCompile Include="OpenGL.cpp" />
     <ClCompile Include="QAngle.cpp" />
-    <ClCompile Include="Reflective\ReflectiveLoader.c" />
     <ClCompile Include="StudioModelRenderer.cpp" />
     <ClCompile Include="Usermsg.cpp" />
     <ClCompile Include="ValveSDK\common\interface.cpp" />

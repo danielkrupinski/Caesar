@@ -52,9 +52,6 @@
     <Filter Include="Hack\Systems">
       <UniqueIdentifier>{261eecb7-5f32-4542-8bcb-ebd631d7c0e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Reflective">
-      <UniqueIdentifier>{3b83850a-c6c0-4f13-ba39-e670cdc52ca8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -318,12 +315,6 @@
     <ClInclude Include="Hack\Systems\Systems.h">
       <Filter>Hack\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="Reflective\ReflectiveDLLInjection.h">
-      <Filter>Reflective</Filter>
-    </ClInclude>
-    <ClInclude Include="Reflective\ReflectiveLoader.h">
-      <Filter>Reflective</Filter>
-    </ClInclude>
     <ClInclude Include="detours.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -406,9 +397,6 @@
     </ClCompile>
     <ClCompile Include="Hack\Systems\Systems.cpp">
       <Filter>Hack\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="Reflective\ReflectiveLoader.c">
-      <Filter>Reflective</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
