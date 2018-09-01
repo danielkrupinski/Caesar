@@ -14,7 +14,7 @@
 #include "Aimbot\Aimbot.h"
 #include "Systems\Systems.h"
 
-#define HACK_FILE "NorAdrenaline.ini"
+#define HACK_FILE "Styx.ini"
 
 class CGlobalsVars;
 class CGlobalsVars
