@@ -142,7 +142,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpReserved)
 	}
     */
 
-	else if (dwReason == DLL_PROCESS_ATTACH)
+	if (dwReason == DLL_PROCESS_ATTACH)
 	{
 		hAppInstance = hinstDLL;
 
