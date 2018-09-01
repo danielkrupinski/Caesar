@@ -6,7 +6,6 @@
 #include <fstream>
 #include <iostream>
 #include <comdef.h>
-#include <Wbemidl.h>
 #include <sstream>
 
 #pragma comment(lib, "wbemuuid.lib")
