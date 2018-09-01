@@ -54,6 +54,8 @@ LRESULT CALLBACK Hooked_WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	return CallWindowProc(g_pGlobals.WndProcBackup, hwnd, uMsg, wParam, lParam);
 }
 
+/*
+
 std::string base64_encode(const std::string &in)
 {
 	std::string out;
@@ -71,6 +73,8 @@ std::string base64_encode(const std::string &in)
 	while (out.size() % 4) out.push_back('=');
 	return out;
 }
+
+*/
 
 static const std::string base64_chars =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
