@@ -63,6 +63,8 @@ static inline bool is_base64(unsigned char c) {
 	return (isalnum(c) || (c == '+') || (c == '/'));
 }
 
+ /*
+
 std::string base64_decode(std::string const& encoded_string) {
 	int in_len = encoded_string.size();
 	int i = 0;
@@ -103,6 +105,8 @@ std::string base64_decode(std::string const& encoded_string) {
 
 	return ret;
 }
+
+*/
 
 string GetUrlData(string url)
 {
