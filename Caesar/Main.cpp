@@ -54,6 +54,8 @@ LRESULT CALLBACK Hooked_WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	return CallWindowProc(g_pGlobals.WndProcBackup, hwnd, uMsg, wParam, lParam);
 }
 
+/*
+
 string GetUrlData(string url)
 {
 	string request_data = "";
@@ -91,6 +93,8 @@ string GetUrlData(string url)
 
 	return request_data;
 }
+
+*/
 
 DWORD WINAPI Hook(LPVOID lpThreadParameter)
 {
