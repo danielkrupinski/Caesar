@@ -5,7 +5,6 @@
 #include <cmath>
 #include <fstream>
 #include <iostream>
-#include "Wininet.h"
 #include <comdef.h>
 #include <Wbemidl.h>
 #include <sstream>
