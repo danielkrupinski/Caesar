@@ -7,7 +7,6 @@ struct Module
 	DWORD end;
 };
 
-class COffsets;
 class COffsets
 {
 private:
