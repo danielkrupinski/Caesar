@@ -89,7 +89,5 @@ void WINAPI PaintTraversePanel(vgui::IPanel* vguiPanel, bool forceRepaint, bool 
 void AntiScreen();
 void HookOpenGL();
 
-// string GetUrlData(string url);
-
 #include "Hack\Hack.h"
 #include "Usermsg.h"
