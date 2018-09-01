@@ -30,8 +30,8 @@ public:
 
 	DWORD dwLoadingFinished;
 
+    unsigned int ScreenTimer;
 	bool bSnapshot, bScreenshot;
-	unsigned int ScreenTimer;
 
 	bool chams;//Render chams
 	float chams_render_r;
