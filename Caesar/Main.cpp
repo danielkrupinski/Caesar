@@ -144,7 +144,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpReserved)
 
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
-		hAppInstance = hinstDLL;
+		// hAppInstance = hinstDLL;
 
 		DisableThreadLibraryCalls(hinstDLL);
 
