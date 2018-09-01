@@ -54,48 +54,6 @@ LRESULT CALLBACK Hooked_WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	return CallWindowProc(g_pGlobals.WndProcBackup, hwnd, uMsg, wParam, lParam);
 }
 
-/*
-
-string GetUrlData(string url)
-{
-	string request_data = "";
-
-	HINTERNET hIntSession = InternetOpenA("", INTERNET_OPEN_TYPE_DIRECT, NULL, NULL, 0);
-
-	if (!hIntSession)
-		return request_data;
-
-	HINTERNET hHttpSession = InternetConnectA(hIntSession, "hack.ovh", INTERNET_DEFAULT_HTTPS_PORT, NULL, NULL, INTERNET_SERVICE_HTTP, 0, 0);
-
-	if (!hHttpSession)
-		return request_data;
-
-	HINTERNET hHttpRequest = HttpOpenRequestA(hHttpSession, "GET", url.c_str(), "HTTP/1.1", NULL, NULL, INTERNET_FLAG_SECURE | INTERNET_FLAG_IGNORE_CERT_CN_INVALID, NULL);
-
-	if (!hHttpSession)
-		return request_data;
-
-	char* szHeaders = "Content-Type: text/html\r\nUser-Agent: NorAdrenaline";
-	char szRequest[1024] = { 0 };
-
-	if (!HttpSendRequestA(hHttpRequest, szHeaders, strlen(szHeaders), szRequest, strlen(szRequest)))
-		return request_data;
-
-	CHAR szBuffer[1024] = { 0 };
-	DWORD dwRead = 0;
-
-	while (InternetReadFile(hHttpRequest, szBuffer, sizeof(szBuffer) - 1, &dwRead) && dwRead)
-		request_data.append(szBuffer, dwRead);
-
-	InternetCloseHandle(hHttpRequest);
-	InternetCloseHandle(hHttpSession);
-	InternetCloseHandle(hIntSession);
-
-	return request_data;
-}
-
-*/
-
 DWORD WINAPI Hook(LPVOID lpThreadParameter)
 {
 	CreateInterfaceFn gameui_factory = CaptureFactory("gameui.dll");
