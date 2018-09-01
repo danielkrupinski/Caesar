@@ -124,28 +124,6 @@ std::string base64_decode(std::string const& encoded_string) {
 
 /*
 
-string StringToHex(const string input)
-{
-	const char* lut = "0123456789ABCDEF";
-	size_t len = input.length();
-	string output = "";
-
-	output.reserve(2 * len);
-
-	for (size_t i = 0; i < len; i++)
-	{
-		const unsigned char c = input[i];
-		output.push_back(lut[c >> 4]);
-		output.push_back(lut[c & 15]);
-	}
-
-	return output;
-}
-
-*/
-
-/*
-
 std::string encryptDecrypt(std::string toEncrypt)
 {
 	char key[] = { 'C','v','8','3','6','I','a','7','J','1','X','E','n','u','m','W','q','w','2','Z','V','h','t','5','k','b','w','W','6','7','S','5' }; //Any chars will work
