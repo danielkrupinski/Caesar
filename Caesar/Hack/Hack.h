@@ -14,7 +14,7 @@
 #include "Aimbot\Aimbot.h"
 #include "Systems\Systems.h"
 
-#define HACK_FILE "Styx.ini"
+#define HACK_FILE "Caesar.ini"
 
 class CGlobalsVars;
 class CGlobalsVars
