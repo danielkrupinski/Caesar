@@ -16,7 +16,6 @@
 
 #define HACK_FILE "Caesar.ini"
 
-class CGlobalsVars;
 class CGlobalsVars
 {
 public:
