@@ -108,7 +108,7 @@ char *CUtils::szDirFile(const char* pszName)
 {
 	char *o = new char[MAX_PATH];
 
-	strcpy(o, g_pGlobals.BaseDir);
+	strcpy(o, g_pGlobals.BaseDir.c_str());
 	strcat(o, pszName);
 
 	return o;

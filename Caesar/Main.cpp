@@ -137,16 +137,17 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpReserved)
 	{
 		DisableThreadLibraryCalls(hinstDLL);
 
-		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, 0, g_pGlobals.BaseDir)))
+        char baseDir[MAX_PATH];
+		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, 0, baseDir)))
 		{
 			GetModuleFileNameA(NULL, g_pGlobals.GamePath, MAX_PATH);
 
 			char* pos = g_pGlobals.GamePath + strlen(g_pGlobals.GamePath);
 			while (pos >= g_pGlobals.GamePath && *pos != '\\') --pos; pos[1] = 0;
 
-			pos = g_pGlobals.BaseDir + strlen(g_pGlobals.BaseDir);
-			while (pos >= g_pGlobals.BaseDir && *pos != '\\') --pos; pos[1] = 0;
-
+			pos = baseDir + strlen(baseDir);
+			while (pos >= baseDir && *pos != '\\') --pos; pos[1] = 0;
+            g_pGlobals.BaseDir = baseDir;
 			CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)Hook, NULL, NULL, NULL);
 		}
 	}

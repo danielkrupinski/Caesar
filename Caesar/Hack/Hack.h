@@ -21,7 +21,7 @@
 class CGlobalsVars
 {
 public:
-	char BaseDir[MAX_PATH];
+	std::string BaseDir;
 	char IniPath[MAX_PATH];
 	char GamePath[MAX_PATH];
 
