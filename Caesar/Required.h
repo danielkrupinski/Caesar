@@ -8,8 +8,6 @@
 #include <comdef.h>
 #include <sstream>
 
-#pragma comment(lib, "wbemuuid.lib")
-
 #define M_PI 3.14159265358979323846
 #include "Vector.h"
 #include "QAngle.h"
