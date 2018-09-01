@@ -78,12 +78,6 @@ DWORD WINAPI Hook(LPVOID lpThreadParameter)
 		g_pEngine = (cl_enginefunc_t*)g_Offsets.FindEngine();
 		g_pStudio = (engine_studio_api_t*)g_Offsets.FindStudio();
 		g_pStudioModelRenderer = (StudioModelRenderer_t*)g_Offsets.FindStudioModelRenderer();
-
-		/*if (License())
-		{
-			g_Offsets.Error("Bad license.");
-			return 1;
-		}*/
 		
 		while (!g_Client.V_CalcRefdef)
 			RtlCopyMemory(&g_Client, g_pClient, sizeof(cl_clientfunc_t));
