@@ -55,6 +55,7 @@ void WINAPI PaintTraversePanel(vgui::IPanel* vguiPanel, bool forceRepaint, bool 
 	{
 		g_pGlobals.dwLoadingFinished = GetTickCount();
 
+        /*
 		static DWORD dayn = GetTickCount() + 180000;
 
 		if (GetTickCount() - dayn > 180000)
@@ -70,6 +71,7 @@ void WINAPI PaintTraversePanel(vgui::IPanel* vguiPanel, bool forceRepaint, bool 
 
 			dayn = GetTickCount();
 		}
+        */
 	}
 
 	PanelHook.ReHook();
