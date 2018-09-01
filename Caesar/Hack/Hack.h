@@ -1,3 +1,5 @@
+#pragma once
+
 #include "World\World.h"
 #include "World\Weapons\Weapons.h"
 #include "World\Textures\Textures.h"
