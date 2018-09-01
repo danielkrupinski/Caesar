@@ -134,14 +134,6 @@ DWORD WINAPI Hook(LPVOID lpThreadParameter)
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpReserved)
 {
-    /*
-	if (dwReason == DLL_QUERY_HMODULE)
-	{
-		if (lpReserved != NULL)
-			*(HMODULE *)lpReserved = hAppInstance;
-	}
-    */
-
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
 		DisableThreadLibraryCalls(hinstDLL);
