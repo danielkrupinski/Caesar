@@ -398,5 +398,8 @@
     <ClCompile Include="Hack\Systems\Systems.cpp">
       <Filter>Hack\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

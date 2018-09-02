@@ -243,6 +243,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="Hack\Aimbot\Aimbot.cpp" />
     <ClCompile Include="Hack\Cvars\Cvars.cpp" />
     <ClCompile Include="Hack\Drawing\Drawing.cpp" />
