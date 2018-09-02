@@ -97,7 +97,7 @@ void CUtils::cIniWrite(char *cFileName, char *cSection, char *cKey, char *cValue
 
 char *CUtils::cIniRead(char *cFileName, char *cSection, char *cKey, char *cDef)
 {
-	char cTempString[32] = { 0 };
+	char* cTempString = new char[32];
 
 	GetPrivateProfileStringA((LPCSTR)cSection, (LPCSTR)cKey, cDef, cTempString, sizeof(cTempString), (LPCSTR)cFileName);
 
