@@ -1,5 +1,6 @@
-class QAngle;
-class Vector;
+#pragma once
+
+#include "Vector.h"
 
 class QAngle
 {

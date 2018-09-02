@@ -22,8 +22,8 @@ class CGlobalsVars
 {
 public:
 	std::string BaseDir;
-	char IniPath[MAX_PATH];
-	char GamePath[MAX_PATH];
+    std::string IniPath;
+    std::string GamePath;
 
 	WNDPROC WndProcBackup;
 	HWND hWindow;

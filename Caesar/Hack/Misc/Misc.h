@@ -1,4 +1,5 @@
-class CMisc;
+#pragma once
+
 class CMisc
 {
 public:

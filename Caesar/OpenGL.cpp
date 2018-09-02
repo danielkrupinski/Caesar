@@ -7,12 +7,12 @@ typedef BOOL (APIENTRY *wglSwapBuffers_t)(HDC  hdc);
 typedef void (APIENTRY *glClear_t)(GLbitfield mask);
 typedef void (APIENTRY *glViewport_t)(GLint x, GLint y, GLsizei width, GLsizei height);
 
-glBegin_t pglBegin = NULL;
-glVertex3fv_t pglVertex3fv = NULL;
-glColor4f_t pglColor4f = NULL;
-wglSwapBuffers_t pwglSwapBuffers = NULL;
-glClear_t pglClear = NULL;
-glViewport_t pglViewport = NULL;
+glBegin_t pglBegin = nullptr;
+glVertex3fv_t pglVertex3fv = nullptr;
+glColor4f_t pglColor4f = nullptr;
+wglSwapBuffers_t pwglSwapBuffers = nullptr;
+glClear_t pglClear = nullptr;
+glViewport_t pglViewport = nullptr;
 
 bool bSmoke = false;
 

@@ -506,7 +506,7 @@ void CFunctions::SaveCvars()
 
 void CFunctions::LoadCvars()
 {
-	if (!g_Utils.bFileExists(g_pGlobals.IniPath)) return;
+	if (!g_Utils.bFileExists(g_pGlobals.IniPath.c_str())) return;
 
 	char *Section = "Settings";
 

@@ -1,4 +1,5 @@
-class CNoSpread;
+#pragma once
+
 class CNoSpread
 {
 public:
