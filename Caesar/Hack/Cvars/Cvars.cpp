@@ -741,6 +741,8 @@ void CFunctions::Init()
 
 }
 
+/*
+
 void CFunctions::AdjustSpeed(double speed)
 {
 	static double LastSpeed = 1;
@@ -752,3 +754,5 @@ void CFunctions::AdjustSpeed(double speed)
 		LastSpeed = speed;
 	}
 }
+
+*/
