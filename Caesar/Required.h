@@ -9,7 +9,6 @@
 #include <comdef.h>
 #include <sstream>
 
-// #define M_PI 3.14159265358979323846
 #include "Vector.h"
 #include "QAngle.h"
 #define vec3_t Vector
