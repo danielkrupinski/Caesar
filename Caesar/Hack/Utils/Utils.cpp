@@ -90,16 +90,16 @@ bool CUtils::bCalcScreen(float *pflOrigin, float *pflVecScreen)
 
 bool CUtils::bFileExists(const char *cFileName) { return _access(cFileName, 0) != -1; }
 
-void CUtils::cIniWrite(std::string cFileName, char *cSection, char *cKey, char *cValue)
+void CUtils::cIniWrite(char *cFileName, char *cSection, char *cKey, char *cValue)
 {
-	WritePrivateProfileStringA((LPCSTR)cSection, (LPCSTR)cKey, cValue, (LPCSTR)cFileName.c_str());
+	WritePrivateProfileStringA((LPCSTR)cSection, (LPCSTR)cKey, cValue, (LPCSTR)cFileName);
 }
 
-char *CUtils::cIniRead(std::string cFileName, char *cSection, char *cKey, char *cDef)
+char *CUtils::cIniRead(char *cFileName, char *cSection, char *cKey, char *cDef)
 {
 	char cTempString[32] = { 0 };
 
-	GetPrivateProfileStringA((LPCSTR)cSection, (LPCSTR)cKey, cDef, cTempString, sizeof(cTempString), (LPCSTR)cFileName.c_str());
+	GetPrivateProfileStringA((LPCSTR)cSection, (LPCSTR)cKey, cDef, cTempString, sizeof(cTempString), (LPCSTR)cFileName);
 
 	return cTempString;
 }

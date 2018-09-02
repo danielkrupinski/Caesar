@@ -1,5 +1,3 @@
-#pragma once
-
 class QAngle;
 class Vector;
 

@@ -1,5 +1,4 @@
-#pragma once
-
+class CNoRecoil;
 class CNoRecoil
 {
 public:

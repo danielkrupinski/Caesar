@@ -120,7 +120,7 @@ DWORD WINAPI Hook(LPVOID lpThreadParameter)
 			Sleep(200);
 		}
 
-		g_pGlobals.IniPath = g_pGlobals.BaseDir + HACK_FILE;
+		lstrcpyA(g_pGlobals.IniPath, g_Utils.szDirFile(HACK_FILE));
 
 		g_pGlobals.WndProcBackup = (WNDPROC)SetWindowLongA(g_pGlobals.hWindow, GWL_WNDPROC, (LONG_PTR)&Hooked_WndProc);
 
@@ -143,10 +143,10 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpReserved)
             g_pGlobals.BaseDir = baseDir;
             g_pGlobals.BaseDir = g_pGlobals.BaseDir.substr(0, g_pGlobals.BaseDir.find_last_of('\\') + 1);
 
-            char gamePath[MAX_PATH];
-			GetModuleFileNameA(NULL, gamePath, MAX_PATH);
-            g_pGlobals.GamePath = gamePath;
-            g_pGlobals.GamePath = g_pGlobals.GamePath.substr(0, g_pGlobals.GamePath.find_last_of('\\') + 1);
+			GetModuleFileNameA(NULL, g_pGlobals.GamePath, MAX_PATH);
+
+			char* pos = g_pGlobals.GamePath + strlen(g_pGlobals.GamePath);
+			while (pos >= g_pGlobals.GamePath && *pos != '\\') --pos; pos[1] = 0;
  
 			CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)Hook, NULL, NULL, NULL);
 		}

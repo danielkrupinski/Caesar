@@ -1,8 +1,4 @@
-#define _USE_MATH_DEFINES
-#include <cmath>
-
-#include "QAngle.h"
-#include "Vector.h"
+#include "Required.h"
 
 void QAngle::AngleVectors ( Vector* Forward, Vector* Right, Vector* Up )
 {

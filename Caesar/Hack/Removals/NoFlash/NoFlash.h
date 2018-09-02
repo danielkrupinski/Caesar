@@ -1,5 +1,4 @@
-#pragma once
-
+class CNoFlash;
 class CNoFlash
 {
 public:

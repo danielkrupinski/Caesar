@@ -610,7 +610,7 @@ void CWorld::UpdateMapInfo()
 			else {
 				g_MapInfo.m_flBombRadius = 500;
 
-				if (!g_pGlobals.GamePath.empty())
+				if (g_pGlobals.GamePath)
 				{
 					char buff[MAX_PATH];
 					sprintf(buff, "%scstrike/%s", g_pGlobals.GamePath, g_MapInfo.levelname);
