@@ -237,6 +237,5 @@ public:
 	void LoadCvars();
 	void SaveCvars();
 
-	// void AdjustSpeed(double speed);
 };
 extern CFunctions func;
