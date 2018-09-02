@@ -529,13 +529,13 @@ void CFunctions::LoadCvars()
 	cvar.fakelag_while_shooting = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "fakelag_while_shooting", "0"));
 	cvar.fakelag_type = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "fakelag_type", "0"));
 	cvar.fakelag_move = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "fakelag_move", "0"));
-	cvar.fakelag_variance = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "fakelag_variance", "0"));
-	cvar.fakelag_limit = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "fakelag_limit", "0"));
+	cvar.fakelag_variance = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "fakelag_variance", "0")));
+	cvar.fakelag_limit = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "fakelag_limit", "0")));
 
-	cvar.brightness = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "brightness", "0"));
-	cvar.brightness_r = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "brightness_r", "0"));
-	cvar.brightness_g = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "brightness_g", "0"));
-	cvar.brightness_b = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "brightness_b", "0"));
+	cvar.brightness = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "brightness", "0")));
+	cvar.brightness_r = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "brightness_r", "0")));
+	cvar.brightness_g = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "brightness_g", "0")));
+	cvar.brightness_b = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "brightness_b", "0")));
 
 	cvar.quick_stop = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "quick_stop", "0"));
 	cvar.quick_stop_duck = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "quick_stop_duck", "0"));
@@ -548,12 +548,12 @@ void CFunctions::LoadCvars()
 	cvar.remove_scope = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "remove_scope", "0"));
 	cvar.crosshair = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "crosshair", "0"));
 
-	cvar.crosshair_r = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "crosshair_r", "0"));
-	cvar.crosshair_g = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "crosshair_g", "0"));
-	cvar.crosshair_b = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "crosshair_b", "0"));
+	cvar.crosshair_r = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "crosshair_r", "0")));
+	cvar.crosshair_g = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "crosshair_g", "0")));
+	cvar.crosshair_b = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "crosshair_b", "0")));
 
-	cvar.noflash = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "noflash", "0"));
-	cvar.thirdperson = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "thirdperson", "0"));
+	cvar.noflash = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "noflash", "0")));
+	cvar.thirdperson = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "thirdperson", "0")));
 	cvar.disable_render_teammates = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "disable_render_teammates", "0"));
 	cvar.bullets_trace = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "bullets_trace", "0"));
 
@@ -562,21 +562,21 @@ void CFunctions::LoadCvars()
 	cvar.esp_teammates = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_teammates", "0"));
 
 	cvar.esp_box = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box", "0"));
-	cvar.esp_box_ct_vis_r = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_vis_r", "0"));
-	cvar.esp_box_ct_vis_g = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_vis_g", "0"));
-	cvar.esp_box_ct_vis_b = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_vis_b", "0"));
-	cvar.esp_box_t_vis_r = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_vis_r", "0"));
-	cvar.esp_box_t_vis_g = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_vis_g", "0"));
-	cvar.esp_box_t_vis_b = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_vis_b", "0"));
-	cvar.esp_box_ct_invis_r = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_invis_r", "0"));
-	cvar.esp_box_ct_invis_g = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_invis_g", "0"));
-	cvar.esp_box_ct_invis_b = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_invis_b", "0"));
-	cvar.esp_box_t_invis_r = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_invis_r", "0"));
-	cvar.esp_box_t_invis_g = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_invis_g", "0"));
-	cvar.esp_box_t_invis_b = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_invis_b", "0"));
-	cvar.esp_box_friends_r = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_friends_r", "0"));
-	cvar.esp_box_friends_g = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_friends_g", "0"));
-	cvar.esp_box_friends_b = atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_friends_b", "0"));
+	cvar.esp_box_ct_vis_r = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_vis_r", "0")));
+	cvar.esp_box_ct_vis_g = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_vis_g", "0")));
+	cvar.esp_box_ct_vis_b = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_vis_b", "0")));
+	cvar.esp_box_t_vis_r = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_vis_r", "0")));
+	cvar.esp_box_t_vis_g = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_vis_g", "0")));
+	cvar.esp_box_t_vis_b = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_vis_b", "0")));
+	cvar.esp_box_ct_invis_r = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_invis_r", "0")));
+	cvar.esp_box_ct_invis_g = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_invis_g", "0")));
+	cvar.esp_box_ct_invis_b = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_ct_invis_b", "0")));
+	cvar.esp_box_t_invis_r = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_invis_r", "0")));
+	cvar.esp_box_t_invis_g = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_invis_g", "0")));
+	cvar.esp_box_t_invis_b = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_t_invis_b", "0")));
+	cvar.esp_box_friends_r = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_friends_r", "0")));
+	cvar.esp_box_friends_g = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_friends_g", "0")));
+	cvar.esp_box_friends_b = static_cast<float>(atof(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_friends_b", "0")));
 
 	cvar.esp_box_outline = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_box_outline", "0"));
 	cvar.esp_name = atoi(g_Utils.cIniRead(g_pGlobals.IniPath, Section, "esp_name", "0"));
