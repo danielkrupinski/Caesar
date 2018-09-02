@@ -2,6 +2,7 @@
 
 #include <SDKDDKVer.h>
 #include <windows.h>
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include <fstream>
 #include <iostream>
