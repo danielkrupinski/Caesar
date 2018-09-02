@@ -740,19 +740,3 @@ void CFunctions::Init()
 {
 
 }
-
-/*
-
-void CFunctions::AdjustSpeed(double speed)
-{
-	static double LastSpeed = 1;
-
-	if (speed != LastSpeed)
-	{
-		*(double*)g_Offsets.dwSpeedPointer = (speed * 1000);
-
-		LastSpeed = speed;
-	}
-}
-
-*/
