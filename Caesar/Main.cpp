@@ -120,7 +120,7 @@ DWORD WINAPI Hook(LPVOID lpThreadParameter)
 			Sleep(200);
 		}
 
-		lstrcpyA(g_pGlobals.IniPath, g_Utils.szDirFile(HACK_FILE));
+        // g_pGlobals.IniPath = "%USERPROFILE%\Documents";
 
 		g_pGlobals.WndProcBackup = (WNDPROC)SetWindowLongA(g_pGlobals.hWindow, GWL_WNDPROC, (LONG_PTR)&Hooked_WndProc);
 
