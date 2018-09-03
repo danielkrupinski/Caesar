@@ -286,93 +286,68 @@ void Config::save()
     config["esp_box_friends_r"] = esp_box_friends_r;
     config["esp_box_friends_g"] = esp_box_friends_g;
     config["esp_box_friends_b"] = esp_box_friends_b;
+    config["esp_box_outline"] = esp_box_outline;
+    config["esp_name"] = esp_name;
+    config["esp_fake"] = esp_fake;
+    config["bypass_trace_blockers"] = bypass_trace_blockers;
+    config["bypass_valid_blockers"] = bypass_valid_blockers;
+    config["esp_sound_minimum_volume"] = esp_sound_minimum_volume;
+    config["esp_weapon"] = esp_weapon;
+    config["esp_weapon_r"] = esp_weapon_r;
+    config["esp_weapon_g"] = esp_weapon_g;
+    config["esp_weapon_b"] = esp_weapon_b;
+    config["esp_world_weapon"] = esp_world_weapon;
+    config["esp_world_weapon_r"] = esp_world_weapon_r;
+    config["esp_world_weapon_g"] = esp_world_weapon_g;
+    config["esp_world_weapon_b"] = esp_world_weapon_b;
+    config["esp_flags"] = esp_flags;
+    config["esp_distance"] = esp_distance;
+    config["esp_hitboxes"] = esp_hitboxes;
+    config["esp_sound"] = esp_sound;
+    config["esp_health"] = esp_health;
+    config["esp_alpha"] = esp_alpha;
+    config["esp_line_of_sight"] = esp_line_of_sight;
+    config["esp_line_of_sight_r"] = esp_line_of_sight_r;
+    config["esp_line_of_sight_g"] = esp_line_of_sight_g;
+    config["esp_line_of_sight_b"] = esp_line_of_sight_b;
+    config["esp_screen"] = esp_screen;
+    config["esp_shots_fired"] = esp_shots_fired;
+    config["esp_bomb"] = esp_bomb;
+    config["esp_bomb_r"] = esp_bomb_r;
+    config["esp_bomb_g"] = esp_bomb_g;
+    config["esp_bomb_b"] = esp_bomb_b;
+    config["hud_clear"] = hud_clear;
+    config["penetration_info"] = penetration_info;
+    config["recoil_overlay_r"] = recoil_overlay_r;
+    config["recoil_overlay_g"] = recoil_overlay_g;
+    config["recoil_overlay_b"] = recoil_overlay_b;
 
 
 
-    config["crosshair"] = crosshair;
-    config["crosshair"] = crosshair;
-    config["crosshair"] = crosshair;
-    config["crosshair"] = crosshair;
-    config["crosshair"] = crosshair;
-    config["crosshair"] = crosshair;
+    config["spread_overlay_r"] = spread_overlay_r;
+    config["spread_overlay_g"] = spread_overlay_g;
+    config["spread_overlay_b"] = spread_overlay_b;
+    config["grenade_trajectory"] = grenade_trajectory;
+    config["chams"] = chams;
+    config["chams_behind_wall"] = chams_behind_wall;
+    config["chams_type"] = chams_type;
+    config["chams_t_vis_r"] = chams_t_vis_r;
+    config["chams_t_vis_g"] = chams_t_vis_g;
+    config["chams_t_vis_b"] = chams_t_vis_b;
+    config["chams_t_invis_r"] = chams_t_invis_r;
+    config["chams_t_invis_g"] = chams_t_invis_g;
+    config["chams_t_invis_b"] = chams_t_invis_b;
+    config["chams_ct_vis_r"] = chams_ct_vis_r;
+    config["chams_ct_vis_g"] = chams_ct_vis_g;
+    config["chams_ct_vis_b"] = chams_ct_vis_b;
+    config["chams_ct_invis_r"] = chams_ct_invis_r;
+    config["chams_ct_invis_g"] = chams_ct_invis_g;
+    config["chams_ct_invis_b"] = chams_ct_invis_b;
+    config["glow_players"] = glow_players;
+    config["esp_alpha"] = esp_alpha;
+    config["esp_alpha"] = esp_alpha;
 
-   
 
-    bool esp_box_outline;
-    bool esp_name;
-
-    bool esp_fake;
-    bool bypass_trace_blockers;
-    bool bypass_valid_blockers;
-    float esp_sound_minimum_volume;
-
-    float esp_weapon;
-    float esp_weapon_r;
-    float esp_weapon_g;
-    float esp_weapon_b;
-
-    float esp_world_weapon;
-    float esp_world_weapon_r;
-    float esp_world_weapon_g;
-    float esp_world_weapon_b;
-
-    bool esp_flags;
-    bool esp_distance;
-    bool esp_hitboxes;
-    bool esp_sound;
-    bool esp_health;
-
-    float esp_alpha;
-
-    bool esp_line_of_sight;
-    float esp_line_of_sight_r;
-    float esp_line_of_sight_g;
-    float esp_line_of_sight_b;
-
-    bool esp_screen;
-
-    bool esp_shots_fired;
-
-    bool esp_bomb;
-    float esp_bomb_r;
-    float esp_bomb_g;
-    float esp_bomb_b;
-
-    bool hud_clear;
-
-    bool penetration_info;
-
-    float recoil_overlay_r;
-    float recoil_overlay_g;
-    float recoil_overlay_b;
-
-    float spread_overlay_r;
-    float spread_overlay_g;
-    float spread_overlay_b;
-
-    bool grenade_trajectory;
-
-    bool chams;
-    bool chams_behind_wall;
-    float chams_type;
-
-    float chams_t_vis_r;
-    float chams_t_vis_g;
-    float chams_t_vis_b;
-
-    float chams_t_invis_r;
-    float chams_t_invis_g;
-    float chams_t_invis_b;
-
-    float chams_ct_vis_r;
-    float chams_ct_vis_g;
-    float chams_ct_vis_b;
-
-    float chams_ct_invis_r;
-    float chams_ct_invis_g;
-    float chams_ct_invis_b;
-
-    bool glow_players;
 
     float glow_players_ct_r;
     float glow_players_ct_g;
