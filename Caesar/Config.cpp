@@ -193,3 +193,8 @@ void Config::init()
 
     debug = false;
 }
+
+void Config::load()
+{
+
+}
