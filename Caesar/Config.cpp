@@ -1,5 +1,6 @@
-#include "Config.h"
 #include <fstream>
+
+#include "Config.h"
 
 void Config::init()
 {
