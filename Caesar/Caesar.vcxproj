@@ -179,6 +179,8 @@
     <ClInclude Include="Hack\World\Weapons\Weapons.h" />
     <ClInclude Include="Hack\World\World.h" />
     <ClInclude Include="Hook.h" />
+    <ClInclude Include="json\json-forwards.h" />
+    <ClInclude Include="json\json.h" />
     <ClInclude Include="Offsets.h" />
     <ClInclude Include="QAngle.h" />
     <ClInclude Include="Required.h" />
