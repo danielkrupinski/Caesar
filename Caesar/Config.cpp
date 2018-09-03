@@ -277,11 +277,18 @@ void Config::save()
     config["esp_box_t_vis_r"] = esp_box_t_vis_r;
     config["esp_box_t_vis_g"] = esp_box_t_vis_g;
     config["esp_box_t_vis_b"] = esp_box_t_vis_b;
+    config["esp_box_ct_invis_r"] = esp_box_ct_invis_r;
+    config["esp_box_ct_invis_g"] = esp_box_ct_invis_g;
+    config["esp_box_ct_invis_b"] = esp_box_ct_invis_b;
+    config["esp_box_t_invis_r"] = esp_box_t_invis_r;
+    config["esp_box_t_invis_g"] = esp_box_t_invis_g;
+    config["esp_box_t_invis_b"] = esp_box_t_invis_b;
+    config["esp_box_friends_r"] = esp_box_friends_r;
+    config["esp_box_friends_g"] = esp_box_friends_g;
+    config["esp_box_friends_b"] = esp_box_friends_b;
 
 
-    config["crosshair"] = crosshair;
-    config["crosshair"] = crosshair;
-    config["crosshair"] = crosshair;
+
     config["crosshair"] = crosshair;
     config["crosshair"] = crosshair;
     config["crosshair"] = crosshair;
@@ -289,16 +296,7 @@ void Config::save()
     config["crosshair"] = crosshair;
     config["crosshair"] = crosshair;
 
-    
-    float esp_box_ct_invis_r;
-    float esp_box_ct_invis_g;
-    float esp_box_ct_invis_b;
-    float esp_box_t_invis_r;
-    float esp_box_t_invis_g;
-    float esp_box_t_invis_b;
-    float esp_box_friends_r;
-    float esp_box_friends_g;
-    float esp_box_friends_b;
+   
 
     bool esp_box_outline;
     bool esp_name;
@@ -425,59 +423,5 @@ void Config::save()
     float name_stealer;
 
     bool debug;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-    config["aim"] = aim;
-
 }
 
