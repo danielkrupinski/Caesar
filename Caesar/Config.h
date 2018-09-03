@@ -4,7 +4,7 @@
 
 class Config {
 private:
-    std::string path;
+    std::string path = "%USERPROFILE%\\Documents\\Caesar.json";
 public:
     void init();
     void load();
