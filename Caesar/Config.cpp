@@ -232,33 +232,38 @@ void Config::save()
     Json::Value config;
 
     config["hide_from_obs"] = hide_from_obs;
+    config["aim"] = aim;
+    config["aim_teammates"] = aim_teammates;
+    config["aim_delay_shot"] = aim_delay_shot;
+    config["aim_target_selection"] = aim_target_selection;
+    config["aim_hitbox"] = aim_hitbox;
+    config["aim_multi_point"] = aim_multi_point;
+    config["aim_penetration"] = aim_penetration;
+    config["aim_silent"] = aim_silent;
+    config["aim_perfect_silent"] = aim_perfect_silent;
+    config["aim_autoscope"] = aim_autoscope;
+    config["quick_stop"] = quick_stop;
+    config["quick_stop_duck"] = quick_stop_duck;
+    config["fakelag"] = fakelag;
+    config["fakelag_while_shooting"] = fakelag_while_shooting;
+    config["fakelag_type"] = fakelag_type;
+    config["fakelag_move"] = fakelag_move;
+    config["fakelag_variance"] = fakelag_variance;
+    config["fakelag_limit"] = fakelag_limit;
+    config["brightness"] = brightness;
+    config["brightness_r"] = brightness_r;
+    config["brightness_g"] = brightness_g;
+    config["brightness_b"] = brightness_b;
 
-    bool aim;
-    bool aim_teammates;
-    bool aim_delay_shot;
-    float aim_target_selection;
-    float aim_hitbox;
-    float aim_multi_point;
-    bool aim_penetration;
-    bool aim_silent;
-    bool aim_perfect_silent;
-    bool aim_autoscope;
+    /*
+    config["fakelag_type"] = fakelag_type;
+    config["fakelag_type"] = fakelag_type;
+    config["fakelag_type"] = fakelag_type;
+    config["fakelag_type"] = fakelag_type;
+    config["fakelag_type"] = fakelag_type;
+    config["fakelag_type"] = fakelag_type;
 
-    bool quick_stop;
-    bool quick_stop_duck;
-
-    bool fakelag;
-    bool fakelag_while_shooting;
-    float fakelag_type;
-    float fakelag_move;
-    float fakelag_variance;
-    float fakelag_limit;
-
-    float brightness;
-    float brightness_r;
-    float brightness_g;
-    float brightness_b;
-
+    */
     bool autopistol;
     bool autoreload;
     bool fastzoom;
