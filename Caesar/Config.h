@@ -3,6 +3,8 @@
 #include <string>
 
 class Config {
+private:
+    std::string path;
 public:
     void init();
     void load();
