@@ -377,5 +377,49 @@ void Config::save()
     config["knifebot"] = knifebot;
     config["name_stealer"] = name_stealer;
     config["debug"] = debug;
+
+    for (int i = 1; i < 31; i++)
+    {
+        if (i == 2 || i == 4 || i == 6 || i == 9 || i == 25)
+            continue;
+
+        std::string weaponName = "weapon_" + std::to_string(i);
+
+        config[weaponName]["aim"] = legit[i].aim;
+        config[weaponName]["aim_head"] = legit[i].aim_head;
+        config[weaponName]["aim_chest"] = legit[i].aim_chest;
+        config[weaponName]["aim_stomach"] = legit[i].aim_stomach;
+        config[weaponName]["aim_quick_stop"] = legit[i].aim_quick_stop;
+        config[weaponName]["aim_humanize"] = legit[i].aim_humanize;
+        config[weaponName]["aim_spread_compenstation"] = legit[i].aim_spread_compenstation;
+        config[weaponName]["aim_accuracy"] = legit[i].aim_accuracy;
+        config[weaponName]["aim"] = legit[i].aim;
+        config[weaponName]["aim"] = legit[i].aim;
+        config[weaponName]["aim"] = legit[i].aim;
+        config[weaponName]["aim"] = legit[i].aim;
+        config[weaponName]["aim"] = legit[i].aim;
+        config[weaponName]["aim"] = legit[i].aim;
+        config[weaponName]["aim"] = legit[i].aim;
+
+
+
+        float aim_psilent;
+        float aim_fov;
+        float aim_speed;
+        float aim_speed_in_attack;
+        float aim_speed_scale_fov;
+        float aim_recoil_compensation_pitch;
+        float aim_recoil_compensation_yaw;
+        float aim_recoil_compensation_after_shots_fired;
+        float aim_reaction_time;
+
+        bool trigger;
+        bool trigger_head;
+        bool trigger_chest;
+        bool trigger_stomach;
+        bool trigger_penetration;
+        float trigger_accuracy;
+
+    }
 }
 
