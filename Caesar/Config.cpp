@@ -4,6 +4,11 @@
 
 #include "Config.h"
 
+Config::Config(const std::string& name)
+{
+
+}
+
 void Config::init()
 {
     hide_from_obs = false;
