@@ -1,5 +1,7 @@
 #include <fstream>
 
+#include "json/json.h"
+
 #include "Config.h"
 
 void Config::init()
