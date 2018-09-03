@@ -21,21 +21,21 @@
 class CGlobalsVars
 {
 public:
-	std::string BaseDir;
-	char IniPath[MAX_PATH];
-	char GamePath[MAX_PATH];
+    std::string BaseDir;
+    char IniPath[MAX_PATH];
+    char GamePath[MAX_PATH];
 
-	WNDPROC WndProcBackup;
-	HWND hWindow;
+    WNDPROC WndProcBackup;
+    HWND hWindow;
 
-	DWORD dwLoadingFinished;
+    DWORD dwLoadingFinished;
 
     unsigned int ScreenTimer;
-	bool bSnapshot, bScreenshot;
+    bool bSnapshot, bScreenshot;
 
-	bool chams;//Render chams
-	float chams_render_r;
-	float chams_render_g;
-	float chams_render_b;
+    bool chams;//Render chams
+    float chams_render_r;
+    float chams_render_g;
+    float chams_render_b;
 };
 extern CGlobalsVars g_pGlobals;

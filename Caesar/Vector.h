@@ -210,7 +210,7 @@ class Vector
 			other.Normalize();
 			Normalize();
 
-			return acos ( Dot ( other ) ) * 180 / M_PI;
+			return acos ( Dot ( other ) ) * static_cast<float>(180.0 / M_PI);
 		}
 
 		Vector &CrossProduct ( const Vector& a, const Vector& b )

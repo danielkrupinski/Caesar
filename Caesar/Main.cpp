@@ -120,7 +120,7 @@ DWORD WINAPI Hook(LPVOID lpThreadParameter)
 			Sleep(200);
 		}
 
-		lstrcpyA(g_pGlobals.IniPath, g_Utils.szDirFile(HACK_FILE));
+        // g_pGlobals.IniPath = "%USERPROFILE%\Documents";
 
 		g_pGlobals.WndProcBackup = (WNDPROC)SetWindowLongA(g_pGlobals.hWindow, GWL_WNDPROC, (LONG_PTR)&Hooked_WndProc);
 
@@ -137,11 +137,11 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpReserved)
 	{
 		DisableThreadLibraryCalls(hinstDLL);
 
-        char baseDir[MAX_PATH];
-		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, 0, baseDir)))
+		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, 0, g_pGlobals.IniPath)))
 		{
-            g_pGlobals.BaseDir = baseDir;
-            g_pGlobals.BaseDir = g_pGlobals.BaseDir.substr(0, g_pGlobals.BaseDir.find_last_of('\\') + 1);
+            strcat(g_pGlobals.IniPath, "\\Caesar.ini");
+            // g_pGlobals.BaseDir = baseDir;
+            // g_pGlobals.BaseDir = g_pGlobals.BaseDir.substr(0, g_pGlobals.BaseDir.find_last_of('\\') + 1);
 
 			GetModuleFileNameA(NULL, g_pGlobals.GamePath, MAX_PATH);
 

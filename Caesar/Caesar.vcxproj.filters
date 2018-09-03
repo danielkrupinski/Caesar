@@ -76,6 +76,9 @@
     <Filter Include="Header Files\ValveSDK\pm_shared">
       <UniqueIdentifier>{3a91aa71-6aac-45dd-8809-e8beedb510f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="json">
+      <UniqueIdentifier>{9bf104df-27b4-4dd1-9745-8c23afd31687}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Required.h">
@@ -318,6 +321,15 @@
     <ClInclude Include="detours.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json-forwards.h">
+      <Filter>json</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="QAngle.cpp">
@@ -397,6 +409,12 @@
     </ClCompile>
     <ClCompile Include="Hack\Systems\Systems.cpp">
       <Filter>Hack\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp.cpp">
+      <Filter>json</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

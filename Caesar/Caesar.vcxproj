@@ -160,6 +160,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
     <ClInclude Include="detours.h" />
     <ClInclude Include="Hack\Aimbot\Aimbot.h" />
     <ClInclude Include="Hack\Cvars\Cvars.h" />
@@ -178,6 +179,8 @@
     <ClInclude Include="Hack\World\Weapons\Weapons.h" />
     <ClInclude Include="Hack\World\World.h" />
     <ClInclude Include="Hook.h" />
+    <ClInclude Include="json\json-forwards.h" />
+    <ClInclude Include="json\json.h" />
     <ClInclude Include="Offsets.h" />
     <ClInclude Include="QAngle.h" />
     <ClInclude Include="Required.h" />
@@ -243,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="Hack\Aimbot\Aimbot.cpp" />
     <ClCompile Include="Hack\Cvars\Cvars.cpp" />
     <ClCompile Include="Hack\Drawing\Drawing.cpp" />
@@ -259,6 +263,7 @@
     <ClCompile Include="Hack\World\Weapons\Weapons.cpp" />
     <ClCompile Include="Hack\World\World.cpp" />
     <ClCompile Include="Hook.cpp" />
+    <ClCompile Include="jsoncpp.cpp" />
     <ClCompile Include="Main.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
