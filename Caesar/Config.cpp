@@ -378,8 +378,7 @@ void Config::save()
     config["name_stealer"] = name_stealer;
     config["debug"] = debug;
 
-    for (int i = 1; i < 31; i++)
-    {
+    for (int i = 1; i < 31; i++) {
         if (i == 2 || i == 4 || i == 6 || i == 9 || i == 25)
             continue;
 
@@ -393,33 +392,21 @@ void Config::save()
         config[weaponName]["aim_humanize"] = legit[i].aim_humanize;
         config[weaponName]["aim_spread_compenstation"] = legit[i].aim_spread_compenstation;
         config[weaponName]["aim_accuracy"] = legit[i].aim_accuracy;
-        config[weaponName]["aim"] = legit[i].aim;
-        config[weaponName]["aim"] = legit[i].aim;
-        config[weaponName]["aim"] = legit[i].aim;
-        config[weaponName]["aim"] = legit[i].aim;
-        config[weaponName]["aim"] = legit[i].aim;
-        config[weaponName]["aim"] = legit[i].aim;
-        config[weaponName]["aim"] = legit[i].aim;
-
-
-
-        float aim_psilent;
-        float aim_fov;
-        float aim_speed;
-        float aim_speed_in_attack;
-        float aim_speed_scale_fov;
-        float aim_recoil_compensation_pitch;
-        float aim_recoil_compensation_yaw;
-        float aim_recoil_compensation_after_shots_fired;
-        float aim_reaction_time;
-
-        bool trigger;
-        bool trigger_head;
-        bool trigger_chest;
-        bool trigger_stomach;
-        bool trigger_penetration;
-        float trigger_accuracy;
-
+        config[weaponName]["aim_psilent"] = legit[i].aim_psilent;
+        config[weaponName]["aim_fov"] = legit[i].aim_fov;
+        config[weaponName]["aim_speed"] = legit[i].aim_speed;
+        config[weaponName]["aim_speed_in_attack"] = legit[i].aim_speed_in_attack;
+        config[weaponName]["aim_speed_scale_fov"] = legit[i].aim_speed_scale_fov;
+        config[weaponName]["aim_recoil_compensation_pitch"] = legit[i].aim_recoil_compensation_pitch;
+        config[weaponName]["aim_recoil_compensation_yaw"] = legit[i].aim_recoil_compensation_yaw;
+        config[weaponName]["aim_recoil_compensation_after_shots_fired"] = legit[i].aim_recoil_compensation_after_shots_fired;
+        config[weaponName]["aim_reaction_time"] = legit[i].aim_reaction_time;
+        config[weaponName]["trigger"] = legit[i].trigger;
+        config[weaponName]["trigger_head"] = legit[i].trigger_head;
+        config[weaponName]["trigger_chest"] = legit[i].trigger_chest;
+        config[weaponName]["trigger_stomach"] = legit[i].trigger_stomach;
+        config[weaponName]["trigger_penetration"] = legit[i].trigger_penetration;
+        config[weaponName]["trigger_accuracy"] = legit[i].trigger_accuracy;
     }
 }
 
