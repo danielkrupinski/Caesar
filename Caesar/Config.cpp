@@ -1,4 +1,6 @@
 #include <fstream>
+#include <ShlObj.h>
+//#include <windef.h>
 
 #include "json/json.h"
 
@@ -6,7 +8,10 @@
 
 Config::Config(const std::string& name)
 {
-
+    char buff[MAX_PATH];
+    if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, 0, buff))) {
+        path = buff + '\\' + name;
+    }
 }
 
 void Config::init()
