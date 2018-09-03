@@ -261,6 +261,7 @@
     <ClCompile Include="Hack\World\Weapons\Weapons.cpp" />
     <ClCompile Include="Hack\World\World.cpp" />
     <ClCompile Include="Hook.cpp" />
+    <ClCompile Include="jsoncpp.cpp" />
     <ClCompile Include="Main.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
