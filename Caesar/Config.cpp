@@ -254,47 +254,42 @@ void Config::save()
     config["brightness_r"] = brightness_r;
     config["brightness_g"] = brightness_g;
     config["brightness_b"] = brightness_b;
+    config["autopistol"] = autopistol;
+    config["autoreload"] = autoreload;
+    config["fastzoom"] = fastzoom;
+    config["nosmoke"] = nosmoke;
+    config["remove_scope"] = remove_scope;
+    config["crosshair"] = crosshair;
+    config["crosshair_r"] = crosshair_r;
+    config["crosshair_g"] = crosshair_g;
+    config["crosshair_b"] = crosshair_b;
+    config["thirdperson"] = thirdperson;
+    config["disable_render_teammates"] = disable_render_teammates;
+    config["bullets_trace"] = bullets_trace;
+    config["noflash"] = noflash;
+    config["esp"] = esp;
+    config["esp_behind"] = esp_behind;
+    config["esp_teammates"] = esp_teammates;
+    config["esp_box"] = esp_box;
+    config["esp_box_ct_vis_r"] = esp_box_ct_vis_r;
+    config["esp_box_ct_vis_g"] = esp_box_ct_vis_g;
+    config["esp_box_ct_vis_b"] = esp_box_ct_vis_b;
+    config["esp_box_t_vis_r"] = esp_box_t_vis_r;
+    config["esp_box_t_vis_g"] = esp_box_t_vis_g;
+    config["esp_box_t_vis_b"] = esp_box_t_vis_b;
 
-    /*
-    config["fakelag_type"] = fakelag_type;
-    config["fakelag_type"] = fakelag_type;
-    config["fakelag_type"] = fakelag_type;
-    config["fakelag_type"] = fakelag_type;
-    config["fakelag_type"] = fakelag_type;
-    config["fakelag_type"] = fakelag_type;
 
-    */
-    bool autopistol;
-    bool autoreload;
-    bool fastzoom;
+    config["crosshair"] = crosshair;
+    config["crosshair"] = crosshair;
+    config["crosshair"] = crosshair;
+    config["crosshair"] = crosshair;
+    config["crosshair"] = crosshair;
+    config["crosshair"] = crosshair;
+    config["crosshair"] = crosshair;
+    config["crosshair"] = crosshair;
+    config["crosshair"] = crosshair;
 
-    bool nosmoke;
-    bool remove_scope;
-    bool crosshair;
-
-    float crosshair_r;
-    float crosshair_g;
-    float crosshair_b;
-
-    float thirdperson;
-
-    bool disable_render_teammates;
-
-    bool bullets_trace;
-
-    float noflash;
-
-    bool esp;
-    bool esp_behind;
-    bool esp_teammates;
-
-    bool esp_box;
-    float esp_box_ct_vis_r;
-    float esp_box_ct_vis_g;
-    float esp_box_ct_vis_b;
-    float esp_box_t_vis_r;
-    float esp_box_t_vis_g;
-    float esp_box_t_vis_b;
+    
     float esp_box_ct_invis_r;
     float esp_box_ct_invis_g;
     float esp_box_ct_invis_b;
