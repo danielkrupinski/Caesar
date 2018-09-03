@@ -321,9 +321,6 @@ void Config::save()
     config["recoil_overlay_r"] = recoil_overlay_r;
     config["recoil_overlay_g"] = recoil_overlay_g;
     config["recoil_overlay_b"] = recoil_overlay_b;
-
-
-
     config["spread_overlay_r"] = spread_overlay_r;
     config["spread_overlay_g"] = spread_overlay_g;
     config["spread_overlay_b"] = spread_overlay_b;
@@ -344,59 +341,41 @@ void Config::save()
     config["chams_ct_invis_g"] = chams_ct_invis_g;
     config["chams_ct_invis_b"] = chams_ct_invis_b;
     config["glow_players"] = glow_players;
-    config["esp_alpha"] = esp_alpha;
-    config["esp_alpha"] = esp_alpha;
-
-
-
-    float glow_players_ct_r;
-    float glow_players_ct_g;
-    float glow_players_ct_b;
-
-    float glow_players_t_r;
-    float glow_players_t_g;
-    float glow_players_t_b;
-
-    bool spread_overlay;
-    bool spread_overlay_old;
-    bool recoil_overlay;
-
-    bool draw_aim_fov;
-    float draw_aim_fov_r;
-    float draw_aim_fov_g;
-    float draw_aim_fov_b;
-
-    bool norecoil;
-    bool norecoil_visual;
-
-    bool nospread;
-    float nospread_method;
-
-    float aa_yaw_while_running;
-    float aa_yaw;
-    float aa_yaw_static;
-    float aa_pitch;
-    float aa_edge;
-
-    bool legit_teammates;
-    bool trigger_only_zoomed;
-    float block_attack_after_kill;
-    int trigger_key;
-
-    float menu_legit_global_section;
-    float menu_legit_sub_section;
-
-    int menu_key;
-
-    float menu_color_r;
-    float menu_color_g;
-    float menu_color_b;
-
-    bool bunnyhop;
-    bool knifebot;
-
-    float name_stealer;
-
-    bool debug;
+    config["glow_players_ct_r"] = glow_players_ct_r;
+    config["glow_players_ct_g"] = glow_players_ct_g;
+    config["glow_players_ct_b"] = glow_players_ct_b;
+    config["glow_players_t_r"] = glow_players_t_r;
+    config["glow_players_t_g"] = glow_players_t_g;
+    config["glow_players_t_b"] = glow_players_t_b;
+    config["spread_overlay"] = spread_overlay;
+    config["spread_overlay_old"] = spread_overlay_old;
+    config["recoil_overlay"] = recoil_overlay;
+    config["draw_aim_fov"] = draw_aim_fov;
+    config["draw_aim_fov_r"] = draw_aim_fov_r;
+    config["draw_aim_fov_g"] = draw_aim_fov_g;
+    config["draw_aim_fov_b"] = draw_aim_fov_b;
+    config["norecoil"] = norecoil;
+    config["norecoil_visual"] = norecoil_visual;
+    config["nospread"] = nospread;
+    config["nospread_method"] = nospread_method;
+    config["aa_yaw_while_running"] = aa_yaw_while_running;
+    config["aa_yaw"] = aa_yaw;
+    config["aa_yaw_static"] = aa_yaw_static;
+    config["aa_pitch"] = aa_pitch;
+    config["aa_edge"] = aa_edge;
+    config["legit_teammates"] = legit_teammates;
+    config["trigger_only_zoomed"] = trigger_only_zoomed;
+    config["block_attack_after_kill"] = block_attack_after_kill;
+    config["trigger_key"] = trigger_key;
+    config["menu_legit_global_section"] = menu_legit_global_section;
+    config["menu_legit_sub_section"] = menu_legit_sub_section;
+    config["menu_key"] = menu_key;
+    config["menu_color_r"] = menu_color_r;
+    config["menu_color_g"] = menu_color_g;
+    config["menu_color_b"] = menu_color_b;
+    config["bunnyhop"] = bunnyhop;
+    config["knifebot"] = knifebot;
+    config["name_stealer"] = name_stealer;
+    config["debug"] = debug;
 }
 
