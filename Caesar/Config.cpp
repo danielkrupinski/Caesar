@@ -214,6 +214,16 @@ void Config::load()
 
     if (!in.is_open())
         return;
-    
+
+    Json::Value config;
+    in >> config;
+
+
 
 }
+
+void Config::save()
+{
+
+}
+
