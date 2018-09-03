@@ -199,7 +199,7 @@ void Config::load()
 {
     std::ifstream in{ path };
 
-    if (!in)
+    if (!in.is_open())
         return;
     
 
