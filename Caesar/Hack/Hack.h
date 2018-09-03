@@ -22,7 +22,7 @@ class CGlobalsVars
 {
 public:
     std::string BaseDir;
-    char IniPath[MAX_PATH] = "%USERPROFILE%\\Documents\\Caesar.ini";
+    char IniPath[MAX_PATH];
     char GamePath[MAX_PATH];
 
     WNDPROC WndProcBackup;
