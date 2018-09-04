@@ -6,7 +6,7 @@ class Config {
 private:
     std::string path;
 public:
-    Config::Config(const std::string&);
+    Config(const std::string&);
     void init();
     void load();
     void save();
