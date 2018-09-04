@@ -413,6 +413,6 @@ void Config::save()
     }
 
     out << config;
-
+    out.close();
 }
 
