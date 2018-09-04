@@ -14,16 +14,16 @@ public:
     bool hide_from_obs;
 
     struct {
-        bool aim;
-        bool aim_teammates;
-        bool aim_delay_shot;
-        float aim_target_selection;
-        float aim_hitbox;
-        float aim_multi_point;
-        bool aim_penetration;
-        bool aim_silent;
-        bool aim_perfect_silent;
-        bool aim_autoscope;
+        bool enabled;
+        bool teammates;
+        bool delayShot;
+        float targetSelection;
+        float hitbox;
+        float multiPoint;
+        bool penetration;
+        bool silent;
+        bool perfect_silent;
+        bool autoscope;
     } aimbot;
     bool aim;
     bool aim_teammates;
