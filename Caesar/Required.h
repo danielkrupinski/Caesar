@@ -90,3 +90,5 @@ void HookOpenGL();
 #include "Usermsg.h"
 
 #include "Config.h"
+
+extern Config config;
