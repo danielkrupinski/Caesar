@@ -68,39 +68,39 @@ public:
 
     float noflash = 0.0f;
 
-    bool esp;
-    bool esp_behind;
-    bool esp_teammates;
+    bool esp = false;
+    bool esp_behind = false;
+    bool esp_teammates = false;
 
-    bool esp_box;
-    float esp_box_ct_vis_r;
-    float esp_box_ct_vis_g;
-    float esp_box_ct_vis_b;
-    float esp_box_t_vis_r;
-    float esp_box_t_vis_g;
-    float esp_box_t_vis_b;
-    float esp_box_ct_invis_r;
-    float esp_box_ct_invis_g;
-    float esp_box_ct_invis_b;
-    float esp_box_t_invis_r;
-    float esp_box_t_invis_g;
-    float esp_box_t_invis_b;
-    float esp_box_friends_r;
-    float esp_box_friends_g;
-    float esp_box_friends_b;
+    bool esp_box = false;
+    float esp_box_ct_vis_r = 0.0f;
+    float esp_box_ct_vis_g = 100.0f;
+    float esp_box_ct_vis_b = 255.0f;
+    float esp_box_t_vis_r = 255.0f;
+    float esp_box_t_vis_g = 100.0f;
+    float esp_box_t_vis_b = 0.0f;
+    float esp_box_ct_invis_r = 0.0f;
+    float esp_box_ct_invis_g = 255.0f;
+    float esp_box_ct_invis_b = 255.0f;
+    float esp_box_t_invis_r = 255.0f;
+    float esp_box_t_invis_g = 255.0f;
+    float esp_box_t_invis_b = 0.0f;
+    float esp_box_friends_r = 0.0f;
+    float esp_box_friends_g = 255.0f;
+    float esp_box_friends_b = 0.0f;
 
-    bool esp_box_outline;
-    bool esp_name;
+    bool esp_box_outline = false;
+    bool esp_name = false;
 
-    bool esp_fake;
-    bool bypass_trace_blockers;
-    bool bypass_valid_blockers;
-    float esp_sound_minimum_volume;
+    bool esp_fake = false;
+    bool bypass_trace_blockers = true;
+    bool bypass_valid_blockers = false;
+    float esp_sound_minimum_volume = 0.0f;
 
-    float esp_weapon;
-    float esp_weapon_r;
-    float esp_weapon_g;
-    float esp_weapon_b;
+    float esp_weapon = 1.0f;
+    float esp_weapon_r = 255.0f;
+    float esp_weapon_g = 0.0f;
+    float esp_weapon_b = 255.0f;
 
     float esp_world_weapon;
     float esp_world_weapon_r;
