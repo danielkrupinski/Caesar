@@ -11,19 +11,19 @@ public:
     void load();
     void save();
 
-    bool hide_from_obs;
+    bool hide_from_obs = false;
 
     struct {
-        bool enabled;
-        bool teammates;
-        bool delayShot;
-        float targetSelection;
-        float hitbox;
-        float multiPoint;
-        bool penetration;
-        bool silent;
-        bool perfectSilent;
-        bool autoscope;
+        bool enabled = false;
+        bool teammates = false;
+        bool delayShot = false;
+        float targetSelection = 3.0f;
+        float hitbox = 1.0f;
+        float multiPoint = 0.0f;
+        bool penetration = false;
+        bool silent = false;
+        bool perfectSilent = false;
+        bool autoscope = false;
     } aimbot;
 
     bool quick_stop;
