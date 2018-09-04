@@ -22,30 +22,28 @@ public:
         float multiPoint;
         bool penetration;
         bool silent;
-        bool perfect_silent;
+        bool perfectSilent;
         bool autoscope;
     } aimbot;
-    bool aim;
-    bool aim_teammates;
-    bool aim_delay_shot;
-    float aim_target_selection;
-    float aim_hitbox;
-    float aim_multi_point;
-    bool aim_penetration;
-    bool aim_silent;
-    bool aim_perfect_silent;
-    bool aim_autoscope;
 
     bool quick_stop;
     bool quick_stop_duck;
 
-    bool fakelag;
-    bool fakelag_while_shooting;
-    float fakelag_type;
-    float fakelag_move;
-    float fakelag_variance;
-    float fakelag_limit;
+    struct {
+        bool enabled;
+        bool whileShooting;
+        float type;
+        float move;
+        float variance;
+        float limit;
+    } fakelag;
 
+    struct {
+        float brightness;
+        float brightness_r;
+        float brightness_g;
+        float brightness_b;
+    } brightness;
     float brightness;
     float brightness_r;
     float brightness_g;
