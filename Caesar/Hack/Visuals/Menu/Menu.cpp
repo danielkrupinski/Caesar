@@ -931,7 +931,7 @@ void CMenu::Tabs()
 
 			if (DrawButton(x + box_indent_x, y + line_y, "Save"))
 			{
-				func.SaveCvars();
+                config.save();
 			}
 
 			line_y += 30;
