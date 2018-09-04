@@ -26,47 +26,47 @@ public:
         bool autoscope = false;
     } aimbot;
 
-    bool quick_stop;
-    bool quick_stop_duck;
+    bool quick_stop = false;
+    bool quick_stop_duck = false;
 
     struct {
-        bool enabled;
-        bool whileShooting;
-        float type;
-        float move;
-        float variance;
-        float limit;
+        bool enabled = false;
+        bool whileShooting = false;
+        float type = 3.0f;
+        float move = 3.0f;
+        float variance = 0.0f;
+        float limit = 0.0f;
     } fakelag;
 
     struct {
-        float volume;
-        float r;
-        float g;
-        float b;
+        float volume = 0.0f;
+        float r = 0.0f;
+        float g = 0.0f;
+        float b = 0.0f;
     } brightness;
 
-    bool autopistol;
-    bool autoreload;
-    bool fastzoom;
+    bool autopistol = false;
+    bool autoreload = false;
+    bool fastzoom = false;
 
-    bool nosmoke;
-    bool remove_scope;
+    bool nosmoke = false;
+    bool remove_scope = false;
 
     struct {
-        bool enabled;
-        float r;
-        float g;
-        float b;
+        bool enabled = false;
+        float r = 255.0f;
+        float g = 255.0f;
+        float b = 255.0f;
     } crosshair;
   
 
-    float thirdperson;
+    float thirdperson = 0.0f;
 
-    bool disable_render_teammates;
+    bool disable_render_teammates = false;
 
-    bool bullets_trace;
+    bool bullets_trace = false;
 
-    float noflash;
+    float noflash = 0.0f;
 
     bool esp;
     bool esp_behind;
