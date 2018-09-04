@@ -39,15 +39,11 @@ public:
     } fakelag;
 
     struct {
-        float brightness;
-        float brightness_r;
-        float brightness_g;
-        float brightness_b;
+        float volume;
+        float r;
+        float g;
+        float b;
     } brightness;
-    float brightness;
-    float brightness_r;
-    float brightness_g;
-    float brightness_b;
 
     bool autopistol;
     bool autoreload;
@@ -55,11 +51,14 @@ public:
 
     bool nosmoke;
     bool remove_scope;
-    bool crosshair;
 
-    float crosshair_r;
-    float crosshair_g;
-    float crosshair_b;
+    struct {
+        bool enabled;
+        float r;
+        float g;
+        float b;
+    } crosshair;
+  
 
     float thirdperson;
 
