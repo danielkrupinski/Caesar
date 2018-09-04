@@ -411,5 +411,8 @@ void Config::save()
         config[weaponName]["trigger_penetration"] = legit[i].trigger_penetration;
         config[weaponName]["trigger_accuracy"] = legit[i].trigger_accuracy;
     }
+
+    out << config;
+
 }
 
