@@ -17,6 +17,8 @@ Config::Config(const std::string& name)
     init();
 }
 
+/*
+
 void Config::init()
 {
     hide_from_obs = false;
@@ -210,6 +212,8 @@ void Config::init()
 
     debug = false;
 }
+
+*/
 
 void Config::load()
 {
