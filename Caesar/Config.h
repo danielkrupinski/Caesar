@@ -102,118 +102,118 @@ public:
     float esp_weapon_g = 0.0f;
     float esp_weapon_b = 255.0f;
 
-    float esp_world_weapon;
-    float esp_world_weapon_r;
-    float esp_world_weapon_g;
-    float esp_world_weapon_b;
+    float esp_world_weapon = 1.0f;
+    float esp_world_weapon_r = 255.0f;
+    float esp_world_weapon_g = 255.0f;
+    float esp_world_weapon_b = 255.0f;
 
-    bool esp_flags;
-    bool esp_distance;
-    bool esp_hitboxes;
-    bool esp_sound;
-    bool esp_health;
+    bool esp_flags = false;
+    bool esp_distance = false;
+    bool esp_hitboxes = false;
+    bool esp_sound = false;
+    bool esp_health = false;
 
-    float esp_alpha;
+    float esp_alpha = 200.0f;
 
-    bool esp_line_of_sight;
-    float esp_line_of_sight_r;
-    float esp_line_of_sight_g;
-    float esp_line_of_sight_b;
+    bool esp_line_of_sight = false;
+    float esp_line_of_sight_r = 255.0f;
+    float esp_line_of_sight_g = 255.0f;
+    float esp_line_of_sight_b = 255.0f;
 
-    bool esp_screen;
+    bool esp_screen = false;
 
-    bool esp_shots_fired;
+    bool esp_shots_fired = false;
 
-    bool esp_bomb;
-    float esp_bomb_r;
-    float esp_bomb_g;
-    float esp_bomb_b;
+    bool esp_bomb = false;
+    float esp_bomb_r = 255.0f;
+    float esp_bomb_g = 0.0f;
+    float esp_bomb_b = 0.0f;
 
-    bool hud_clear;
+    bool hud_clear = false;
 
-    bool penetration_info;
+    bool penetration_info = false;
 
-    float recoil_overlay_r;
-    float recoil_overlay_g;
-    float recoil_overlay_b;
+    float recoil_overlay_r = 255.0f;
+    float recoil_overlay_g = 255.0f;
+    float recoil_overlay_b = 0.0f;
 
-    float spread_overlay_r;
-    float spread_overlay_g;
-    float spread_overlay_b;
+    float spread_overlay_r = 255.0f;
+    float spread_overlay_g = 0.0f;
+    float spread_overlay_b = 0.0f;
 
-    bool grenade_trajectory;
+    bool grenade_trajectory = false;
 
-    bool chams;
-    bool chams_behind_wall;
-    float chams_type;
+    bool chams = false;
+    bool chams_behind_wall = false;
+    float chams_type = 3.0f;
 
-    float chams_t_vis_r;
-    float chams_t_vis_g;
-    float chams_t_vis_b;
+    float chams_t_vis_r = 255.0f;
+    float chams_t_vis_g = 100.0f;
+    float chams_t_vis_b = 0.0f;
 
-    float chams_t_invis_r;
-    float chams_t_invis_g;
-    float chams_t_invis_b;
+    float chams_t_invis_r = 255.0f;
+    float chams_t_invis_g = 255.0f;
+    float chams_t_invis_b = 0.0f;
 
-    float chams_ct_vis_r;
-    float chams_ct_vis_g;
-    float chams_ct_vis_b;
+    float chams_ct_vis_r = 0.0f;
+    float chams_ct_vis_g = 100.0f;
+    float chams_ct_vis_b = 255.0f;
 
-    float chams_ct_invis_r;
-    float chams_ct_invis_g;
-    float chams_ct_invis_b;
+    float chams_ct_invis_r = 0.0f;
+    float chams_ct_invis_g = 255.0f;
+    float chams_ct_invis_b = 255.0f;
 
-    bool glow_players;
+    bool glow_players = false;
 
-    float glow_players_ct_r;
-    float glow_players_ct_g;
-    float glow_players_ct_b;
+    float glow_players_ct_r = 0.0f;
+    float glow_players_ct_g = 0.0f;
+    float glow_players_ct_b = 255.0f;
 
-    float glow_players_t_r;
-    float glow_players_t_g;
-    float glow_players_t_b;
+    float glow_players_t_r = 255.0f;
+    float glow_players_t_g = 0.0f;
+    float glow_players_t_b = 0.0f;
 
-    bool spread_overlay;
-    bool spread_overlay_old;
-    bool recoil_overlay;
+    bool spread_overlay = false;
+    bool spread_overlay_old = false;
+    bool recoil_overlay = false;
 
-    bool draw_aim_fov;
-    float draw_aim_fov_r;
-    float draw_aim_fov_g;
-    float draw_aim_fov_b;
+    bool draw_aim_fov = false;
+    float draw_aim_fov_r = 255.0f;
+    float draw_aim_fov_g = 255.0f;
+    float draw_aim_fov_b = 0.0f;
 
-    bool norecoil;
-    bool norecoil_visual;
+    bool norecoil = false;
+    bool norecoil_visual = false;
 
-    bool nospread;
-    float nospread_method;
+    bool nospread = false;
+    float nospread_method = 1.0f;
 
-    float aa_yaw_while_running;
-    float aa_yaw;
-    float aa_yaw_static;
-    float aa_pitch;
-    float aa_edge;
+    float aa_yaw_while_running = 0.0f;
+    float aa_yaw = 0.0f;
+    float aa_yaw_static = 0.0f;
+    float aa_pitch = 0.0f;
+    float aa_edge = 0.0f;
 
-    bool legit_teammates;
-    bool trigger_only_zoomed;
-    float block_attack_after_kill;
-    int trigger_key;
+    bool legit_teammates = false;
+    bool trigger_only_zoomed = false;
+    float block_attack_after_kill = 0.0f;
+    int trigger_key = -1;
 
-    float menu_legit_global_section;
-    float menu_legit_sub_section;
+    float menu_legit_global_section = 1.0f;
+    float menu_legit_sub_section = 1.0f;
 
-    int menu_key;
+    int menu_key = 45;
 
-    float menu_color_r;
-    float menu_color_g;
-    float menu_color_b;
+    float menu_color_r = 215.0f;
+    float menu_color_g = 111.0f;
+    float menu_color_b = 234.0f;
 
-    bool bunnyhop;
-    bool knifebot;
+    bool bunnyhop = false;
+    bool knifebot = false;
 
-    float name_stealer;
+    float name_stealer = 0.0f;
 
-    bool debug;
+    bool debug = false;
 
     struct legit_weapons {
         bool aim;
