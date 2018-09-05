@@ -40,7 +40,7 @@ void WINAPI PaintTraversePanel(vgui::IPanel* vguiPanel, bool forceRepaint, bool 
 
 	const char* PanelName = g_pIPanel->GetName(vguiPanel);
 
-	if (strstr(PanelName, "StaticPanel") && !cvar.hide_from_obs && g_Engine.pfnGetCvarFloat("r_norefresh") == 0)
+	if (strstr(PanelName, "StaticPanel") && !config.hide_from_obs && g_Engine.pfnGetCvarFloat("r_norefresh") == 0)
 	{
 		g_Visuals.Run();
 		g_Menu.Run();
@@ -102,7 +102,7 @@ void CL_CreateMove(float frametime, struct usercmd_s *cmd, int active)
 
 		ItemPostFrame(cmd);// do weapon stuff
 
-		if (!cvar.hide_from_obs && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot && cvar.bullets_trace && CanAttack() && cmd->buttons & IN_ATTACK)
+		if (!config.hide_from_obs && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot && config.bullets_trace && CanAttack() && cmd->buttons & IN_ATTACK)
 		{
 			Vector vForward;
 			Vector vAngle = cmd->viewangles;
@@ -182,10 +182,7 @@ void HUD_Frame_init(double time)
 	World.Reset();
 	World.ClearMapInfo();
 
-	cvar.Init();
-	func.Init();
-
-	func.LoadCvars();
+    config.load();
 
 	HookOpenGL();
 
