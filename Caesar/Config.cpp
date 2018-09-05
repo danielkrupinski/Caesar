@@ -203,6 +203,8 @@ void Config::load()
         legit[i].trigger_penetration = config[weaponName]["trigger_penetration"].asBool();
         legit[i].trigger_accuracy = config[weaponName]["trigger_accuracy"].asFloat();
     }
+
+    in.close();
 }
 
 void Config::save()
