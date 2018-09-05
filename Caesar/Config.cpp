@@ -179,29 +179,29 @@ void Config::load()
 
         std::string weaponName = "weapon_" + std::to_string(i);
 
-        config[weaponName]["aim"] = legit[i].aim;
-        config[weaponName]["aim_head"] = legit[i].aim_head;
-        config[weaponName]["aim_chest"] = legit[i].aim_chest;
-        config[weaponName]["aim_stomach"] = legit[i].aim_stomach;
-        config[weaponName]["aim_quick_stop"] = legit[i].aim_quick_stop;
-        config[weaponName]["aim_humanize"] = legit[i].aim_humanize;
-        config[weaponName]["aim_spread_compenstation"] = legit[i].aim_spread_compenstation;
-        config[weaponName]["aim_accuracy"] = legit[i].aim_accuracy;
-        config[weaponName]["aim_psilent"] = legit[i].aim_psilent;
-        config[weaponName]["aim_fov"] = legit[i].aim_fov;
-        config[weaponName]["aim_speed"] = legit[i].aim_speed;
-        config[weaponName]["aim_speed_in_attack"] = legit[i].aim_speed_in_attack;
-        config[weaponName]["aim_speed_scale_fov"] = legit[i].aim_speed_scale_fov;
-        config[weaponName]["aim_recoil_compensation_pitch"] = legit[i].aim_recoil_compensation_pitch;
-        config[weaponName]["aim_recoil_compensation_yaw"] = legit[i].aim_recoil_compensation_yaw;
-        config[weaponName]["aim_recoil_compensation_after_shots_fired"] = legit[i].aim_recoil_compensation_after_shots_fired;
-        config[weaponName]["aim_reaction_time"] = legit[i].aim_reaction_time;
-        config[weaponName]["trigger"] = legit[i].trigger;
-        config[weaponName]["trigger_head"] = legit[i].trigger_head;
-        config[weaponName]["trigger_chest"] = legit[i].trigger_chest;
-        config[weaponName]["trigger_stomach"] = legit[i].trigger_stomach;
-        config[weaponName]["trigger_penetration"] = legit[i].trigger_penetration;
-        config[weaponName]["trigger_accuracy"] = legit[i].trigger_accuracy;
+        legit[i].aim = config[weaponName]["aim"].asBool();
+        legit[i].aim_head = config[weaponName]["aim_head"].asBool();
+        legit[i].aim_chest = config[weaponName]["aim_chest"].asBool();
+        legit[i].aim_stomach = config[weaponName]["aim_stomach"].asBool();
+        legit[i].aim_quick_stop = config[weaponName]["aim_quick_stop"].asBool();
+        legit[i].aim_humanize = config[weaponName]["aim_humanize"].asBool();
+        legit[i].aim_spread_compenstation = config[weaponName]["aim_spread_compenstation"].asBool();
+        legit[i].aim_accuracy = config[weaponName]["aim_accuracy"].asFloat();
+        legit[i].aim_psilent = config[weaponName]["aim_psilent"].asFloat();
+        legit[i].aim_fov = config[weaponName]["aim_fov"].asFloat();
+        legit[i].aim_speed = config[weaponName]["aim_speed"].asFloat();
+        legit[i].aim_speed_in_attack = config[weaponName]["aim_speed_in_attack"].asFloat();
+        legit[i].aim_speed_scale_fov = config[weaponName]["aim_speed_scale_fov"].asFloat();
+        legit[i].aim_recoil_compensation_pitch = config[weaponName]["aim_recoil_compensation_pitch"].asFloat();
+        legit[i].aim_recoil_compensation_yaw = config[weaponName]["aim_recoil_compensation_yaw"].asFloat();
+        legit[i].aim_recoil_compensation_after_shots_fired = config[weaponName]["aim_recoil_compensation_after_shots_fired"].asFloat();
+        legit[i].aim_reaction_time = config[weaponName]["aim_reaction_time"].asFloat();
+        legit[i].trigger = config[weaponName]["trigger"].asBool();
+        legit[i].trigger_head = config[weaponName]["trigger_head"].asBool();
+        legit[i].trigger_chest = config[weaponName]["trigger_chest"].asBool();
+        legit[i].trigger_stomach = config[weaponName]["trigger_stomach"].asBool();
+        legit[i].trigger_penetration = config[weaponName]["trigger_penetration"].asBool();
+        legit[i].trigger_accuracy = config[weaponName]["trigger_accuracy"].asFloat();
     }
 }
 
