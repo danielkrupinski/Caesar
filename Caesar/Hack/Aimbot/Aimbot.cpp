@@ -29,7 +29,7 @@ void SmoothAimAngles(QAngle MyViewAngles, QAngle AimAngles, QAngle &OutAngles, f
 
 void CAimBot::Run(struct usercmd_s *cmd)
 {
-	if (cvar.aim)
+	if (config.aimbot.enabled)
 	{
 		RageAimbot(cmd);
 	}
@@ -42,13 +42,13 @@ void CAimBot::Run(struct usercmd_s *cmd)
 
 void CAimBot::Trigger(struct usercmd_s *cmd)
 {
-	if (cvar.trigger_key > 0 && cvar.trigger_key < 255)
+	if (config.trigger_key > 0 && config.trigger_key < 255)
 	{
 		static DWORD dwTemporaryBlockTimer = 0;
 
 		if (GetTickCount() - dwTemporaryBlockTimer > 200)
 		{
-			if (g_Menu.keys[cvar.trigger_key]) {
+			if (g_Menu.keys[config.trigger_key]) {
 				TriggerKeyStatus = !TriggerKeyStatus;
 				dwTemporaryBlockTimer = GetTickCount();
 			}
@@ -63,20 +63,20 @@ void CAimBot::Trigger(struct usercmd_s *cmd)
 
 	unsigned int m_iWeaponID = g_Local.weapon.m_iWeaponID;
 
-	if (!cvar.legit[m_iWeaponID].trigger)
+	if (!config.legit[m_iWeaponID].trigger)
 		return;
 
-	if (cvar.trigger_only_zoomed && IsCurWeaponSniper() && g_Local.iFOV == DEFAULT_FOV)
+	if (config.trigger_only_zoomed && IsCurWeaponSniper() && g_Local.iFOV == DEFAULT_FOV)
 		return;
 
 	deque<unsigned int> Hitboxes;
 
-	if (cvar.legit[m_iWeaponID].trigger_head)
+	if (config.legit[m_iWeaponID].trigger_head)
 	{
 		Hitboxes.push_back(11);
 	}
 
-	if (cvar.legit[m_iWeaponID].trigger_chest)
+	if (config.legit[m_iWeaponID].trigger_chest)
 	{
 		Hitboxes.push_back(7);
 		Hitboxes.push_back(8);
@@ -87,12 +87,12 @@ void CAimBot::Trigger(struct usercmd_s *cmd)
 		Hitboxes.push_back(17);
 	}
 
-	if (cvar.legit[m_iWeaponID].trigger_stomach)
+	if (config.legit[m_iWeaponID].trigger_stomach)
 	{
 		Hitboxes.push_back(0);
 	}
 
-	float flAccuracy = cvar.legit[m_iWeaponID].trigger_accuracy;
+	float flAccuracy = config.legit[m_iWeaponID].trigger_accuracy;
 
 	Vector vecSpreadDir, vecForward, vecRight, vecUp, vecRandom;
 
@@ -139,7 +139,7 @@ void CAimBot::Trigger(struct usercmd_s *cmd)
 		if (g_Player[id].bFriend)
 			continue;
 
-		if (!cvar.legit_teammates && g_Player[id].iTeam == g_Local.iTeam)
+		if (!config.legit_teammates && g_Player[id].iTeam == g_Local.iTeam)
 			continue;
 
 		for (auto &&hitbox : Hitboxes)
@@ -167,28 +167,28 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 
 	unsigned int iWeaponID = g_Local.weapon.m_iWeaponID;
 
-	if (!cvar.legit[iWeaponID].aim)
+	if (!config.legit[iWeaponID].aim)
 		return;
 
-	float flFOV = cvar.legit[iWeaponID].aim_fov;
+	float flFOV = config.legit[iWeaponID].aim_fov;
 
 	if (flFOV <= 0)
 		return;
 
-	float flSpeed = cvar.legit[iWeaponID].aim_speed_in_attack;
+	float flSpeed = config.legit[iWeaponID].aim_speed_in_attack;
 
-	if (cvar.legit[iWeaponID].aim_speed > 0 && !(cmd->buttons & IN_ATTACK))//Auto aim smooth
-		flSpeed = cvar.legit[iWeaponID].aim_speed;
+	if (config.legit[iWeaponID].aim_speed > 0 && !(cmd->buttons & IN_ATTACK))//Auto aim smooth
+		flSpeed = config.legit[iWeaponID].aim_speed;
 
 	if (flSpeed <= 0)
 		return;
 
 	deque<unsigned int> Hitboxes;
 
-	if (cvar.legit[iWeaponID].aim_head)
+	if (config.legit[iWeaponID].aim_head)
 		Hitboxes.push_back(11);
 
-	if (cvar.legit[iWeaponID].aim_chest)
+	if (config.legit[iWeaponID].aim_chest)
 	{
 		Hitboxes.push_back(7);
 		Hitboxes.push_back(8);
@@ -198,28 +198,28 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 		Hitboxes.push_back(17);
 	}
 
-	if (cvar.legit[iWeaponID].aim_stomach)
+	if (config.legit[iWeaponID].aim_stomach)
 		Hitboxes.push_back(0);
 
 	if (Hitboxes.empty())
 		return;
 
-	float flReactionTime = cvar.legit[iWeaponID].aim_reaction_time;
+	float flReactionTime = config.legit[iWeaponID].aim_reaction_time;
 
 	if (flReactionTime > 0 && GetTickCount() - dwReactionTime < flReactionTime)
 		return;
 
-	float flSpeedScaleFov = cvar.legit[iWeaponID].aim_speed_scale_fov;
+	float flSpeedScaleFov = config.legit[iWeaponID].aim_speed_scale_fov;
 
-	bool bSpeedSpiral = cvar.legit[iWeaponID].aim_humanize;
+	bool bSpeedSpiral = config.legit[iWeaponID].aim_humanize;
 
 	if (!g_Local.vPunchangle.IsZero2D())
 		bSpeedSpiral = false;
 
-	float flRecoilCompensationPitch = 0.02 * cvar.legit[iWeaponID].aim_recoil_compensation_pitch;
-	float flRecoilCompensationYaw = 0.02 * cvar.legit[iWeaponID].aim_recoil_compensation_yaw;
+	float flRecoilCompensationPitch = 0.02 * config.legit[iWeaponID].aim_recoil_compensation_pitch;
+	float flRecoilCompensationYaw = 0.02 * config.legit[iWeaponID].aim_recoil_compensation_yaw;
 
-	unsigned int iRecoilCompensationAfterShotsFired = cvar.legit[iWeaponID].aim_recoil_compensation_after_shots_fired;
+	unsigned int iRecoilCompensationAfterShotsFired = config.legit[iWeaponID].aim_recoil_compensation_after_shots_fired;
 
 	if (iRecoilCompensationAfterShotsFired > 0 && g_Local.weapon.m_iShotsFired <= iRecoilCompensationAfterShotsFired)
 	{
@@ -227,11 +227,11 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 		flRecoilCompensationYaw = 0;
 	}
 
-	float flBlockAttackAfterKill = cvar.block_attack_after_kill;
+	float flBlockAttackAfterKill = config.block_attack_after_kill;
 
-	float flAccuracy = cvar.legit[iWeaponID].aim_accuracy;
+	float flAccuracy = config.legit[iWeaponID].aim_accuracy;
 
-	float flPSilent = cvar.legit[iWeaponID].aim_psilent;
+	float flPSilent = config.legit[iWeaponID].aim_psilent;
 
 	Vector vecFOV = {};
 	{
@@ -262,7 +262,7 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 		if (g_Player[id].bFriend)
 			continue;
 
-		if (!cvar.legit_teammates && g_Player[id].iTeam == g_Local.iTeam)
+		if (!config.legit_teammates && g_Player[id].iTeam == g_Local.iTeam)
 			continue;
 
 		for (auto &&hitbox : Hitboxes)
@@ -270,10 +270,10 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 			if (!g_PlayerExtraInfoList[id].bHitboxVisible[hitbox])
 				continue;
 
-			if (cvar.legit[iWeaponID].aim_head && (cvar.legit[iWeaponID].aim_chest || cvar.legit[iWeaponID].aim_stomach) && hitbox == 11 && (!(g_Local.weapon.m_iFlags & FL_ONGROUND) || g_Local.flVelocity > 140 || g_Local.weapon.m_iShotsFired > 5))
+			if (config.legit[iWeaponID].aim_head && (config.legit[iWeaponID].aim_chest || config.legit[iWeaponID].aim_stomach) && hitbox == 11 && (!(g_Local.weapon.m_iFlags & FL_ONGROUND) || g_Local.flVelocity > 140 || g_Local.weapon.m_iShotsFired > 5))
 				continue;
 
-			if (cvar.legit[iWeaponID].aim_chest && cvar.legit[iWeaponID].aim_stomach && hitbox != 0 && hitbox != 11 && (!(g_Local.weapon.m_iFlags & FL_ONGROUND) || g_Local.weapon.m_iShotsFired > 15))
+			if (config.legit[iWeaponID].aim_chest && config.legit[iWeaponID].aim_stomach && hitbox != 0 && hitbox != 11 && (!(g_Local.weapon.m_iFlags & FL_ONGROUND) || g_Local.weapon.m_iShotsFired > 15))
 				continue;
 
 			float fov = vecFOV.AngleBetween(g_PlayerExtraInfoList[id].vHitbox[hitbox] - g_Local.vEye);
@@ -292,7 +292,7 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 		bool bAttack = false;
 		bool bBlock = false;//Block IN_ATTACK?
 
-		if (cvar.legit[iWeaponID].aim_quick_stop)
+		if (config.legit[iWeaponID].aim_quick_stop)
 		{
 			cmd->forwardmove = 0;
 			cmd->sidemove = 0;
@@ -416,7 +416,7 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 
 		if (cmd->buttons & IN_ATTACK)
 			bAttack = true;
-		else if (cvar.legit[iWeaponID].aim_speed > 0)//Auto aim
+		else if (config.legit[iWeaponID].aim_speed > 0)//Auto aim
 		{
 			bAttack = true;
 			bBlock = true;
@@ -447,28 +447,28 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 
 void CAimBot::RageAimbot(struct usercmd_s *cmd)
 {
-	if (!cvar.aim && !IsCurWeaponGun() || !CanAttack())
+	if (!config.aimbot.enabled && !IsCurWeaponGun() || !CanAttack())
 		return;
 
 	deque<unsigned int> Hitboxes;
 
-	if (cvar.aim_hitbox == 1)//"Head", "Neck", "Chest", "Stomach"
+	if (config.aimbot.hitbox == 1)//"Head", "Neck", "Chest", "Stomach"
 	{
 		Hitboxes.push_back(11);
 	}
-	else if (cvar.aim_hitbox == 2)
+	else if (config.aimbot.hitbox == 2)
 	{
 		Hitboxes.push_back(10);
 	}
-	else if (cvar.aim_hitbox == 3)
+	else if (config.aimbot.hitbox == 3)
 	{
 		Hitboxes.push_back(7);
 	}
-	else if (cvar.aim_hitbox == 4)
+	else if (config.aimbot.hitbox == 4)
 	{
 		Hitboxes.push_back(0);
 	}
-	else if (cvar.aim_hitbox == 5)//All
+	else if (config.aimbot.hitbox == 5)//All
 	{
 		for (unsigned int j = 0; j <= 11; j++)
 			Hitboxes.push_front(j);
@@ -476,7 +476,7 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 		for (unsigned int k = 12; k < g_Local.iMaxHitboxes; k++)
 			Hitboxes.push_back(k);
 	}
-	else if (cvar.aim_hitbox == 6)//Vital
+	else if (config.aimbot.hitbox == 6)//Vital
 	{
 		for (unsigned int j = 0; j <= 11; j++)
 			Hitboxes.push_front(j);
@@ -506,10 +506,10 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 		if (!g_Player[id].bVisible)
 			continue;
 
-		if (!cvar.aim_teammates && g_Player[id].iTeam == g_Local.iTeam)
+		if (!config.aimbot.teammates && g_Player[id].iTeam == g_Local.iTeam)
 			continue;
 
-		if (cvar.aim_delay_shot)
+		if (config.aimbot.delayShot)
 		{
 			cl_entity_s *ent = g_Engine.GetEntityByIndex(id);
 
@@ -530,12 +530,12 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 		{
 			for (auto &&hitbox : Hitboxes)
 			{
-				if (cvar.aim_multi_point > 0)
+				if (config.aimbot.multiPoint > 0)
 				{
-					if (cvar.aim_multi_point == 1 && hitbox != 11)
+					if (config.aimbot.multiPoint == 1 && hitbox != 11)
 						continue;
 
-					if (cvar.aim_multi_point == 2 && hitbox > 11)
+					if (config.aimbot.multiPoint == 2 && hitbox > 11)
 						continue;
 
 					for (unsigned int point = 0; point <= 8; ++point)
@@ -560,7 +560,7 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 			break;
 		}
 		//"Field of view", "Distance", "Cycle"
-		if (cvar.aim_target_selection == 1)
+		if (config.aimbot.targetSelection == 1)
 		{
 			if (g_PlayerExtraInfoList[id].fHitboxFOV[m_iHitbox] < m_flBestFOV)
 			{
@@ -568,7 +568,7 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 				m_iTarget = id;
 			}
 		}
-		else if (cvar.aim_target_selection == 2) 
+		else if (config.aimbot.targetSelection == 2)
 		{
 			if (g_Player[id].flDist < m_flBestDist)
 			{
@@ -576,7 +576,7 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 				m_iTarget = id;
 			}
 		}
-		else if (cvar.aim_target_selection == 3)
+		else if (config.aimbot.targetSelection == 3)
 		{
 			if (g_PlayerExtraInfoList[id].fHitboxFOV[m_iHitbox] < m_flBestFOV)
 			{
@@ -592,21 +592,21 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 
 	if (m_iTarget > 0)
 	{
-		if (cvar.quick_stop_duck)
+		if (config.quick_stop_duck)
 		{
 			cmd->forwardmove = 0;
 			cmd->sidemove = 0;
 			cmd->upmove = 0;
 			cmd->buttons |= IN_DUCK;
 		}
-		else if (cvar.quick_stop)
+		else if (config.quick_stop)
 		{
 			cmd->forwardmove = 0;
 			cmd->sidemove = 0;
 			cmd->upmove = 0;
 		}
 
-		if (cvar.aim_autoscope && IsCurWeaponSniper() && g_Local.iFOV == DEFAULT_FOV)
+		if (config.aimbot.autoscope && IsCurWeaponSniper() && g_Local.iFOV == DEFAULT_FOV)
 		{
 			cmd->buttons |= IN_ATTACK2;
 		}
@@ -625,7 +625,7 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 
 			g_Utils.VectorAngles(vAimOrigin - g_Local.vEye, QAimAngles);
 
-			if (cvar.aim_perfect_silent)
+			if (config.aimbot.perfectSilent)
 			{
 				g_Utils.MakeAngle(false, QAimAngles, cmd);
 				g_Utils.bSendpacket(false);
@@ -633,7 +633,7 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 			else {
 				g_Utils.MakeAngle(false, QAimAngles, cmd);
 
-				if (!cvar.aim_silent)
+				if (!config.aimbot.silent)
 					g_Engine.SetViewAngles(QAimAngles);
 			}
 
