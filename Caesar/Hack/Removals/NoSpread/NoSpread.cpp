@@ -87,7 +87,7 @@ void CNoSpread::GetSpreadXY(unsigned int seed, int future, float *vec, bool simu
 
 void CNoSpread::GetSpreadOffset(unsigned int seed, int future, float *inangles, float *outangles)
 {
-	if (cvar.nospread_method == 1)
+	if (config.nospread_method == 1)
 	{
 		double PitchSine, PitchCosine;
 		double CosineInput, CosinePitch, PitchInput;
@@ -288,7 +288,7 @@ void CNoSpread::GetSpreadOffset(unsigned int seed, int future, float *inangles, 
 		outangles[1] = QNewAngles[1];
 		outangles[2] = QNewAngles[2];
 	}
-	else if (cvar.nospread_method == 2)
+	else if (config.nospread_method == 2)
 	{
 		Vector vecForward, vecRight, vecUp, vecDir, vecRandom;
 
@@ -341,7 +341,7 @@ void CNoSpread::CL_CreateMove(usercmd_s *cmd)
 
 	g_Local.vNoSpreadAngle = cmd->viewangles - vAngles;
 
-	if (cvar.aim && cvar.nospread && cmd->buttons & IN_ATTACK && CanAttack())
+	if (config.aimbot.enabled && config.nospread && cmd->buttons & IN_ATTACK && CanAttack())
 	{
 		g_Utils.MakeAngle(false, vAngles, cmd);
 	}
@@ -349,7 +349,7 @@ void CNoSpread::CL_CreateMove(usercmd_s *cmd)
 
 void CNoSpread::DrawSpread()
 {
-	if (cvar.spread_overlay && g_Local.bAlive && IsCurWeaponGun())
+	if (config.spread_overlay && g_Local.bAlive && IsCurWeaponGun())
 	{
 		float positions[2];
 
@@ -358,9 +358,9 @@ void CNoSpread::DrawSpread()
 
 		float radius = g_Local.weapon.m_flSpread * 1000;
 
-		g_Drawing.DrawCircle(positions, 30, radius, cvar.spread_overlay_r, cvar.spread_overlay_g, cvar.spread_overlay_b, 120);
+		g_Drawing.DrawCircle(positions, 30, radius, config.spread_overlay_r, config.spread_overlay_g, config.spread_overlay_b, 120);
 	}
-	else if(cvar.spread_overlay_old && g_Local.bAlive && IsCurWeaponGun()) {
+	else if(config.spread_overlay_old && g_Local.bAlive && IsCurWeaponGun()) {
 
 		Vector vSpread, vForward, vScreen;
 		pmtrace_t tr;
@@ -377,14 +377,14 @@ void CNoSpread::DrawSpread()
 			vScreen.x = g_Screen.iWidth - vScreen.x;
 			vScreen.y = g_Screen.iHeight - vScreen.y;
 
-			g_Engine.pfnTintRGBA((vScreen.x - 1), (vScreen.y - 1), 3, 3, cvar.spread_overlay_r, cvar.spread_overlay_g, cvar.spread_overlay_b, 200);
+			g_Engine.pfnTintRGBA((vScreen.x - 1), (vScreen.y - 1), 3, 3, config.spread_overlay_r, config.spread_overlay_g, config.spread_overlay_b, 200);
 		}
 	}
 }
 
 void CNoSpread::V_CalcRefdef(struct ref_params_s *pparams)
 {
-	if (cvar.aim && cvar.nospread && IsCurWeaponGun() && cvar.debug)
+	if (config.aimbot.enabled && config.nospread && IsCurWeaponGun() && config.debug)
 	{
 		pparams->punchangle[0] += g_Local.vNoSpreadAngle[0];
 		pparams->punchangle[1] += g_Local.vNoSpreadAngle[1];

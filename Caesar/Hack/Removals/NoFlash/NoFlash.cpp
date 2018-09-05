@@ -4,16 +4,16 @@ CNoFlash g_NoFlash;
 
 void CNoFlash::Redraw()
 {
-	if (cvar.noflash > 0)
+	if (config.noflash > 0)
 	{
 		if (g_NoFlash.pScreenFade->fadeEnd > g_Engine.GetClientTime())
 		{
 			g_NoFlash.FadeEnd = g_NoFlash.pScreenFade->fadeEnd;
 
-			if ((int)cvar.noflash >= 255.0f)	
+			if ((int)config.noflash >= 255.0f)	
 				g_NoFlash.pScreenFade->fadeEnd = 0.0f;
-			else if (g_NoFlash.pScreenFade->fadealpha > (int)cvar.noflash) 
-				g_NoFlash.pScreenFade->fadealpha = (int)cvar.noflash;
+			else if (g_NoFlash.pScreenFade->fadealpha > (int)config.noflash) 
+				g_NoFlash.pScreenFade->fadealpha = (int)config.noflash;
 		}
 
 		if (g_NoFlash.FadeEnd > g_Engine.GetClientTime())
