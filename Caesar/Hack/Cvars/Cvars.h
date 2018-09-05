@@ -1,3 +1,4 @@
+/*
 class CCvars;
 class CCvars
 {
@@ -239,3 +240,4 @@ public:
 
 };
 extern CFunctions func;
+*/

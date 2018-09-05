@@ -1,3 +1,4 @@
+/*
 #include "../../Required.h"
 #include <stdio.h> 
 
@@ -740,3 +741,5 @@ void CFunctions::Init()
 {
 
 }
+
+*/

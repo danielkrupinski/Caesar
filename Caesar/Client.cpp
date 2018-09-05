@@ -1,5 +1,8 @@
 #include "Required.h"
 
+#include "Config.h"
+extern Config config;
+
 CGlobalsVars g_pGlobals;
 SCREENINFO g_Screen;
 
