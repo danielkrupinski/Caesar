@@ -40,7 +40,7 @@ void WINAPI PaintTraversePanel(vgui::IPanel* vguiPanel, bool forceRepaint, bool 
 
 	const char* PanelName = g_pIPanel->GetName(vguiPanel);
 
-	if (strstr(PanelName, "StaticPanel") && !config.hide_from_obs && g_Engine.pfnGetCvarFloat("r_norefresh") == 0)
+	if (strstr(PanelName, "StaticPanel") && !config.hide_from_obs && g_Engine.pfnGetconfigFloat("r_norefresh") == 0)
 	{
 		g_Visuals.Run();
 		g_Menu.Run();
@@ -198,7 +198,7 @@ void HUD_Frame_init(double time)
 
 int CL_IsThirdPerson(void)
 {
-	if (!cvar.hide_from_obs && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot && cvar.thirdperson > 0 && g_Local.bAlive)
+	if (!config.hide_from_obs && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot && config.thirdperson > 0 && g_Local.bAlive)
 		return 1;
 
 	return g_Client.CL_IsThirdPerson();
@@ -224,7 +224,7 @@ void StudioSetRemapColors(int top, int bottom)
 
 int pfnDrawUnicodeCharacter(int x, int y, short number, int r, int g, int b, unsigned long hfont)
 {
-	if (!cvar.hide_from_obs && cvar.hud_clear && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot)
+	if (!config.hide_from_obs && config.hud_clear && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot)
 		return 1;
 
 	return g_Engine.pfnDrawUnicodeCharacter(x, y, number, r, g, b, hfont);
@@ -232,12 +232,12 @@ int pfnDrawUnicodeCharacter(int x, int y, short number, int r, int g, int b, uns
 
 int HUD_AddEntity(int type, struct cl_entity_s *ent, const char *modelname)
 {
-	if (!cvar.hide_from_obs && cvar.esp && g_Utils.IsPlayer(ent) && g_Player[ent->index].bAlive && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot)
+	if (!config.hide_from_obs && config.esp && g_Utils.IsPlayer(ent) && g_Player[ent->index].bAlive && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot)
 	{
-		if ((!cvar.esp_teammates || cvar.disable_render_teammates) && g_Player[ent->index].iTeam == g_Local.iTeam)
+		if ((!config.esp_teammates || config.disable_render_teammates) && g_Player[ent->index].iTeam == g_Local.iTeam)
 			return g_Client.HUD_AddEntity(type, ent, modelname);
 
-		if (cvar.bullets_trace || cvar.esp_line_of_sight)
+		if (config.bullets_trace || config.esp_line_of_sight)
 		{
 			int beamindex = g_Engine.pEventAPI->EV_FindModelIndex("sprites/laserbeam.spr");
 
@@ -254,10 +254,10 @@ int HUD_AddEntity(int type, struct cl_entity_s *ent, const char *modelname)
 			g_Engine.pEventAPI->EV_SetTraceHull(2);
 			g_Engine.pEventAPI->EV_PlayerTrace(vecStart, vecEnd, PM_GLASS_IGNORE, -1, &tr);
 
-			if (cvar.esp_line_of_sight)
-				g_Engine.pEfxAPI->R_BeamPoints(vecStart, tr.endpos, beamindex, 0.001f, 0.9f, 0, 32, 2, 0, 0, cvar.esp_line_of_sight_r / 255, cvar.esp_line_of_sight_g / 255, cvar.esp_line_of_sight_b / 255);
+			if (config.esp_line_of_sight)
+				g_Engine.pEfxAPI->R_BeamPoints(vecStart, tr.endpos, beamindex, 0.001f, 0.9f, 0, 32, 2, 0, 0, config.esp_line_of_sight_r / 255, config.esp_line_of_sight_g / 255, config.esp_line_of_sight_b / 255);
 
-			if (cvar.bullets_trace)
+			if (config.bullets_trace)
 			{
 				int seq = Cstrike_SequenceInfo[ent->curstate.sequence];
 
@@ -308,7 +308,7 @@ void CL_Move() //Create and send the command packet to the server
 
 void HUD_ProcessPlayerState(struct entity_state_s *dst, const struct entity_state_s *src)
 {
-	if (cvar.bypass_valid_blockers) 
+	if (config.bypass_valid_blockers) 
 	{
 		src->mins[0] = -16;
 		src->mins[1] = -16;

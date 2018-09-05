@@ -1,10 +1,13 @@
 #include "../../Required.h"
 
+#include "../../Config.h"
+extern Config config;
+
 CMisc g_Misc;
 
 void CMisc::FastZoom(struct usercmd_s *cmd)
 {
-	if (!cvar.aim && cvar.fastzoom && IsCurWeaponSniper() && g_Local.iFOV == DEFAULT_FOV && cmd->buttons & IN_ATTACK)
+	if (!config.aim && config.fastzoom && IsCurWeaponSniper() && g_Local.iFOV == DEFAULT_FOV && cmd->buttons & IN_ATTACK)
 	{
 		cmd->buttons &= ~IN_ATTACK;
 		cmd->buttons |= IN_ATTACK2;
@@ -13,7 +16,7 @@ void CMisc::FastZoom(struct usercmd_s *cmd)
 
 void CMisc::FakeLag(struct usercmd_s *cmd) 
 {
-	if (cvar.aim && cvar.fakelag)
+	if (config.aim && config.fakelag)
 	{
 		int m_InAttack = (cmd->buttons & IN_ATTACK);
 
@@ -22,20 +25,20 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 		if (!(m_InAttack && CanAttack()))
 			fakelag = true;
 
-		if (cvar.fakelag_while_shooting && m_InAttack && CanAttack())
+		if (config.fakelag_while_shooting && m_InAttack && CanAttack())
 			fakelag = true;
 
-		if (cvar.fakelag_move == 1)//On land
+		if (config.fakelag_move == 1)//On land
 		{
 			if (g_Local.flVelocity > 0)
 				fakelag = false;
 		}
-		else if (cvar.fakelag_move == 2)//On move
+		else if (config.fakelag_move == 2)//On move
 		{
 			if (g_Local.flVelocity <= 0)
 				fakelag = false;
 		}
-		else if (cvar.fakelag_move == 3)//In air
+		else if (config.fakelag_move == 3)//In air
 		{
 			if (g_Local.flHeight <= 0)
 				fakelag = false;
@@ -46,9 +49,9 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 			static int choked = 0;
 			static int good = 0;
 
-			if (cvar.fakelag_type == 1)//Dynamic
+			if (config.fakelag_type == 1)//Dynamic
 			{
-				if (choked < cvar.fakelag_limit)
+				if (choked < config.fakelag_limit)
 				{
 					g_Utils.bSendpacket(false);
 
@@ -57,8 +60,8 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 					good = 0;
 				}
 				else {
-					float one = cvar.fakelag_limit / 100;
-					float tmp = one * cvar.fakelag_variance;
+					float one = config.fakelag_limit / 100;
+					float tmp = one * config.fakelag_variance;
 
 					good++;
 
@@ -67,17 +70,17 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 					}
 				}
 			}
-			else if (cvar.fakelag_type == 2)//Maximum
+			else if (config.fakelag_type == 2)//Maximum
 			{
 				choked++;
 
 				if (choked > 0)
 					g_Utils.bSendpacket(false);
 
-				if (choked > cvar.fakelag_limit)
+				if (choked > config.fakelag_limit)
 					choked = -1;//1 tick valid
 			}
-			else if (cvar.fakelag_type == 3)//Flucture
+			else if (config.fakelag_type == 3)//Flucture
 			{
 				static bool jitter = false;
 
@@ -86,7 +89,7 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 
 				jitter = !jitter;
 			}
-			else if (cvar.fakelag_type == 4)//Break lag compensation
+			else if (config.fakelag_type == 4)//Break lag compensation
 			{
 				Vector velocity = pmove->velocity;
 				velocity.z = 0;
@@ -97,8 +100,8 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 				{
 					int need_choke = 64.0f / len;
 
-					if (need_choke > cvar.fakelag_limit)
-						need_choke = cvar.fakelag_limit;
+					if (need_choke > config.fakelag_limit)
+						need_choke = config.fakelag_limit;
 
 					//g_Engine.Con_NPrintf(1, "need_choke: %i", need_choke);
 
@@ -153,7 +156,7 @@ bool CMisc::FakeEdge(float &angle)
 
 void CMisc::AntiAim(struct usercmd_s *cmd)
 {
-	if (cvar.aim) 
+	if (config.aim) 
 	{
 		int m_OnLadder = (pmove->movetype == MOVETYPE_FLY);// determine if we are on a ladder
 		int m_Use = (cmd->buttons & IN_USE);
@@ -177,7 +180,7 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 				if (g_Player[i].bFriend)
 					continue;
 
-				if (!cvar.aim_teammates && g_Player[i].iTeam == g_Local.iTeam)
+				if (!config.aim_teammates && g_Player[i].iTeam == g_Local.iTeam)
 					continue;
 
 				if (g_Player[i].flDist < flDist || id == NULL)
@@ -194,11 +197,11 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 
 			//Yaw
 			if (g_Local.flVelocity > 0) {
-				if (cvar.aa_yaw_while_running > 0) {
-					if (cvar.aa_yaw_while_running == 1) {//180
+				if (config.aa_yaw_while_running > 0) {
+					if (config.aa_yaw_while_running == 1) {//180
 						cmd->viewangles.y = vAngles[1] + 180;
 					}
-					else if (cvar.aa_yaw_while_running == 2) {//180 Jitter
+					else if (config.aa_yaw_while_running == 2) {//180 Jitter
 						static bool jitter = false;
 
 						if (jitter)
@@ -208,11 +211,11 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 
 						jitter = !jitter;
 					}
-					else if (cvar.aa_yaw_while_running == 3) {//Spin
+					else if (config.aa_yaw_while_running == 3) {//Spin
 						int spin = 30;
 						cmd->viewangles.y = fmod(g_Engine.GetClientTime()*spin*360.0f, 360.0f);
 					}
-					else if (cvar.aa_yaw_while_running == 4) {//Jitter
+					else if (config.aa_yaw_while_running == 4) {//Jitter
 						static unsigned int m_side = 0;
 
 						if (m_side == 0)
@@ -228,7 +231,7 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 
 						m_side++;
 					}
-					else if (cvar.aa_yaw_while_running == 5) {//Sideway
+					else if (config.aa_yaw_while_running == 5) {//Sideway
 						static bool jitter = false;
 
 						if (jitter)
@@ -238,27 +241,27 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 
 						jitter = !jitter;
 					}
-					else if (cvar.aa_yaw_while_running == 6) {//Random
+					else if (config.aa_yaw_while_running == 6) {//Random
 						cmd->viewangles.y = rand() % 361;
 						if (cmd->viewangles.y > 180)
 							cmd->viewangles.y -= 360;
 					}
-					else if (cvar.aa_yaw_while_running == 7) {//Static
-						cmd->viewangles.y = vAngles[1] + cvar.aa_yaw_static;
+					else if (config.aa_yaw_while_running == 7) {//Static
+						cmd->viewangles.y = vAngles[1] + config.aa_yaw_static;
 					}
 				}
 
 				float angle = cmd->viewangles.y;
 
-				if ((cvar.aa_edge == 2 || cvar.aa_edge == 3) && FakeEdge(angle))
+				if ((config.aa_edge == 2 || config.aa_edge == 3) && FakeEdge(angle))
 					cmd->viewangles.y = angle;
 			}
 			else {
-				if (cvar.aa_yaw > 0) {
-					if (cvar.aa_yaw == 1) {//180
+				if (config.aa_yaw > 0) {
+					if (config.aa_yaw == 1) {//180
 						cmd->viewangles.y = vAngles[1] + 180;
 					}
-					else if (cvar.aa_yaw == 2) {//180 Jitter
+					else if (config.aa_yaw == 2) {//180 Jitter
 						static bool jitter = false;
 
 						if (jitter)
@@ -268,11 +271,11 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 
 						jitter = !jitter;
 					}
-					else if (cvar.aa_yaw == 3) {//Spin
+					else if (config.aa_yaw == 3) {//Spin
 						int spin = 30;
 						cmd->viewangles.y = fmod(g_Engine.GetClientTime()*spin*360.0f, 360.0f);
 					}
-					else if (cvar.aa_yaw == 4) {//Jitter
+					else if (config.aa_yaw == 4) {//Jitter
 						static unsigned int m_side = 0;
 
 						if (m_side == 0)
@@ -288,7 +291,7 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 
 						m_side++;
 					}
-					else if (cvar.aa_yaw == 5) {//Sideway
+					else if (config.aa_yaw == 5) {//Sideway
 						static bool jitter = false;
 
 						if (jitter)
@@ -298,23 +301,23 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 
 						jitter = !jitter;
 					}
-					else if (cvar.aa_yaw == 6) {//Random
+					else if (config.aa_yaw == 6) {//Random
 						cmd->viewangles.y = rand() % 361;
 						if (cmd->viewangles.y > 180)
 							cmd->viewangles.y -= 360;
 					}
-					else if (cvar.aa_yaw == 7) {//Static
-						cmd->viewangles.y = vAngles[1] + cvar.aa_yaw_static;
+					else if (config.aa_yaw == 7) {//Static
+						cmd->viewangles.y = vAngles[1] + config.aa_yaw_static;
 					}
 				}
 
 				float angle = cmd->viewangles.y;
 
-				if ((cvar.aa_edge == 1 || cvar.aa_edge == 3 || cvar.aa_edge == 4) && FakeEdge(angle))
+				if ((config.aa_edge == 1 || config.aa_edge == 3 || config.aa_edge == 4) && FakeEdge(angle))
 				{
 					static float timer = g_Local.weapon.curtime;
 
-					if (g_Local.weapon.curtime - timer > 3 && cvar.aa_edge == 4)
+					if (g_Local.weapon.curtime - timer > 3 && config.aa_edge == 4)
 					{
 						timer = g_Local.weapon.curtime;
 
@@ -327,18 +330,18 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 			}
 			
 			//Pitch
-			if (cvar.aa_pitch > 0)
+			if (config.aa_pitch > 0)
 			{
-				if (cvar.aa_pitch == 1) {//Fakedown
+				if (config.aa_pitch == 1) {//Fakedown
 					cmd->viewangles.x = 180;
 				}
-				else if (cvar.aa_pitch == 2) {//Down
+				else if (config.aa_pitch == 2) {//Down
 					cmd->viewangles.x = -88;
 				}
-				else if (cvar.aa_pitch == 3) {//Up
+				else if (config.aa_pitch == 3) {//Up
 					cmd->viewangles.x = 88;
 				}
-				else if (cvar.aa_pitch == 4) {//Jitter
+				else if (config.aa_pitch == 4) {//Jitter
 					static bool jitter = false;
 
 					if (jitter)
@@ -348,7 +351,7 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 
 					jitter = !jitter;
 				}
-				else if (cvar.aa_pitch == 5) {//Random
+				else if (config.aa_pitch == 5) {//Random
 					cmd->viewangles.x = rand() % 361;
 					if (cmd->viewangles.x > 180)
 						cmd->viewangles.x -= 360;
@@ -362,7 +365,7 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 
 void CMisc::AutoPistol(struct usercmd_s *cmd) 
 {
-	if (cvar.autopistol && cmd->buttons & IN_ATTACK && IsCurWeaponPistol() && !g_Local.weapon.m_iInReload)
+	if (config.autopistol && cmd->buttons & IN_ATTACK && IsCurWeaponPistol() && !g_Local.weapon.m_iInReload)
 	{
 		static bool bFire = false;
 
@@ -381,7 +384,7 @@ void CMisc::AutoPistol(struct usercmd_s *cmd)
 
 void CMisc::AutoReload(struct usercmd_s *cmd)
 {
-	if (cvar.autoreload && cmd->buttons & IN_ATTACK && g_Local.weapon.m_iClip < 1 && IsCurWeaponGun()) 
+	if (config.autoreload && cmd->buttons & IN_ATTACK && g_Local.weapon.m_iClip < 1 && IsCurWeaponGun()) 
 	{
 		cmd->buttons &= ~IN_ATTACK;
 		cmd->buttons |= IN_RELOAD;
@@ -390,14 +393,14 @@ void CMisc::AutoReload(struct usercmd_s *cmd)
 
 void CMisc::ThirdPerson(struct ref_params_s *pparams)
 {
-	if (g_Local.bAlive && cvar.thirdperson > 0 && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot && !cvar.hide_from_obs) 
+	if (g_Local.bAlive && config.thirdperson > 0 && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot && !config.hide_from_obs) 
 	{
 		Vector Offset(0, 0, 0);
 		Vector r, u, b;
 
 		VectorMul(pparams->right, 0, r);
 		VectorMul(pparams->up, 15, u);
-		VectorMul(pparams->forward, -(cvar.thirdperson), b);
+		VectorMul(pparams->forward, -(config.thirdperson), b);
 
 		Offset = Offset + r;
 		Offset = Offset + u;
@@ -476,12 +479,12 @@ void CMisc::NameStealer()
 {
 	static DWORD timer = GetTickCount();
 
-	if (cvar.name_stealer > 0)
+	if (config.name_stealer > 0)
 	{
 		char cNames[MAX_CLIENTS][MAX_PLAYER_NAME_LENGTH];
 		unsigned int iCount = 0;
 
-		if (GetTickCount() - timer < cvar.name_stealer)
+		if (GetTickCount() - timer < config.name_stealer)
 			return;
 
 		for (int i = 1; i <= g_Engine.GetMaxClients(); i++)
