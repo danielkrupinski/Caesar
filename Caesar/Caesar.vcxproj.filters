@@ -330,6 +330,9 @@
     <ClInclude Include="json\json-forwards.h">
       <Filter>json</Filter>
     </ClInclude>
+    <ClInclude Include="Caesar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="QAngle.cpp">
