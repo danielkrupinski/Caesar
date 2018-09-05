@@ -343,10 +343,10 @@ void CWorld::UpdateVisibility(int id)
 	bool teammates = false;
 	bool walls = false;
 
-	if (config.aim_teammates || config.legit_teammates)
+	if (config.aimbot.teammates || config.legit_teammates)
 		teammates = true;
 
-	if (((config.aim && config.aim_penetration) || (config.legit[g_Local.weapon.m_iWeaponID].trigger && config.legit[g_Local.weapon.m_iWeaponID].trigger_penetration)) && IsCurWeaponGun())
+	if (((config.aimbot.enabled && config.aimbot.penetration) || (config.legit[g_Local.weapon.m_iWeaponID].trigger && config.legit[g_Local.weapon.m_iWeaponID].trigger_penetration)) && IsCurWeaponGun())
 		walls = true;
 
 	if (!teammates && g_Player[id].iTeam == g_Local.iTeam)
@@ -356,30 +356,30 @@ void CWorld::UpdateVisibility(int id)
 
 	if (IsCurWeaponGun()) 
 	{
-		if (config.aim)//Rage aimbot
+		if (config.aimbot.enabled)//Rage aimbot
 		{
-			if (config.aim_hitbox == 1)//"Head", "Neck", "Chest", "Stomach"
+			if (config.aimbot.hitbox == 1)//"Head", "Neck", "Chest", "Stomach"
 			{
 				Hitboxes.push_back(11);
 			}
-			else if (config.aim_hitbox == 2)
+			else if (config.aimbot.hitbox == 2)
 			{
 				Hitboxes.push_back(10);
 			}
-			else if (config.aim_hitbox == 3)
+			else if (config.aimbot.hitbox == 3)
 			{
 				Hitboxes.push_back(7);
 			}
-			else if (config.aim_hitbox == 4)
+			else if (config.aimbot.hitbox == 4)
 			{
 				Hitboxes.push_back(0);
 			}
-			else if(config.aim_hitbox == 5)//All
+			else if(config.aimbot.hitbox == 5)//All
 			{
 				for (unsigned int j = 0; j < g_Local.iMaxHitboxes; j++)
 					Hitboxes.push_back(j);
 			}
-			else if (config.aim_hitbox == 6)//Vital
+			else if (config.aimbot.hitbox == 6)//Vital
 			{
 				for (unsigned int j = 0; j <= 11; j++)
 					Hitboxes.push_back(j);
@@ -487,12 +487,12 @@ void CWorld::UpdateVisibility(int id)
 			}
 		}
 
-		if (config.aim && config.aim_multi_point > 0 && IsCurWeaponGun())
+		if (config.aimbot.enabled && config.aimbot.multiPoint > 0 && IsCurWeaponGun())
 		{
-			if (config.aim_multi_point == 1 && hitbox != 11)
+			if (config.aimbot.multiPoint == 1 && hitbox != 11)
 				continue;
 
-			if (config.aim_multi_point == 2 && hitbox > 11)
+			if (config.aimbot.multiPoint == 2 && hitbox > 11)
 				continue;
 
 			for (unsigned int point = 0; point <= 8; ++point)

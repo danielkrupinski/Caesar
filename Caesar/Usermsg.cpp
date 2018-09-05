@@ -73,7 +73,7 @@ int SetFOV(const char *pszName, int iSize, void *pbuf)
 	else if(iFOV > 0)
 		g_Local.bScoped = true;
 
-	if (cvar.remove_scope && g_Local.bScoped) 
+	if (config.remove_scope && g_Local.bScoped) 
 	{
 		iFOV = DEFAULT_FOV;
 

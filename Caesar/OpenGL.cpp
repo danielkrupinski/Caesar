@@ -20,9 +20,9 @@ GLint viewport[4];
 
 void APIENTRY Hooked_glBegin(GLenum mode)
 {
-	if (g_pIRunGameEngine->IsInGame() && !cvar.hide_from_obs)
+	if (g_pIRunGameEngine->IsInGame() && !config.hide_from_obs)
 	{
-		if (cvar.nosmoke && mode == GL_QUADS)
+		if (config.nosmoke && mode == GL_QUADS)
 		{
 			GLfloat smokecol[4];
 
@@ -40,9 +40,9 @@ void APIENTRY Hooked_glBegin(GLenum mode)
 
 void APIENTRY Hooked_glVertex3fv(GLfloat *v)
 {
-	if (g_pIRunGameEngine->IsInGame() && g_Local.bAlive && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot && !cvar.hide_from_obs)
+	if (g_pIRunGameEngine->IsInGame() && g_Local.bAlive && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot && !config.hide_from_obs)
 	{
-		if (cvar.nosmoke && bSmoke && !g_Menu.bOpened) return;
+		if (config.nosmoke && bSmoke && !g_Menu.bOpened) return;
 	}
 
 	(*pglVertex3fv)(v);
@@ -52,7 +52,7 @@ void APIENTRY Hooked_glColor4f(GLfloat red, GLfloat green, GLfloat blue, GLfloat
 {
 	if (g_pGlobals.chams)
 	{
-		if (cvar.chams_type == 2) 
+		if (config.chams_type == 2) 
 		{
 			red = (g_pGlobals.chams_render_r / 255) * red;
 			green = (g_pGlobals.chams_render_g / 255) * green;
@@ -71,7 +71,7 @@ void APIENTRY Hooked_glColor4f(GLfloat red, GLfloat green, GLfloat blue, GLfloat
 
 BOOL APIENTRY Hooked_wglSwapBuffers(HDC hdc)
 {
-	if (cvar.hide_from_obs && GetTickCount() - g_pGlobals.dwLoadingFinished > 1000 && g_Engine.pfnGetCvarFloat("r_norefresh") == 0)
+	if (config.hide_from_obs && GetTickCount() - g_pGlobals.dwLoadingFinished > 1000 && g_Engine.pfnGetCvarFloat("r_norefresh") == 0)
 	{
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();

@@ -318,7 +318,7 @@ void PreS_DynamicSound(int entid, DWORD entchannel, char *szSoundFile, float *fO
 		fOrigin = ent->curstate.origin;
 	}
 
-	if (g_pIRunGameEngine->IsInGame() && fVolume >= cvar.esp_sound_minimum_volume)
+	if (g_pIRunGameEngine->IsInGame() && fVolume >= config.esp_sound_minimum_volume)
 	{
 		if (entid > 0 && entid <= g_Engine.GetMaxClients() && entid != g_Local.iIndex)
 		{
