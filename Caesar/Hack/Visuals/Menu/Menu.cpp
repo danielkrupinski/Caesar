@@ -924,7 +924,7 @@ void CMenu::Tabs()
 
 			if (DrawButton(x + box_indent_x, y + box_indent_y, "Load"))
 			{
-				func.LoadCvars();
+                config.load();
 			}
 
 			line_y += 30;
