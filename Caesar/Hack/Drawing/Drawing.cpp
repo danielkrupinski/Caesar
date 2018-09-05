@@ -60,7 +60,7 @@ void CDrawing::DrawPlayerBox(int x, int y, int w, int h, int r, int g, int b, in
 	g_pISurface->DrawSetColor(r, g, b, a);
 	g_pISurface->DrawOutlinedRect(x0, y0, x1, y1);
 
-	if (cvar.esp_box_outline) 
+	if (config.esp_box_outline) 
 	{
 		g_pISurface->DrawSetColor(0, 0, 0, a);
 		g_pISurface->DrawOutlinedRect(x0 - 1, y0 - 1, x1 + 1, y1 + 1);
