@@ -5,8 +5,6 @@
 
 #include "Config.h"
 
-Config config{ "Caesar.json" };
-
 Config::Config(const std::string& name)
 {
     char buff[MAX_PATH]{ }; // Default initialization to zero array as the array is placed on stack

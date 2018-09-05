@@ -88,7 +88,3 @@ void HookOpenGL();
 
 #include "Hack\Hack.h"
 #include "Usermsg.h"
-
-#include "Config.h"
-
-extern Config config;
