@@ -1,6 +1,5 @@
 #include <fstream>
 #include <ShlObj.h>
-//#include <windef.h>
 
 #include "json/json.h"
 
