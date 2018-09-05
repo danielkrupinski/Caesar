@@ -36,7 +36,7 @@ void ComputeMove(int id, float forwardmove, float sidemove)
 
 void CSystems::KnifeBot(struct usercmd_s *cmd)
 {
-	if (IsCurWeaponKnife() && CanAttack() && cvar.knifebot)
+	if (IsCurWeaponKnife() && CanAttack() && config.knifebot)
 	{
 		int id = NULL;
 		float flDist = 8192.f;
@@ -120,7 +120,7 @@ void CSystems::KnifeBot(struct usercmd_s *cmd)
 
 void CSystems::BunnyHop(struct usercmd_s *cmd)
 {
-	if (cvar.bunnyhop)
+	if (config.bunnyhop)
 	{
 		if (cmd->buttons&IN_JUMP)
 		{

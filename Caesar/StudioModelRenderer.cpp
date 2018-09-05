@@ -153,21 +153,21 @@ void StudioRenderModel(void)
 {
 	cl_entity_s* ent = g_Studio.GetCurrentEntity();
 
-	if (!cvar.hide_from_obs && cvar.esp && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot)
+	if (!config.hide_from_obs && config.esp && !g_pGlobals.bSnapshot && !g_pGlobals.bScreenshot)
 	{
 		if (g_Utils.IsPlayer(ent) && ent->index != g_Local.iIndex)
 		{
-			if (cvar.disable_render_teammates && g_Player[ent->index].iTeam == g_Local.iTeam) 
+			if (config.disable_render_teammates && g_Player[ent->index].iTeam == g_Local.iTeam) 
 				return;
 
-			if (!cvar.esp_teammates && g_Player[ent->index].iTeam == g_Local.iTeam)
+			if (!config.esp_teammates && g_Player[ent->index].iTeam == g_Local.iTeam)
 			{
 				oStudioRenderModel();
 				g_pGlobals.chams = false;
 				return;
 			}
 
-			if (cvar.glow_players)
+			if (config.glow_players)
 			{
 				glDepthFunc(GL_GREATER);
 				glDisable(GL_DEPTH_TEST);
@@ -178,21 +178,21 @@ void StudioRenderModel(void)
 
 				if (g_Player[ent->index].iTeam == TERRORIST)
 				{
-					ent->curstate.rendercolor.r = cvar.glow_players_t_r;
-					ent->curstate.rendercolor.g = cvar.glow_players_t_g;
-					ent->curstate.rendercolor.b = cvar.glow_players_t_b;
+					ent->curstate.rendercolor.r = config.glow_players_t_r;
+					ent->curstate.rendercolor.g = config.glow_players_t_g;
+					ent->curstate.rendercolor.b = config.glow_players_t_b;
 				}
 				else if (g_Player[ent->index].iTeam == CT)
 				{
-					ent->curstate.rendercolor.r = cvar.glow_players_ct_r;
-					ent->curstate.rendercolor.g = cvar.glow_players_ct_g;
-					ent->curstate.rendercolor.b = cvar.glow_players_ct_b;
+					ent->curstate.rendercolor.r = config.glow_players_ct_r;
+					ent->curstate.rendercolor.g = config.glow_players_ct_g;
+					ent->curstate.rendercolor.b = config.glow_players_ct_b;
 				}
 
 				oStudioRenderFinal();
 				glEnable(GL_DEPTH_TEST);
 
-				if (!cvar.chams)
+				if (!config.chams)
 				{
 					glDisable(GL_DEPTH_TEST);
 					g_pStudio->SetForceFaceFlags(0);
@@ -205,7 +205,7 @@ void StudioRenderModel(void)
 				}
 			}
 
-			if (cvar.chams) 
+			if (config.chams) 
 			{
 				g_pGlobals.chams = true;
 
@@ -214,7 +214,7 @@ void StudioRenderModel(void)
 				ent->curstate.renderamt = 0;
 				g_pStudio->SetForceFaceFlags(0);
 
-				if (cvar.chams_type != 3)
+				if (config.chams_type != 3)
 					glDisable(GL_TEXTURE_2D);
 
 				glBindTexture(GL_TEXTURE_2D, 0);
@@ -224,19 +224,19 @@ void StudioRenderModel(void)
 				ent->curstate.renderamt = 0;
 				g_pStudio->SetForceFaceFlags(0);
 
-				if (cvar.chams_behind_wall) {
+				if (config.chams_behind_wall) {
 					glDepthFunc(GL_GREATER);
 					glDisable(GL_DEPTH_TEST);
 
 					if (g_Player[ent->index].iTeam == TERRORIST) {
-						g_pGlobals.chams_render_r = cvar.chams_t_invis_r;
-						g_pGlobals.chams_render_g = cvar.chams_t_invis_g;
-						g_pGlobals.chams_render_b = cvar.chams_t_invis_b;
+						g_pGlobals.chams_render_r = config.chams_t_invis_r;
+						g_pGlobals.chams_render_g = config.chams_t_invis_g;
+						g_pGlobals.chams_render_b = config.chams_t_invis_b;
 					}
 					else if (g_Player[ent->index].iTeam == CT) {
-						g_pGlobals.chams_render_r = cvar.chams_ct_invis_r;
-						g_pGlobals.chams_render_g = cvar.chams_ct_invis_g;
-						g_pGlobals.chams_render_b = cvar.chams_ct_invis_b;
+						g_pGlobals.chams_render_r = config.chams_ct_invis_r;
+						g_pGlobals.chams_render_g = config.chams_ct_invis_g;
+						g_pGlobals.chams_render_b = config.chams_ct_invis_b;
 					}
 					else {
 						g_pGlobals.chams_render_r = 255;
@@ -253,14 +253,14 @@ void StudioRenderModel(void)
 				glDepthFunc(GL_LESS);
 
 				if (g_Player[ent->index].iTeam == TERRORIST) {
-					g_pGlobals.chams_render_r = cvar.chams_t_vis_r;
-					g_pGlobals.chams_render_g = cvar.chams_t_vis_g;
-					g_pGlobals.chams_render_b = cvar.chams_t_vis_b;
+					g_pGlobals.chams_render_r = config.chams_t_vis_r;
+					g_pGlobals.chams_render_g = config.chams_t_vis_g;
+					g_pGlobals.chams_render_b = config.chams_t_vis_b;
 				}
 				else if (g_Player[ent->index].iTeam == CT) {
-					g_pGlobals.chams_render_r = cvar.chams_ct_vis_r;
-					g_pGlobals.chams_render_g = cvar.chams_ct_vis_g;
-					g_pGlobals.chams_render_b = cvar.chams_ct_vis_b;
+					g_pGlobals.chams_render_r = config.chams_ct_vis_r;
+					g_pGlobals.chams_render_g = config.chams_ct_vis_g;
+					g_pGlobals.chams_render_b = config.chams_ct_vis_b;
 				}
 				else {
 					g_pGlobals.chams_render_r = 255;
@@ -272,7 +272,7 @@ void StudioRenderModel(void)
 
 				oStudioRenderFinal();
 
-				if (cvar.chams != 3)
+				if (config.chams != 3)
 					glEnable(GL_TEXTURE_2D);
 			}
 			else oStudioRenderModel();

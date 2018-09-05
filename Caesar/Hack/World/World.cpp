@@ -343,10 +343,10 @@ void CWorld::UpdateVisibility(int id)
 	bool teammates = false;
 	bool walls = false;
 
-	if (cvar.aim_teammates || cvar.legit_teammates)
+	if (config.aim_teammates || config.legit_teammates)
 		teammates = true;
 
-	if (((cvar.aim && cvar.aim_penetration) || (cvar.legit[g_Local.weapon.m_iWeaponID].trigger && cvar.legit[g_Local.weapon.m_iWeaponID].trigger_penetration)) && IsCurWeaponGun())
+	if (((config.aim && config.aim_penetration) || (config.legit[g_Local.weapon.m_iWeaponID].trigger && config.legit[g_Local.weapon.m_iWeaponID].trigger_penetration)) && IsCurWeaponGun())
 		walls = true;
 
 	if (!teammates && g_Player[id].iTeam == g_Local.iTeam)
@@ -356,52 +356,52 @@ void CWorld::UpdateVisibility(int id)
 
 	if (IsCurWeaponGun()) 
 	{
-		if (cvar.aim)//Rage aimbot
+		if (config.aim)//Rage aimbot
 		{
-			if (cvar.aim_hitbox == 1)//"Head", "Neck", "Chest", "Stomach"
+			if (config.aim_hitbox == 1)//"Head", "Neck", "Chest", "Stomach"
 			{
 				Hitboxes.push_back(11);
 			}
-			else if (cvar.aim_hitbox == 2)
+			else if (config.aim_hitbox == 2)
 			{
 				Hitboxes.push_back(10);
 			}
-			else if (cvar.aim_hitbox == 3)
+			else if (config.aim_hitbox == 3)
 			{
 				Hitboxes.push_back(7);
 			}
-			else if (cvar.aim_hitbox == 4)
+			else if (config.aim_hitbox == 4)
 			{
 				Hitboxes.push_back(0);
 			}
-			else if(cvar.aim_hitbox == 5)//All
+			else if(config.aim_hitbox == 5)//All
 			{
 				for (unsigned int j = 0; j < g_Local.iMaxHitboxes; j++)
 					Hitboxes.push_back(j);
 			}
-			else if (cvar.aim_hitbox == 6)//Vital
+			else if (config.aim_hitbox == 6)//Vital
 			{
 				for (unsigned int j = 0; j <= 11; j++)
 					Hitboxes.push_back(j);
 			}
 		}
-		else if (cvar.legit[g_Local.weapon.m_iWeaponID].aim)
+		else if (config.legit[g_Local.weapon.m_iWeaponID].aim)
 		{
-			if (cvar.legit[g_Local.weapon.m_iWeaponID].aim_head)
+			if (config.legit[g_Local.weapon.m_iWeaponID].aim_head)
 				Hitboxes.push_back(11);
 
-			if (cvar.legit[g_Local.weapon.m_iWeaponID].aim_chest)
+			if (config.legit[g_Local.weapon.m_iWeaponID].aim_chest)
 				Hitboxes.push_back(7);
 
-			if (cvar.legit[g_Local.weapon.m_iWeaponID].aim_stomach)
+			if (config.legit[g_Local.weapon.m_iWeaponID].aim_stomach)
 				Hitboxes.push_back(0);
 
-			if (cvar.legit[g_Local.weapon.m_iWeaponID].trigger)
+			if (config.legit[g_Local.weapon.m_iWeaponID].trigger)
 			{
-				if (cvar.legit[g_Local.weapon.m_iWeaponID].trigger_head && !cvar.legit[g_Local.weapon.m_iWeaponID].aim_head)
+				if (config.legit[g_Local.weapon.m_iWeaponID].trigger_head && !config.legit[g_Local.weapon.m_iWeaponID].aim_head)
 					Hitboxes.push_back(11);
 
-				if (cvar.legit[g_Local.weapon.m_iWeaponID].trigger_chest && !cvar.legit[g_Local.weapon.m_iWeaponID].aim_chest)
+				if (config.legit[g_Local.weapon.m_iWeaponID].trigger_chest && !config.legit[g_Local.weapon.m_iWeaponID].aim_chest)
 				{
 					Hitboxes.push_back(7);
 					Hitboxes.push_back(8);
@@ -411,16 +411,16 @@ void CWorld::UpdateVisibility(int id)
 					Hitboxes.push_back(17);
 				}
 
-				if (cvar.legit[g_Local.weapon.m_iWeaponID].trigger_stomach && !cvar.legit[g_Local.weapon.m_iWeaponID].aim_stomach)
+				if (config.legit[g_Local.weapon.m_iWeaponID].trigger_stomach && !config.legit[g_Local.weapon.m_iWeaponID].aim_stomach)
 					Hitboxes.push_back(0);
 			}
 		}
-		else if (cvar.legit[g_Local.weapon.m_iWeaponID].trigger)
+		else if (config.legit[g_Local.weapon.m_iWeaponID].trigger)
 		{
-			if (cvar.legit[g_Local.weapon.m_iWeaponID].trigger_head)
+			if (config.legit[g_Local.weapon.m_iWeaponID].trigger_head)
 				Hitboxes.push_back(11);
 
-			if (cvar.legit[g_Local.weapon.m_iWeaponID].trigger_chest)
+			if (config.legit[g_Local.weapon.m_iWeaponID].trigger_chest)
 			{
 				Hitboxes.push_back(7);
 				Hitboxes.push_back(8);
@@ -430,11 +430,11 @@ void CWorld::UpdateVisibility(int id)
 				Hitboxes.push_back(17);
 			}
 
-			if (cvar.legit[g_Local.weapon.m_iWeaponID].trigger_stomach)
+			if (config.legit[g_Local.weapon.m_iWeaponID].trigger_stomach)
 				Hitboxes.push_back(0);
 		}
 	}
-	else if (IsCurWeaponKnife() && cvar.knifebot)
+	else if (IsCurWeaponKnife() && config.knifebot)
 	{
 		Hitboxes.push_back(0);
 	}
@@ -449,14 +449,14 @@ void CWorld::UpdateVisibility(int id)
 	{
 		g_Engine.pEventAPI->EV_SetTraceHull(2);
 
-		if (cvar.bypass_trace_blockers)
+		if (config.bypass_trace_blockers)
 			g_Engine.pEventAPI->EV_PlayerTrace(g_Local.vEye, g_PlayerExtraInfoList[id].vHitbox[hitbox], PM_WORLD_ONLY, -1, &tr);
 		else
 			g_Engine.pEventAPI->EV_PlayerTrace(g_Local.vEye, g_PlayerExtraInfoList[id].vHitbox[hitbox], PM_GLASS_IGNORE, -1, &tr);
 
 		detect = g_Engine.pEventAPI->EV_IndexFromTrace(&tr);
 
-		if ((cvar.bypass_trace_blockers && tr.fraction == 1 && !detect) || (!cvar.bypass_trace_blockers && detect == id))
+		if ((config.bypass_trace_blockers && tr.fraction == 1 && !detect) || (!config.bypass_trace_blockers && detect == id))
 		{
 			g_Player[id].bVisible = true;
 			g_Player[id].bBehindTheWall = false;
@@ -487,26 +487,26 @@ void CWorld::UpdateVisibility(int id)
 			}
 		}
 
-		if (cvar.aim && cvar.aim_multi_point > 0 && IsCurWeaponGun())
+		if (config.aim && config.aim_multi_point > 0 && IsCurWeaponGun())
 		{
-			if (cvar.aim_multi_point == 1 && hitbox != 11)
+			if (config.aim_multi_point == 1 && hitbox != 11)
 				continue;
 
-			if (cvar.aim_multi_point == 2 && hitbox > 11)
+			if (config.aim_multi_point == 2 && hitbox > 11)
 				continue;
 
 			for (unsigned int point = 0; point <= 8; ++point)
 			{
 				g_Engine.pEventAPI->EV_SetTraceHull(2);
 
-				if (cvar.bypass_trace_blockers) 
+				if (config.bypass_trace_blockers) 
 					g_Engine.pEventAPI->EV_PlayerTrace(g_Local.vEye, g_PlayerExtraInfoList[id].vHitboxPoints[hitbox][point], PM_WORLD_ONLY, -1, &tr);
 				else 
 					g_Engine.pEventAPI->EV_PlayerTrace(g_Local.vEye, g_PlayerExtraInfoList[id].vHitboxPoints[hitbox][point], PM_GLASS_IGNORE, -1, &tr);
 
 				detect = g_Engine.pEventAPI->EV_IndexFromTrace(&tr);
 
-				if ((cvar.bypass_trace_blockers && tr.fraction == 1 && !detect) || (!cvar.bypass_trace_blockers && detect == id))
+				if ((config.bypass_trace_blockers && tr.fraction == 1 && !detect) || (!config.bypass_trace_blockers && detect == id))
 				{
 					g_Player[id].bVisible = true;
 					g_Player[id].bBehindTheWall = false;

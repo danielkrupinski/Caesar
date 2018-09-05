@@ -92,13 +92,13 @@ void CVisuals::IconInit()
 
 void CVisuals::DrawHistory(int i)
 {
-	if (!cvar.esp)
+	if (!config.esp)
 		return;
 
-	if (!cvar.esp_behind && g_Player[i].bBehindTheWall)
+	if (!config.esp_behind && g_Player[i].bBehindTheWall)
 		return;
 
-	if (!cvar.esp_teammates && g_Player[i].iTeam == g_Local.iTeam)
+	if (!config.esp_teammates && g_Player[i].iTeam == g_Local.iTeam)
 		return;
 
 	byte r = 105;
@@ -119,30 +119,30 @@ void CVisuals::DrawHistory(int i)
 		float box_height = g_Player[i].bDucked ? _h : _h * 0.9f;
 		float box_width = box_height * 0.3f;
 
-		if (cvar.esp_box)
+		if (config.esp_box)
 			g_Drawing.DrawPlayerBox(ScreenTop[0], ScreenTop[1], box_width, box_height, r, g, b, 255);
 
 		char *szWeapon = g_PlayerExtraInfoList[i].szWeaponName;
 
-		if (cvar.esp_weapon > 0 && szWeapon)
+		if (config.esp_weapon > 0 && szWeapon)
 		{
 			unsigned int y = ScreenBot[1] + (8 - _h);
 
 			g_Drawing.DrawString(ESP, ScreenTop[0], y, r, g, b, 255, FONT_CENTER, "%s", szWeapon);
 		}
 
-		if (cvar.esp_distance)
+		if (config.esp_distance)
 		{
 			unsigned int y = ScreenBot[1] + (-8 - _h);
 
-			g_Drawing.DrawString(ESP, ScreenTop[0], y, r, g, b, cvar.esp_alpha, FONT_CENTER, "%.f", g_Player[i].flDist);
+			g_Drawing.DrawString(ESP, ScreenTop[0], y, r, g, b, config.esp_alpha, FONT_CENTER, "%.f", g_Player[i].flDist);
 		}
 
-		if (cvar.esp_name && g_PlayerInfoList[i].name != NULL)
+		if (config.esp_name && g_PlayerInfoList[i].name != NULL)
 		{
 			unsigned int y = box_height - 8 + ScreenTop[1];
 
-			g_Drawing.DrawString(ESP, ScreenTop[0], y, r, g, b, cvar.esp_alpha, FONT_CENTER, "%s", g_PlayerInfoList[i].name);
+			g_Drawing.DrawString(ESP, ScreenTop[0], y, r, g, b, config.esp_alpha, FONT_CENTER, "%s", g_PlayerInfoList[i].name);
 		}
 	}
 }
@@ -152,7 +152,7 @@ void TriggerStatus()
 	static DWORD dwTemporaryBlockTimer = GetTickCount();
 	static bool old = g_AimBot.TriggerKeyStatus;
 
-	if (cvar.trigger_key > 0 && cvar.trigger_key < 255) {
+	if (config.trigger_key > 0 && config.trigger_key < 255) {
 		if (g_AimBot.TriggerKeyStatus != old)
 		{
 			old = g_AimBot.TriggerKeyStatus;
@@ -162,9 +162,9 @@ void TriggerStatus()
 		if (GetTickCount() - dwTemporaryBlockTimer < 2000)
 		{
 			if (g_AimBot.TriggerKeyStatus)
-				g_Drawing.DrawString(ESP, g_Screen.iWidth / 2, g_Screen.iHeight / 2 + 64, 0, 255, 0, cvar.esp_alpha, FONT_CENTER, "Trigger activated");
+				g_Drawing.DrawString(ESP, g_Screen.iWidth / 2, g_Screen.iHeight / 2 + 64, 0, 255, 0, config.esp_alpha, FONT_CENTER, "Trigger activated");
 			else
-				g_Drawing.DrawString(ESP, g_Screen.iWidth / 2, g_Screen.iHeight / 2 + 64, 255, 0, 0, cvar.esp_alpha, FONT_CENTER, "Trigger deactivated");
+				g_Drawing.DrawString(ESP, g_Screen.iWidth / 2, g_Screen.iHeight / 2 + 64, 255, 0, 0, config.esp_alpha, FONT_CENTER, "Trigger deactivated");
 		}
 	}
 }
@@ -235,7 +235,7 @@ void CVisuals::Run()
 
 void CVisuals::DrawAimBotFOV()
 {
-	if (g_Local.bAlive && IsCurWeaponGun() && !cvar.aim && cvar.draw_aim_fov && g_AimBot.m_flCurrentFOV > 0 && g_AimBot.m_flCurrentFOV < 45 && g_Local.iFOV)
+	if (g_Local.bAlive && IsCurWeaponGun() && !config.aimbot.enabled && config.draw_aim_fov && g_AimBot.m_flCurrentFOV > 0 && g_AimBot.m_flCurrentFOV < 45 && g_Local.iFOV)
 	{
 		float x = g_Screen.iWidth * 0.5f;
 		float y = g_Screen.iHeight * 0.5f;
@@ -248,13 +248,13 @@ void CVisuals::DrawAimBotFOV()
 		positions[0] = (x - (dx * g_Local.vNoRecoilAngle[1]));
 		positions[1] = (y + (dy * g_Local.vNoRecoilAngle[0]));
 
-		g_Drawing.DrawCircle(positions, 30, radius, cvar.draw_aim_fov_r, cvar.draw_aim_fov_g, cvar.draw_aim_fov_b, 120);
+		g_Drawing.DrawCircle(positions, 30, radius, config.draw_aim_fov_r, config.draw_aim_fov_g, config.draw_aim_fov_b, 120);
 	}
 }
 
 void CVisuals::RemoveScope() 
 {
-	if (g_Local.bScoped && cvar.remove_scope) 
+	if (g_Local.bScoped && config.remove_scope) 
 	{
 		g_Engine.pfnTintRGBA(1, g_Screen.iHeight / 2, g_Screen.iWidth, 1, 0, 0, 0, 255);
 		g_Engine.pfnTintRGBA(g_Screen.iWidth / 2, 1, 1, g_Screen.iHeight, 0, 0, 0, 255);
@@ -263,7 +263,7 @@ void CVisuals::RemoveScope()
 
 void CVisuals::PenetrationInfo()
 {
-	if (cvar.penetration_info && g_Local.bAlive)
+	if (config.penetration_info && g_Local.bAlive)
 	{
 		int iOriginalPenetration = CurPenetration();
 
@@ -302,7 +302,7 @@ void CVisuals::PenetrationInfo()
 			}
 
 			if(iWalls > 0)
-				g_Drawing.DrawString(ESP,g_Screen.iWidth / 2, g_Screen.iHeight / 2 + 32, 0, 255, 0, cvar.esp_alpha, FONT_CENTER, "Wallbang (%i)", iWalls);
+				g_Drawing.DrawString(ESP,g_Screen.iWidth / 2, g_Screen.iHeight / 2 + 32, 0, 255, 0, config.esp_alpha, FONT_CENTER, "Wallbang (%i)", iWalls);
 		}
 	}
 }
@@ -311,9 +311,9 @@ void CVisuals::Crosshair()
 {
 	static char *old = NULL;
 
-	if (cvar.crosshair && g_Local.iFOV == DEFAULT_FOV)
+	if (config.crosshair.enabled && g_Local.iFOV == DEFAULT_FOV)
 	{
-		int r = cvar.crosshair_r, g = cvar.crosshair_g, b = cvar.crosshair_b;
+		int r = config.crosshair.r, g = config.crosshair.g, b = config.crosshair.b;
 
 		if ((int)g_Engine.pfnGetCvarFloat("crosshair") != 0)
 		{
@@ -341,7 +341,7 @@ void CVisuals::Crosshair()
 
 void CVisuals::TraceGrenade()
 {
-	if (!cvar.grenade_trajectory || !IsCurWeaponNade() || !g_Local.bAlive) return;
+	if (!config.grenade_trajectory || !IsCurWeaponNade() || !g_Local.bAlive) return;
 
 	Vector vecAngles, vecForward, vecStart, vecEnd, vecOut;
 	pmtrace_t pmtrace;
@@ -423,7 +423,7 @@ void CVisuals::TraceGrenade()
 
 void CVisuals::SoundESP() 
 {
-	if (cvar.esp_sound)
+	if (config.esp_sound)
 	{
 		for (my_sound_t sound : mySounds)
 		{
@@ -477,13 +477,13 @@ void CVisuals::SoundESP()
 
 void CVisuals::PlayerESP(unsigned int i)
 {
-	if (!cvar.esp) 
+	if (!config.esp) 
 		return;
 
-	if (!cvar.esp_behind && g_Player[i].bBehindTheWall)
+	if (!config.esp_behind && g_Player[i].bBehindTheWall)
 		return;
 
-	if (!cvar.esp_teammates && g_Player[i].iTeam == g_Local.iTeam)
+	if (!config.esp_teammates && g_Player[i].iTeam == g_Local.iTeam)
 		return;
 
 	cl_entity_s *ent = g_Engine.GetEntityByIndex(i);
@@ -499,38 +499,38 @@ void CVisuals::PlayerESP(unsigned int i)
 		{
 			if (g_Player[i].bVisible)
 			{
-				r = cvar.esp_box_t_vis_r;
-				g = cvar.esp_box_t_vis_g;
-				b = cvar.esp_box_t_vis_b;
+				r = config.esp_box_t_vis_r;
+				g = config.esp_box_t_vis_g;
+				b = config.esp_box_t_vis_b;
 			}
 			else
 			{
-				r = cvar.esp_box_t_invis_r;
-				g = cvar.esp_box_t_invis_g;
-				b = cvar.esp_box_t_invis_b;
+				r = config.esp_box_t_invis_r;
+				g = config.esp_box_t_invis_g;
+				b = config.esp_box_t_invis_b;
 			}
 		}
 		else if (g_Player[i].iTeam == CT) 
 		{
 			if (g_Player[i].bVisible)
 			{
-				r = cvar.esp_box_ct_vis_r;
-				g = cvar.esp_box_ct_vis_g;
-				b = cvar.esp_box_ct_vis_b;
+				r = config.esp_box_ct_vis_r;
+				g = config.esp_box_ct_vis_g;
+				b = config.esp_box_ct_vis_b;
 			}
 			else
 			{
-				r = cvar.esp_box_ct_invis_r;
-				g = cvar.esp_box_ct_invis_g;
-				b = cvar.esp_box_ct_invis_b;
+				r = config.esp_box_ct_invis_r;
+				g = config.esp_box_ct_invis_g;
+				b = config.esp_box_ct_invis_b;
 			}
 		}
 	}
 	else if (g_Player[i].bFriend) 
 	{
-		r = cvar.esp_box_friends_r;
-		g = cvar.esp_box_friends_g;
-		b = cvar.esp_box_friends_b;
+		r = config.esp_box_friends_r;
+		g = config.esp_box_friends_g;
+		b = config.esp_box_friends_b;
 	}
 
 	Vector Top = Vector(ent->origin.x, ent->origin.y, ent->origin.z + ent->curstate.mins.z);
@@ -547,14 +547,14 @@ void CVisuals::PlayerESP(unsigned int i)
 		float box_height = g_Player[i].bDucked ? _h : _h * 0.9f;
 		float box_width = box_height * 0.3f;
 
-		if (cvar.esp_box)
+		if (config.esp_box)
 			g_Drawing.DrawPlayerBox(ScreenTop[0], ScreenTop[1], box_width, box_height, r, g, b, 255);
 
 		char *szWeapon = g_PlayerExtraInfoList[i].szWeaponName;
 
-		if (cvar.esp_weapon > 0 && szWeapon)
+		if (config.esp_weapon > 0 && szWeapon)
 		{
-			if (cvar.esp_weapon == 2) //Icon
+			if (config.esp_weapon == 2) //Icon
 			{
 				unsigned int y = ScreenBot[1] + (2 - _h);
 
@@ -623,7 +623,7 @@ void CVisuals::PlayerESP(unsigned int i)
 					unsigned int x1 = ScreenTop[0] + (w / 2);
 					unsigned int y1 = y0 + h;
 
-					g_Drawing.DrawTexture(texture, x0, y0, x1, y1, cvar.esp_weapon_r, cvar.esp_weapon_g, cvar.esp_weapon_b, 255);
+					g_Drawing.DrawTexture(texture, x0, y0, x1, y1, config.esp_weapon_r, config.esp_weapon_g, config.esp_weapon_b, 255);
 				}
 				else goto default_draw_weapon;
 			}
@@ -635,63 +635,63 @@ void CVisuals::PlayerESP(unsigned int i)
 			}
 		}
 
-		if (cvar.esp_distance)
+		if (config.esp_distance)
 		{
 			unsigned int y = ScreenBot[1] + (-8 - _h);
 
-			g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, cvar.esp_alpha, FONT_CENTER, "%.f", g_Player[i].flDist);
+			g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, config.esp_alpha, FONT_CENTER, "%.f", g_Player[i].flDist);
 		}
 
-		if (cvar.esp_name && g_PlayerInfoList[i].name != NULL)
+		if (config.esp_name && g_PlayerInfoList[i].name != NULL)
 		{
 			unsigned int y = box_height - 8 + ScreenTop[1];
 
-			g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, cvar.esp_alpha, FONT_CENTER, "%s", g_PlayerInfoList[i].name);
+			g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, config.esp_alpha, FONT_CENTER, "%s", g_PlayerInfoList[i].name);
 		}
 
 		static unsigned int indent = 4;
 
-		if (cvar.esp_flags)
+		if (config.esp_flags)
 		{
 			unsigned int seq = Cstrike_SequenceInfo[ent->curstate.sequence];
 
 			unsigned int y = 4;
 
-			if (cvar.esp_shots_fired) {
-				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "%i", g_Player[i].iShotsFired);
+			if (config.esp_shots_fired) {
+				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, config.esp_alpha, FONT_LEFT, "%i", g_Player[i].iShotsFired);
 				y += 12;
 			}
 
 			if (seq == SEQUENCE_RELOAD) {
-				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "R");
+				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, config.esp_alpha, FONT_LEFT, "R");
 				y += 12;
 			}
 			else if (seq == SEQUENCE_ARM_C4) {
-				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "P");
+				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, config.esp_alpha, FONT_LEFT, "P");
 				y += 12;
 			}
 
 			if (g_Player[i].bDucked)
 			{
-				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "D");
+				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, config.esp_alpha, FONT_LEFT, "D");
 				y += 12;
 			}
 
-			if (cvar.debug) {
-				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "P: %.3f", g_Player[i].vAngles[0]);
+			if (config.debug) {
+				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, config.esp_alpha, FONT_LEFT, "P: %.3f", g_Player[i].vAngles[0]);
 				y += 12;
 
-				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "Y: %.3f", g_Player[i].vAngles[1]);
+				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + y + ScreenTop[1], 255, 255, 255, config.esp_alpha, FONT_LEFT, "Y: %.3f", g_Player[i].vAngles[1]);
 				y += 12;
 			}
 		}
 		else {
-			if (cvar.esp_shots_fired) {
-				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + 4 + ScreenTop[1], 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "%i", g_Player[i].iShotsFired);
+			if (config.esp_shots_fired) {
+				g_Drawing.DrawString(ESP, ScreenTop[0] - box_width + indent, box_height + 4 + ScreenTop[1], 255, 255, 255, config.esp_alpha, FONT_LEFT, "%i", g_Player[i].iShotsFired);
 			}
 		}
 
-		if (cvar.esp_hitboxes) 
+		if (config.esp_hitboxes) 
 		{
 			float flScreenHead[2], flScreenHead2[2];
 
@@ -741,12 +741,12 @@ void CVisuals::PlayerESP(unsigned int i)
 
 				if (g_Utils.bCalcScreen(g_PlayerExtraInfoList[i].vHitbox[x], ft1)) 
 				{
-					g_Drawing.DrawString(ESP, ft1[0], ft1[1], 0, 255, 0, cvar.esp_alpha, FONT_CENTER, "%i", x);
+					g_Drawing.DrawString(ESP, ft1[0], ft1[1], 0, 255, 0, config.esp_alpha, FONT_CENTER, "%i", x);
 				}
 			}
 		}
 
-		if (cvar.esp_health && !cvar.hide_from_obs)
+		if (config.esp_health && !config.hide_from_obs)
 		{
 			float health_width = box_width - 5;
 
@@ -776,20 +776,20 @@ void CVisuals::PlayerESP(unsigned int i)
 
 void CVisuals::Debug() 
 {
-	if (cvar.debug && g_Local.bAlive) 
+	if (config.debug && g_Local.bAlive) 
 	{
 		int y = 135;
-		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "m_iWeaponID: %i", g_Local.weapon.m_iWeaponID);
+		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, config.esp_alpha, FONT_LEFT, "m_iWeaponID: %i", g_Local.weapon.m_iWeaponID);
 		y += 15;
-		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "m_iWeaponState: %i", g_Local.weapon.m_iWeaponState);
+		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, config.esp_alpha, FONT_LEFT, "m_iWeaponState: %i", g_Local.weapon.m_iWeaponState);
 		y += 15;
-		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "m_iFlags: %i", g_Local.weapon.m_iFlags);
+		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, config.esp_alpha, FONT_LEFT, "m_iFlags: %i", g_Local.weapon.m_iFlags);
 		y += 15;
-		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "m_flSpread: %.3f", g_Local.weapon.m_flSpread);
+		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, config.esp_alpha, FONT_LEFT, "m_flSpread: %.3f", g_Local.weapon.m_flSpread);
 		y += 15;
-		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "m_flAccuracy: %.3f", g_Local.weapon.m_flAccuracy);
+		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, config.esp_alpha, FONT_LEFT, "m_flAccuracy: %.3f", g_Local.weapon.m_flAccuracy);
 		y += 15;
-		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, cvar.esp_alpha, FONT_LEFT, "m_flBombRadius: %.3f", g_MapInfo.m_flBombRadius);
+		g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + y, 255, 255, 255, config.esp_alpha, FONT_LEFT, "m_flBombRadius: %.3f", g_MapInfo.m_flBombRadius);
 		y += 15;
 	}
 }
@@ -833,7 +833,7 @@ bool WorldToScreen(float *vOrigin, float *vScreen, bool &behind)
 
 void CVisuals::ScreenESP(unsigned int i, byte r, byte g, byte b, byte a)
 {
-	if (!cvar.esp_screen || !g_Local.bAlive) 
+	if (!config.esp_screen || !g_Local.bAlive) 
 		return;
 
 	float vecBottom[2], vecTop[2];
@@ -970,7 +970,7 @@ float GetAmountOfPlayerVisible(Vector vecSrc, cl_entity_s *entity)
 
 void CVisuals::Bomb()
 {
-	if (cvar.esp_bomb && g_Local.Bomb.iFlag == BOMB_FLAG_PLANTED)
+	if (config.esp_bomb && g_Local.Bomb.iFlag == BOMB_FLAG_PLANTED)
 	{
 		float flDamage = 500;
 		float falloff;
@@ -991,10 +991,10 @@ void CVisuals::Bomb()
 			if (flAdjustedDamage > 0)
 			{
 				if (flAdjustedDamage >= g_Local.iHealth) {
-					g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + 15, 255, 0, 0, cvar.esp_alpha, FONT_LEFT, "FATAL", flAdjustedDamage);
+					g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + 15, 255, 0, 0, config.esp_alpha, FONT_LEFT, "FATAL", flAdjustedDamage);
 				}
 				else {
-					g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + 15, 0, 255, 0, cvar.esp_alpha, FONT_LEFT, "-%i HP", (int)flAdjustedDamage);
+					g_Drawing.DrawString(ESP, g_Screen.iWidth / 100, (g_Screen.iHeight / 100) + 15, 0, 255, 0, config.esp_alpha, FONT_LEFT, "-%i HP", (int)flAdjustedDamage);
 				}
 			}
 		}
@@ -1003,7 +1003,7 @@ void CVisuals::Bomb()
 
 		if (g_Utils.bCalcScreen(g_Local.Bomb.vOrigin, flScreen))
 		{
-			g_Drawing.DrawString(ESP, flScreen[0], flScreen[1], cvar.esp_bomb_r, cvar.esp_bomb_g, cvar.esp_bomb_b, cvar.esp_alpha, FONT_CENTER, "Bomb");
+			g_Drawing.DrawString(ESP, flScreen[0], flScreen[1], config.esp_bomb_r, config.esp_bomb_g, config.esp_bomb_b, config.esp_alpha, FONT_CENTER, "Bomb");
 		}
 	}
 }
@@ -1013,21 +1013,21 @@ void CVisuals::Lightmap()
 	if (g_pIRunGameEngine->IsInGame())
 	{
 		static bool replaced = false;
-		static float brightness_r = cvar.brightness_r;
-		static float brightness_g = cvar.brightness_g;
-		static float brightness_b = cvar.brightness_b;
-		static float brightness = cvar.brightness;
+		static float brightness_r = config.brightness.r;
+		static float brightness_g = config.brightness.g;
+		static float brightness_b = config.brightness.b;
+		static float brightness = config.brightness.volume;
 
-		if (cvar.brightness > 0 && !cvar.hide_from_obs)
+		if (config.brightness.volume > 0 && !config.hide_from_obs)
 		{
 			if (!replaced) {
 				g_Engine.OverrideLightmap(1);
-				g_Engine.SetLightmapColor(cvar.brightness_r, cvar.brightness_g, cvar.brightness_b);
-				g_Engine.SetLightmapDarkness(cvar.brightness);
+				g_Engine.SetLightmapColor(config.brightness.r, config.brightness.g, config.brightness.b);
+				g_Engine.SetLightmapDarkness(config.brightness.volume);
 				replaced = true;
 			}
 			else {
-				if (brightness_r != cvar.brightness_r || brightness_g != cvar.brightness_g || brightness_b != cvar.brightness_b || brightness != cvar.brightness)
+				if (brightness_r != config.brightness.r || brightness_g != config.brightness.g || brightness_b != config.brightness.b || brightness != config.brightness.volume)
 					replaced = false;
 			}
 		}
@@ -1042,7 +1042,7 @@ void CVisuals::DrawFake(int PlayerID, int EntityID)
 {
 	if (!g_Player[PlayerID].bAlive && g_PlayerInfoList[PlayerID].name != NULL && (g_Player[PlayerID].iTeam == TERRORIST || g_Player[PlayerID].iTeam == CT))
 	{
-		if (!cvar.esp_teammates && g_Player[PlayerID].iTeam == g_Local.iTeam)
+		if (!config.esp_teammates && g_Player[PlayerID].iTeam == g_Local.iTeam)
 			return;
 
 		if (!g_Utils.bPathFree(g_Local.vEye, g_Entities[EntityID].vOrigin))
@@ -1051,15 +1051,15 @@ void CVisuals::DrawFake(int PlayerID, int EntityID)
 
 			if (g_Player[PlayerID].iTeam == TERRORIST)
 			{
-				r = cvar.esp_box_t_invis_r;
-				g = cvar.esp_box_t_invis_g;
-				b = cvar.esp_box_t_invis_b;
+				r = config.esp_box_t_invis_r;
+				g = config.esp_box_t_invis_g;
+				b = config.esp_box_t_invis_b;
 			}
 			else if (g_Player[PlayerID].iTeam == CT)
 			{
-				r = cvar.esp_box_ct_invis_r;
-				g = cvar.esp_box_ct_invis_g;
-				b = cvar.esp_box_ct_invis_b;
+				r = config.esp_box_ct_invis_r;
+				g = config.esp_box_ct_invis_g;
+				b = config.esp_box_ct_invis_b;
 			}
 
 			Vector Top = Vector(g_Entities[EntityID].vOrigin.x, g_Entities[EntityID].vOrigin.y, g_Entities[EntityID].vOrigin.z - 36);
@@ -1080,26 +1080,26 @@ void CVisuals::DrawFake(int PlayerID, int EntityID)
 
 				if (g_Utils.bCalcScreen(g_Entities[EntityID].vOrigin, Screen))
 				{
-					g_Drawing.DrawString(ESP, Screen[0], Screen[1], 255, 0, 0, cvar.esp_alpha, FONT_CENTER, "FAKE");
+					g_Drawing.DrawString(ESP, Screen[0], Screen[1], 255, 0, 0, config.esp_alpha, FONT_CENTER, "FAKE");
 				}
 
-				if (cvar.esp_box)
+				if (config.esp_box)
 				{
 					g_Drawing.DrawPlayerBox(ScreenTop[0], ScreenTop[1], box_width, box_height, r, g, b, 255);
 				}
 
-				if (cvar.esp_distance)
+				if (config.esp_distance)
 				{
 					float y = ScreenBot[1] + (-8 - _h);
 
-					g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, cvar.esp_alpha, FONT_CENTER, "%.f", g_Local.vOrigin.Distance(g_Entities[EntityID].vOrigin));
+					g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, config.esp_alpha, FONT_CENTER, "%.f", g_Local.vOrigin.Distance(g_Entities[EntityID].vOrigin));
 				}
 
-				if (cvar.esp_name && g_PlayerInfoList[PlayerID].name != NULL)
+				if (config.esp_name && g_PlayerInfoList[PlayerID].name != NULL)
 				{
 					float y = box_height - 8 + ScreenTop[1];
 
-					g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, cvar.esp_alpha, FONT_CENTER, "%s", g_PlayerInfoList[PlayerID].name);
+					g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, config.esp_alpha, FONT_CENTER, "%s", g_PlayerInfoList[PlayerID].name);
 				}
 			}
 		}
@@ -1112,26 +1112,26 @@ void CVisuals::DrawEntities()
 	{
 		if (!g_Entities[i].bUpdated)
 		{
-			if (cvar.grenade_trajectory) {
+			if (config.grenade_trajectory) {
 				Grenades[i].vPoints.clear();
 				Grenades[i].dwUpdated = 0;
 			}
 			continue;
 		}
 
-		if (cvar.debug) 
+		if (config.debug) 
 		{
 			float flScreen[2];
 
 			if (g_Utils.bCalcScreen(g_Entities[i].vOrigin, flScreen))
 			{
-				g_Drawing.DrawString(ESP, flScreen[0], flScreen[1], 255, 255, 255, cvar.esp_alpha, FONT_CENTER, "%s (id: %i)", g_Entities[i].szModelName, i);
+				g_Drawing.DrawString(ESP, flScreen[0], flScreen[1], 255, 255, 255, config.esp_alpha, FONT_CENTER, "%s (id: %i)", g_Entities[i].szModelName, i);
 			}
 		}
 
 		if (g_Entities[i].bIsWeapon)
 		{
-			if (cvar.esp_world_weapon > 0)
+			if (config.esp_world_weapon > 0)
 			{
 				float flScreen[2];
 
@@ -1144,7 +1144,7 @@ void CVisuals::DrawEntities()
 						szWeapon = &szWeapon[3];
 						g_Utils.StringReplace(szWeapon, ".mdl", "");
 
-						if (cvar.esp_world_weapon == 2)
+						if (config.esp_world_weapon == 2)
 						{
 							unsigned int texture = 0;
 							unsigned int w = 0;
@@ -1211,19 +1211,19 @@ void CVisuals::DrawEntities()
 								unsigned int x1 = flScreen[0] + (w / 2);
 								unsigned int y1 = y0 + h;
 
-								g_Drawing.DrawTexture(texture, x0, y0, x1, y1, cvar.esp_world_weapon_r, cvar.esp_world_weapon_g, cvar.esp_world_weapon_b, 255);
+								g_Drawing.DrawTexture(texture, x0, y0, x1, y1, config.esp_world_weapon_r, config.esp_world_weapon_g, config.esp_world_weapon_b, 255);
 							}
 							else goto default_draw_weapon;
 						}
 						else {
 						default_draw_weapon:
-							g_Drawing.DrawString(ESP, flScreen[0], flScreen[1], cvar.esp_world_weapon_r, cvar.esp_world_weapon_g, cvar.esp_world_weapon_b, cvar.esp_alpha, FONT_CENTER, "%s", szWeapon);
+							g_Drawing.DrawString(ESP, flScreen[0], flScreen[1], config.esp_world_weapon_r, config.esp_world_weapon_g, config.esp_world_weapon_b, config.esp_alpha, FONT_CENTER, "%s", szWeapon);
 						}
 					}
 				}
 			}
 
-			if (cvar.grenade_trajectory && (strstr(g_Entities[i].szModelName, "flashbang") || strstr(g_Entities[i].szModelName, "smokegrenade") || strstr(g_Entities[i].szModelName, "hegrenade")))
+			if (config.grenade_trajectory && (strstr(g_Entities[i].szModelName, "flashbang") || strstr(g_Entities[i].szModelName, "smokegrenade") || strstr(g_Entities[i].szModelName, "hegrenade")))
 			{
 				if (!Grenades[i].vPoints.empty() && Grenades[i].vPoints[Grenades[i].vPoints.size() - 1] != g_Entities[i].vOrigin)
 					Grenades[i].dwUpdated = GetTickCount();
@@ -1231,13 +1231,13 @@ void CVisuals::DrawEntities()
 				Grenades[i].vPoints.push_back(g_Entities[i].vOrigin);
 			}
 		}
-		else if (cvar.esp && cvar.esp_fake && g_Entities[i].bIsFakeEntity && g_Entities[i].iResolvedIndex != g_Local.iIndex)
+		else if (config.esp && config.esp_fake && g_Entities[i].bIsFakeEntity && g_Entities[i].iResolvedIndex != g_Local.iIndex)
 		{
 			DrawFake(g_Entities[i].iResolvedIndex, i);
 		}
 	}
 
-	if (cvar.grenade_trajectory) 
+	if (config.grenade_trajectory) 
 	{
 		float flScreen[2], flScreenLast[2];
 
@@ -1253,7 +1253,7 @@ void CVisuals::DrawEntities()
 			{
 				if (g_Utils.bCalcScreen(Grenades[i].vPoints[x], flScreen) && g_Utils.bCalcScreen(Grenades[i].vPoints[x - 1], flScreenLast))
 				{
-					g_Drawing.DrawLine(flScreen[0], flScreen[1], flScreenLast[0], flScreenLast[1], 255, 0, 0, cvar.esp_alpha);
+					g_Drawing.DrawLine(flScreen[0], flScreen[1], flScreenLast[0], flScreenLast[1], 255, 0, 0, config.esp_alpha);
 				}
 			}
 		}
