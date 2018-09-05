@@ -12,7 +12,7 @@ Config::Config(const std::string& name)
 {
     char buff[MAX_PATH]{ }; // Default initialization to zero array as the array is placed on stack
     if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, 0, buff))) {
-        path = buff + std::string{ '\\' } + name;
+        path = buff + std::string{ '\\' } +name;
     }
 }
 
@@ -39,7 +39,7 @@ void Config::load()
     aimbot.autoscope = config["aimbot"]["autoscope"].asBool();
     quick_stop = config["quick_stop"].asBool();
     quick_stop_duck = config["quick_stop_duck"].asBool();
-    fakelag.enabled =  config["fakelag"]["enabled"].asBool();
+    fakelag.enabled = config["fakelag"]["enabled"].asBool();
     fakelag.whileShooting = config["fakelag"]["whileShooting"].asBool();
     fakelag.type = config["fakelag"]["type"].asFloat();
     fakelag.move = config["fakelag"]["move"].asFloat();
@@ -49,26 +49,26 @@ void Config::load()
     brightness.r = config["brightness"]["r"].asFloat();
     brightness.g = config["brightness"]["g"].asFloat();
     brightness.b = config["brightness"]["b"].asFloat();
-    config["autopistol"] = autopistol;
-    config["autoreload"] = autoreload;
-    config["fastzoom"] = fastzoom;
-    config["nosmoke"] = nosmoke;
-    config["remove_scope"] = remove_scope;
-    config["crosshair"]["enabled"] = crosshair.enabled;
-    config["crosshair"]["r"] = crosshair.r;
-    config["crosshair"]["g"] = crosshair.g;
-    config["crosshair"]["b"] = crosshair.b;
-    config["thirdperson"] = thirdperson;
-    config["disable_render_teammates"] = disable_render_teammates;
-    config["bullets_trace"] = bullets_trace;
-    config["noflash"] = noflash;
-    config["esp"] = esp;
-    config["esp_behind"] = esp_behind;
-    config["esp_teammates"] = esp_teammates;
-    config["esp_box"] = esp_box;
-    config["esp_box_ct_vis_r"] = esp_box_ct_vis_r;
-    config["esp_box_ct_vis_g"] = esp_box_ct_vis_g;
-    config["esp_box_ct_vis_b"] = esp_box_ct_vis_b;
+    autopistol = config["autopistol"].asBool();
+    autoreload = config["autoreload"].asBool();
+    fastzoom = config["fastzoom"].asBool();
+    nosmoke = config["nosmoke"].asBool();
+    remove_scope = config["remove_scope"].asBool();
+    crosshair.enabled = config["crosshair"]["enabled"].asBool();
+    crosshair.r = config["crosshair"]["r"].asFloat();
+    crosshair.g = config["crosshair"]["g"].asFloat();
+    crosshair.b = config["crosshair"]["b"].asFloat();
+    thirdperson = config["thirdperson"].asFloat();
+    disable_render_teammates = config["disable_render_teammates"].asBool();
+    bullets_trace = config["bullets_trace"].asBool();
+    noflash = config["noflash"].asFloat();
+    esp = config["esp"].asBool();
+    esp_behind = config["esp_behind"].asBool();
+    esp_teammates = config["esp_teammates"].asBool();
+    esp_box = config["esp_box"].asBool();
+    esp_box_ct_vis_r = config["esp_box_ct_vis_r"].asFloat();
+    esp_box_ct_vis_g = config["esp_box_ct_vis_g"].asFloat();
+    esp_box_ct_vis_b = config["esp_box_ct_vis_b"].asFloat();
     config["esp_box_t_vis_r"] = esp_box_t_vis_r;
     config["esp_box_t_vis_g"] = esp_box_t_vis_g;
     config["esp_box_t_vis_b"] = esp_box_t_vis_b;
