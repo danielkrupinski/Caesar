@@ -40,7 +40,7 @@ void WINAPI PaintTraversePanel(vgui::IPanel* vguiPanel, bool forceRepaint, bool 
 
 	const char* PanelName = g_pIPanel->GetName(vguiPanel);
 
-	if (strstr(PanelName, "StaticPanel") && !config.hide_from_obs && g_Engine.pfnGetconfigFloat("r_norefresh") == 0)
+	if (strstr(PanelName, "StaticPanel") && !config.hide_from_obs && g_Engine.pfnGetCvarFloat("r_norefresh") == 0)
 	{
 		g_Visuals.Run();
 		g_Menu.Run();

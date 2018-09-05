@@ -7,7 +7,7 @@ CMisc g_Misc;
 
 void CMisc::FastZoom(struct usercmd_s *cmd)
 {
-	if (!config.aim && config.fastzoom && IsCurWeaponSniper() && g_Local.iFOV == DEFAULT_FOV && cmd->buttons & IN_ATTACK)
+	if (!config.aimbot.enabled && config.fastzoom && IsCurWeaponSniper() && g_Local.iFOV == DEFAULT_FOV && cmd->buttons & IN_ATTACK)
 	{
 		cmd->buttons &= ~IN_ATTACK;
 		cmd->buttons |= IN_ATTACK2;
@@ -16,7 +16,7 @@ void CMisc::FastZoom(struct usercmd_s *cmd)
 
 void CMisc::FakeLag(struct usercmd_s *cmd) 
 {
-	if (config.aim && config.fakelag)
+	if (config.aimbot.enabled && config.fakelag.enabled)
 	{
 		int m_InAttack = (cmd->buttons & IN_ATTACK);
 
@@ -25,20 +25,20 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 		if (!(m_InAttack && CanAttack()))
 			fakelag = true;
 
-		if (config.fakelag_while_shooting && m_InAttack && CanAttack())
+		if (config.fakelag.whileShooting && m_InAttack && CanAttack())
 			fakelag = true;
 
-		if (config.fakelag_move == 1)//On land
+		if (config.fakelag.move == 1)//On land
 		{
 			if (g_Local.flVelocity > 0)
 				fakelag = false;
 		}
-		else if (config.fakelag_move == 2)//On move
+		else if (config.fakelag.move == 2)//On move
 		{
 			if (g_Local.flVelocity <= 0)
 				fakelag = false;
 		}
-		else if (config.fakelag_move == 3)//In air
+		else if (config.fakelag.move == 3)//In air
 		{
 			if (g_Local.flHeight <= 0)
 				fakelag = false;
@@ -49,9 +49,9 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 			static int choked = 0;
 			static int good = 0;
 
-			if (config.fakelag_type == 1)//Dynamic
+			if (config.fakelag.type == 1)//Dynamic
 			{
-				if (choked < config.fakelag_limit)
+				if (choked < config.fakelag.limit)
 				{
 					g_Utils.bSendpacket(false);
 
@@ -60,8 +60,8 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 					good = 0;
 				}
 				else {
-					float one = config.fakelag_limit / 100;
-					float tmp = one * config.fakelag_variance;
+					float one = config.fakelag.limit / 100;
+					float tmp = one * config.fakelag.variance;
 
 					good++;
 
@@ -70,17 +70,17 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 					}
 				}
 			}
-			else if (config.fakelag_type == 2)//Maximum
+			else if (config.fakelag.type == 2)//Maximum
 			{
 				choked++;
 
 				if (choked > 0)
 					g_Utils.bSendpacket(false);
 
-				if (choked > config.fakelag_limit)
+				if (choked > config.fakelag.limit)
 					choked = -1;//1 tick valid
 			}
-			else if (config.fakelag_type == 3)//Flucture
+			else if (config.fakelag.type == 3)//Flucture
 			{
 				static bool jitter = false;
 
@@ -89,7 +89,7 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 
 				jitter = !jitter;
 			}
-			else if (config.fakelag_type == 4)//Break lag compensation
+			else if (config.fakelag.type == 4)//Break lag compensation
 			{
 				Vector velocity = pmove->velocity;
 				velocity.z = 0;
@@ -100,8 +100,8 @@ void CMisc::FakeLag(struct usercmd_s *cmd)
 				{
 					int need_choke = 64.0f / len;
 
-					if (need_choke > config.fakelag_limit)
-						need_choke = config.fakelag_limit;
+					if (need_choke > config.fakelag.limit)
+						need_choke = config.fakelag.limit;
 
 					//g_Engine.Con_NPrintf(1, "need_choke: %i", need_choke);
 
@@ -156,7 +156,7 @@ bool CMisc::FakeEdge(float &angle)
 
 void CMisc::AntiAim(struct usercmd_s *cmd)
 {
-	if (config.aim) 
+	if (config.aimbot.enabled) 
 	{
 		int m_OnLadder = (pmove->movetype == MOVETYPE_FLY);// determine if we are on a ladder
 		int m_Use = (cmd->buttons & IN_USE);
@@ -180,7 +180,7 @@ void CMisc::AntiAim(struct usercmd_s *cmd)
 				if (g_Player[i].bFriend)
 					continue;
 
-				if (!config.aim_teammates && g_Player[i].iTeam == g_Local.iTeam)
+				if (!config.aimbot.teammates && g_Player[i].iTeam == g_Local.iTeam)
 					continue;
 
 				if (g_Player[i].flDist < flDist || id == NULL)
