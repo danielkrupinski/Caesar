@@ -7,7 +7,6 @@ private:
     std::string path;
 public:
     Config(const std::string&);
-    // void init();
     void load();
     void save();
 
