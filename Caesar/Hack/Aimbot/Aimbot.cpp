@@ -1,5 +1,7 @@
 #include "../../Required.h"
+#include "../../Config.h"
 
+extern Config config;
 CAimBot g_AimBot;
 
 void SmoothAimAngles(QAngle MyViewAngles, QAngle AimAngles, QAngle &OutAngles, float Smoothing, bool bSpiral, float SpiralX, float SpiralY)
