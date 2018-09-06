@@ -7,9 +7,9 @@
 
 Config::Config(const std::string& name)
 {
-    char buff[MAX_PATH]{ }; // Default initialization to zero array as the array is placed on stack
+    char buff[MAX_PATH]{ }; // Default initialization to zeros as the array is placed on stack
     if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, 0, buff))) {
-        path = buff + std::string{ '\\' } +name;
+        path = buff + std::string{ '\\' } + name;
     }
 }
 
