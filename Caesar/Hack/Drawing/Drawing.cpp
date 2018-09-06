@@ -1,5 +1,7 @@
 #include "../../Required.h"
+#include "../../Config.h"
 
+extern Config config;
 CDrawing g_Drawing;
 
 vgui::HFont ESP;
