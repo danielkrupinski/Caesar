@@ -18,7 +18,7 @@ void SmoothAimAngles(QAngle MyViewAngles, QAngle AimAngles, QAngle &OutAngles, f
 
 	Vector vecViewAngleDelta = OutAngles;
 
-	if (bSpiral & SpiralX != 0 && SpiralY != 0)
+	if (bSpiral && SpiralX != 0 && SpiralY != 0)
 		vecViewAngleDelta += Vector(vecViewAngleDelta.y / SpiralX, vecViewAngleDelta.x / SpiralY, 0.0f);
 
 	if (!isnan(Smoothing))
