@@ -1,6 +1,8 @@
 #include "../../Required.h"
 #include "../../icons.h"
+#include "../../Config.h"
 
+extern Config config;
 CVisuals g_Visuals;
 
 typedef struct
