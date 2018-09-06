@@ -1,4 +1,7 @@
 #include "Required.h"
+#include "Config.h"
+
+extern Config config;
 
 // This pointer to CStudioModelRenderer class !
 StudioModelRenderer_d pThis;
