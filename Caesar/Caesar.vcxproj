@@ -249,7 +249,6 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="Hack\Aimbot\Aimbot.cpp" />
-    <ClCompile Include="Hack\Cvars\Cvars.cpp" />
     <ClCompile Include="Hack\Drawing\Drawing.cpp" />
     <ClCompile Include="Hack\Misc\Misc.cpp" />
     <ClCompile Include="Hack\Removals\NoFlash\NoFlash.cpp" />

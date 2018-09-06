@@ -368,9 +368,6 @@
     <ClCompile Include="Hack\Visuals\Visuals.cpp">
       <Filter>Hack\Visuals</Filter>
     </ClCompile>
-    <ClCompile Include="Hack\Cvars\Cvars.cpp">
-      <Filter>Hack\Cvars</Filter>
-    </ClCompile>
     <ClCompile Include="Hack\Drawing\Drawing.cpp">
       <Filter>Hack\Drawing</Filter>
     </ClCompile>
