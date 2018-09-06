@@ -1,6 +1,8 @@
-﻿#include "../../../Required.h"
+#include "../../../Required.h"
 #include "../../../images.h"
+#include "../../../Config.h"
 
+extern Config config;
 CMenu g_Menu;
 
 #define MAX_TABS 6
