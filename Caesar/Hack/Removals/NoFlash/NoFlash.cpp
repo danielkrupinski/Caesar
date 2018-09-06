@@ -1,5 +1,7 @@
 #include "../../../Required.h"
+#include "../../../Config.h"
 
+extern Config config;
 CNoFlash g_NoFlash;
 
 void CNoFlash::Redraw()
