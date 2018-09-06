@@ -279,9 +279,6 @@
     <ClInclude Include="Hack\Visuals\Visuals.h">
       <Filter>Hack\Visuals</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\Cvars\Cvars.h">
-      <Filter>Hack\Cvars</Filter>
-    </ClInclude>
     <ClInclude Include="Hack\Drawing\Drawing.h">
       <Filter>Hack\Drawing</Filter>
     </ClInclude>
