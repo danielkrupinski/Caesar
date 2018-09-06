@@ -15,8 +15,6 @@
 #include "Aimbot\Aimbot.h"
 #include "Systems\Systems.h"
 
-#define HACK_FILE "Caesar.ini"
-
 class CGlobalsVars
 {
 public:
