@@ -1,5 +1,7 @@
 #include "../../Required.h"
+#include "../../Config.h"
 
+extern Config config;
 CSystems g_Systems;
 
 void ComputeMove(int id, float forwardmove, float sidemove)
