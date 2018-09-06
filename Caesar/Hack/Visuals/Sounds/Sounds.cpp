@@ -1,5 +1,7 @@
 #include "../../../Required.h"
+#include "../../../Config.h"
 
+extern Config config;
 deque<my_sound_t> mySounds;
 
 void ShotsFiredCounter(int entid, char *szSoundFile)
