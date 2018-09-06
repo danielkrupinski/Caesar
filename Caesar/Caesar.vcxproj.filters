@@ -13,9 +13,6 @@
     <Filter Include="Hack\Visuals">
       <UniqueIdentifier>{c53271b1-f2bb-4eed-9e1f-10fc08e3869f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Hack\Cvars">
-      <UniqueIdentifier>{ad1622b0-39eb-42ce-a670-0d76843e98e1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Hack\Drawing">
       <UniqueIdentifier>{9468cd2f-7f52-44e3-a0ac-cc7c22d9769a}</UniqueIdentifier>
     </Filter>
