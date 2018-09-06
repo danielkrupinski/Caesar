@@ -1,6 +1,8 @@
 #include "../../Required.h"
 #include <io.h>
+#include "../../Config.h"
 
+extern Config config;
 CUtils g_Utils;
 
 unsigned int Cstrike_SequenceInfo[] =
