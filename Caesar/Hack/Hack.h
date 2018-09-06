@@ -7,7 +7,6 @@
 #include "Visuals\Visuals.h"
 #include "Visuals\Sounds\Sounds.h"
 #include "Visuals\Menu\Menu.h"
-#include "Cvars\Cvars.h"
 #include "Drawing\Drawing.h"
 #include "Misc\Misc.h"
 #include "Removals\NoSpread\NoSpread.h"
