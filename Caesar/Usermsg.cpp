@@ -1,4 +1,7 @@
 #include "Required.h"
+#include "Config.h"
+
+extern Config config;
 
 pfnUserMsgHook pResetHUD;
 pfnUserMsgHook pBombDrop;
