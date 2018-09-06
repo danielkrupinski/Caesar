@@ -1,5 +1,7 @@
 #include "../../../Required.h"
+#include "../../../Config.h"
 
+extern Config config;
 CNoSpread g_NoSpread;
 
 unsigned int glSeed = 0;
