@@ -1,5 +1,7 @@
 #include "../../../Required.h"
+#include "../../../Config.h"
 
+extern Config config;
 CNoRecoil g_NoRecoil;
 
 void CNoRecoil::V_CalcRefdef(struct ref_params_s *pparams)
