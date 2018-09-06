@@ -1,5 +1,7 @@
 #include "../../Required.h"
+#include "../../Config.h"
 
+extern Config config;
 CWorld World;
 CBaseLocal g_Local;
 CBasePlayer g_Player[MAX_CLIENTS + 1];
