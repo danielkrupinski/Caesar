@@ -1,4 +1,7 @@
 #include "Required.h"
+#include "Config.h"
+
+extern Config config;
 
 typedef void (APIENTRY *glBegin_t)(GLenum);
 typedef void (APIENTRY *glVertex3fv_t)(const GLfloat *v);
