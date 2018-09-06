@@ -127,7 +127,7 @@ void CAimBot::Trigger(struct usercmd_s *cmd)
 		vecSpreadDir.Normalize();
 	}
 
-	for (unsigned int id = 1; id <= g_Engine.GetMaxClients(); ++id)
+	for (int id = 1; id <= g_Engine.GetMaxClients(); ++id)
 	{
 		if (id == g_Local.iIndex)
 			continue;
@@ -218,10 +218,10 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 	if (!g_Local.vPunchangle.IsZero2D())
 		bSpeedSpiral = false;
 
-	float flRecoilCompensationPitch = 0.02 * config.legit[iWeaponID].aim_recoil_compensation_pitch;
-	float flRecoilCompensationYaw = 0.02 * config.legit[iWeaponID].aim_recoil_compensation_yaw;
+	float flRecoilCompensationPitch = 0.02f * config.legit[iWeaponID].aim_recoil_compensation_pitch;
+	float flRecoilCompensationYaw = 0.02f * config.legit[iWeaponID].aim_recoil_compensation_yaw;
 
-	unsigned int iRecoilCompensationAfterShotsFired = config.legit[iWeaponID].aim_recoil_compensation_after_shots_fired;
+	int iRecoilCompensationAfterShotsFired = static_cast<int>(config.legit[iWeaponID].aim_recoil_compensation_after_shots_fired);
 
 	if (iRecoilCompensationAfterShotsFired > 0 && g_Local.weapon.m_iShotsFired <= iRecoilCompensationAfterShotsFired)
 	{
@@ -250,7 +250,7 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 
 	float flBestFOV = flFOV;
 
-	for (unsigned int id = 1; id <= g_Engine.GetMaxClients(); ++id)
+	for (int id = 1; id <= g_Engine.GetMaxClients(); ++id)
 	{
 		if (id == g_Local.iIndex)
 			continue;
@@ -475,7 +475,7 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 		for (unsigned int j = 0; j <= 11; j++)
 			Hitboxes.push_front(j);
 
-		for (unsigned int k = 12; k < g_Local.iMaxHitboxes; k++)
+		for (int k = 12; k < g_Local.iMaxHitboxes; k++)
 			Hitboxes.push_back(k);
 	}
 	else if (config.aimbot.hitbox == 6)//Vital
@@ -494,7 +494,7 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 	float m_flBestFOV = 180;
 	float m_flBestDist = 8192;
 
-	for (unsigned int id = 1; id <= g_Engine.GetMaxClients(); ++id)
+	for (int id = 1; id <= g_Engine.GetMaxClients(); ++id)
 	{
 		if (id == g_Local.iIndex)
 			continue;
