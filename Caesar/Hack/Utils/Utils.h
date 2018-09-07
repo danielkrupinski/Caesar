@@ -18,8 +18,6 @@ public:
 
 	bool bFileExists(const char *cFileName);
 
-	// char *cIniRead(char *cFileName, char *cSection, char *cKey, char *cDef);
-
 	bool bCalcScreen(float *pflOrigin, float *pflVecScreen);
 	bool bPathFree(float *pflFrom, float *pflTo);
 
