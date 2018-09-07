@@ -101,6 +101,8 @@ char *CUtils::cIniRead(char *cFileName, char *cSection, char *cKey, char *cDef)
 	return cTempString;
 }
 
+/*
+
 char *CUtils::szDirFile(const char* pszName)
 {
 	char *o = new char[MAX_PATH];
@@ -110,6 +112,8 @@ char *CUtils::szDirFile(const char* pszName)
 
 	return o;
 }
+
+*/
 
 bool CUtils::IsPlayer(struct cl_entity_s *ent)
 {
