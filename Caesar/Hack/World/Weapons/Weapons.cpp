@@ -1451,8 +1451,8 @@ bool IsCurWeaponC4(void)
 
 bool CanAttack(void)
 {
-    if (g_Local.weapon.m_flNextPrimaryAttack <= 0.0 && !g_Local.weapon.m_iInReload && g_Local.weapon.m_flNextAttack <= 0.0)
+    if (g_Local.weapon.m_flNextPrimaryAttack <= 0.0f && !g_Local.weapon.m_iInReload && g_Local.weapon.m_flNextAttack <= 0.0f)
         return true;
-
-    return false;
+    else
+        return false;
 }
