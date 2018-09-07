@@ -1443,9 +1443,10 @@ bool IsCurWeaponNade(void)
 
 bool IsCurWeaponC4(void)
 {
-    if (g_Local.weapon.m_iWeaponID == WEAPON_C4) return true;
-
-    return false;
+    if (g_Local.weapon.m_iWeaponID == WEAPON_C4)
+        return true;
+    else
+        return false;
 }
 
 bool CanAttack(void)
