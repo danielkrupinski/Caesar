@@ -10,7 +10,10 @@ using grenadetracer_t = struct {
     DWORD dwUpdated;
 };
 
-grenadetracer_t Grenades[256];
+struct {
+    deque<Vector> vPoints;
+    DWORD dwUpdated;
+} Grenades[256];
 
 void CVisuals::IconInit()
 {
