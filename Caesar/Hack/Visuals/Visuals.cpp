@@ -905,16 +905,16 @@ float GetAmountOfPlayerVisible(Vector vecSrc, cl_entity_s *entity)
 
     pmtrace_t tr;
 
-    const float topOfHead = 25.0f;
-    const float standFeet = 34.0f;
-    const float crouchFeet = 14.0f;
-    const float edgeOffset = 13.0f;
+    constexpr float topOfHead = 25.0f;
+    constexpr float standFeet = 34.0f;
+    constexpr float crouchFeet = 14.0f;
+    constexpr float edgeOffset = 13.0f;
 
-    const float damagePercentageChest = 0.40f;
-    const float damagePercentageHead = 0.20f;
-    const float damagePercentageFeet = 0.20f;
-    const float damagePercentageRightSide = 0.10f;
-    const float damagePercentageLeftSide = 0.10f;
+    constexpr float damagePercentageChest = 0.40f;
+    constexpr float damagePercentageHead = 0.20f;
+    constexpr float damagePercentageFeet = 0.20f;
+    constexpr float damagePercentageRightSide = 0.10f;
+    constexpr float damagePercentageLeftSide = 0.10f;
 
     // check chest
     Vector vecChest = entity->origin;
