@@ -1,3 +1,7 @@
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include <string>
+
 #include "../../Required.h"
 #include "../../icons.h"
 #include "../../Config.h"
@@ -308,7 +312,7 @@ void CVisuals::PenetrationInfo()
 
 void CVisuals::Crosshair()
 {
-    static char *old = NULL;
+    static std::string old;
 
     if (config.crosshair.enabled && g_Local.iFOV == DEFAULT_FOV)
     {
@@ -331,7 +335,7 @@ void CVisuals::Crosshair()
     {
         if (!g_Engine.pfnGetCvarFloat("crosshair"))
         {
-            if (old) g_Engine.pfnCvar_Set("cl_crosshair_color", old);
+            if (!old.empty()) g_Engine.pfnCvar_Set("cl_crosshair_color", old.c_str());
             g_Engine.Cvar_SetValue("crosshair", 1);
             g_Engine.Cvar_SetValue("cl_crosshair_translucent", 0);
         }
