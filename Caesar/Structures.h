@@ -35,8 +35,6 @@
 #pragma comment(lib, "OpenGL32.lib")
 //#pragma comment(lib, "vgui.lib")
 
-using namespace std;
-
 typedef float TransformMatrix[MAXSTUDIOBONES][3][4];
 
 #define VectorTransform(a,b,c){(c)[0]=a.Dot((b)[0])+(b)[0][3];(c)[1]=a.Dot((b)[1])+(b)[1][3];(c)[2]=a.Dot((b)[2])+(b)[2][3];}
