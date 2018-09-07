@@ -354,7 +354,7 @@ void CWorld::UpdateVisibility(int id)
 	if (!teammates && g_Player[id].iTeam == g_Local.iTeam)
 		return;
 
-	deque<unsigned int> Hitboxes;
+	std::deque<unsigned int> Hitboxes;
 
 	if (IsCurWeaponGun()) 
 	{
@@ -620,19 +620,19 @@ void CWorld::UpdateMapInfo()
 
 					if (g_Utils.bFileExists(buff))
 					{
-						std::ifstream ifs(buff, ios::binary);
+						std::ifstream ifs(buff, std::ios::binary);
 
 						std::string str((std::istreambuf_iterator<char>(ifs)), std::istreambuf_iterator<char>());
 
 						size_t pos = str.find("\"bombradius\" \"");
 
-						if (pos != string::npos)
+						if (pos != std::string::npos)
 						{
 							std::string str2(str.substr(pos + 14));
 
 							size_t pos2 = str2.find("\"");
 
-							if (pos2 != string::npos)
+							if (pos2 != std::string::npos)
 							{
 								std::string str3(str2.substr(0, pos2));
 

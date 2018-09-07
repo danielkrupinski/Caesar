@@ -10,7 +10,7 @@ extern Config config;
 CVisuals g_Visuals;
 
 struct {
-    deque<Vector> vPoints;
+    std::deque<Vector> vPoints;
     DWORD dwUpdated;
 } Grenades[256];
 

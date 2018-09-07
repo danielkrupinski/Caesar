@@ -54,10 +54,10 @@ void CDrawing::DrawPlayerBox(int x, int y, int w, int h, int r, int g, int b, in
 	int y1 = y + h;
 
 	if (x1 < x0)
-		swap(x1, x0);
+		std::swap(x1, x0);
 
 	if (y1 < y0)
-		swap(y1, y0);
+		std::swap(y1, y0);
 
 	g_pISurface->DrawSetColor(r, g, b, a);
 	g_pISurface->DrawOutlinedRect(x0, y0, x1, y1);
@@ -85,10 +85,10 @@ void CDrawing::DrawRect(int x, int y, int w, int h, int r, int g, int b, int a)
 	int y1 = y + h;
 
 	if (x1 < x0)
-		swap(x1, x0);
+		std::swap(x1, x0);
 
 	if (y1 < y0)
-		swap(y1, y0);
+		std::swap(y1, y0);
 
 	g_pISurface->DrawSetColor(r, g, b, a);
 	g_pISurface->DrawFilledRect(x0, y0, x1, y1);
@@ -102,10 +102,10 @@ void CDrawing::DrawOutlinedRect(int x, int y, int w, int h, int r, int g, int b,
 	int y1 = y + h;
 
 	if (x1 < x0)
-		swap(x1, x0);
+		std::swap(x1, x0);
 
 	if (y1 < y0)
-		swap(y1, y0);
+		std::swap(y1, y0);
 
 	g_pISurface->DrawSetColor(r, g, b, a);
 	g_pISurface->DrawOutlinedRect(x0, y0, x1, y1);

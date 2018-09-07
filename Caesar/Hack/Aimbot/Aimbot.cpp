@@ -71,7 +71,7 @@ void CAimBot::Trigger(struct usercmd_s *cmd)
 	if (config.trigger_only_zoomed && IsCurWeaponSniper() && g_Local.iFOV == DEFAULT_FOV)
 		return;
 
-	deque<unsigned int> Hitboxes;
+	std::deque<unsigned int> Hitboxes;
 
 	if (config.legit[m_iWeaponID].trigger_head)
 	{
@@ -185,7 +185,7 @@ void CAimBot::LegitAimbot(struct usercmd_s *cmd)
 	if (flSpeed <= 0)
 		return;
 
-	deque<unsigned int> Hitboxes;
+	std::deque<unsigned int> Hitboxes;
 
 	if (config.legit[iWeaponID].aim_head)
 		Hitboxes.push_back(11);
@@ -452,7 +452,7 @@ void CAimBot::RageAimbot(struct usercmd_s *cmd)
 	if (!config.aimbot.enabled && !IsCurWeaponGun() || !CanAttack())
 		return;
 
-	deque<unsigned int> Hitboxes;
+	std::deque<unsigned int> Hitboxes;
 
 	if (config.aimbot.hitbox == 1)//"Head", "Neck", "Chest", "Stomach"
 	{
