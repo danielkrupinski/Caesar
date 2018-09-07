@@ -799,8 +799,8 @@ void CVisuals::Debug()
 
 void FindPoint(float *point, int screenwidth, int screenheight, int degrees)
 {
-    float x2 = screenwidth / 2;
-    float y2 = screenheight / 2;
+    float x2 = static_cast<float>(screenwidth / 2);
+    float y2 = static_cast<float>(screenheight / 2);
 
     float d = sqrt(pow((point[0] - x2), 2) + (pow((point[1] - y2), 2))); //Distance
     float r = degrees / d; //Segment ratio
