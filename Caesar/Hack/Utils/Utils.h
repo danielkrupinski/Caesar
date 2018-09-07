@@ -19,7 +19,7 @@ public:
 	bool bFileExists(const char *cFileName);
 	char *szDirFile(const char* pszName);
 	char *cIniRead(char *cFileName, char *cSection, char *cKey, char *cDef);
-	void cIniWrite(char *cFileName, char *cSection, char *cKey, char *cValue);
+	// void cIniWrite(char *cFileName, char *cSection, char *cKey, char *cValue);
 
 	bool bCalcScreen(float *pflOrigin, float *pflVecScreen);
 	bool bPathFree(float *pflFrom, float *pflTo);
