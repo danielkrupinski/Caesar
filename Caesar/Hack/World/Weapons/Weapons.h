@@ -125,7 +125,7 @@ bool IsLeftElite(void);
 
 bool IsCurWeaponGun(void); // Returns true if the current weapon is either a primary or secondary weapon
 bool IsCurWeaponKnife(void); // Returns true if the current weapon is a knife
-bool IsCurWeaponNonAttack(void); // Returns true if the current weapon is not a gun or a knife
+bool IsCurWeaponNonAttack(); // Returns true if the current weapon is not a gun or a knife
 bool IsCurWeaponNade(void);
 bool IsCurWeaponC4(void);
 bool IsCurWeaponSniper(void);

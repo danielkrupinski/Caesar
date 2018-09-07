@@ -1420,7 +1420,7 @@ bool IsCurWeaponGun(void)
 	return false;
 }
 
-bool IsCurWeaponNonAttack(void)
+bool IsCurWeaponNonAttack()
 {
     switch (g_Local.weapon.m_iWeaponID) {
     case WEAPON_HEGRENADE:
