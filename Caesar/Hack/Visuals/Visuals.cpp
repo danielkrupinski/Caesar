@@ -555,7 +555,7 @@ void CVisuals::PlayerESP(unsigned int i)
 
         std::string szWeapon = g_PlayerExtraInfoList[i].szWeaponName;
 
-        if (config.esp_weapon > 0 && szWeapon)
+        if (config.esp_weapon > 0 && !szWeapon.empty())
         {
             if (config.esp_weapon == 2) //Icon
             {
@@ -565,55 +565,55 @@ void CVisuals::PlayerESP(unsigned int i)
                 unsigned int w = 0;
                 unsigned int h = 0;
 
-                if (!lstrcmpA(szWeapon, "knife"))
+                if (szWeapon == "knife")
                     g_Utils.GetTextureInfo(wpn_knife, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "ak47"))
+                else if (szWeapon == "ak47")
                     g_Utils.GetTextureInfo(wpn_ak47, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "m4a1"))
+                else if (szWeapon == "m4a1")
                     g_Utils.GetTextureInfo(wpn_m4a1, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "deagle"))
+                else if (szWeapon == "deagle")
                     g_Utils.GetTextureInfo(wpn_deagle, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "awp"))
+                else if (szWeapon == "awp")
                     g_Utils.GetTextureInfo(wpn_awp, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "scout"))
+                else if (szWeapon == "scout")
                     g_Utils.GetTextureInfo(wpn_scout, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "mp5"))
+                else if (szWeapon == "mp5")
                     g_Utils.GetTextureInfo(wpn_mp5n, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "glock"))
+                else if (szWeapon == "glock")
                     g_Utils.GetTextureInfo(wpn_glock18, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "p90"))
+                else if (szWeapon == "p90")
                     g_Utils.GetTextureInfo(wpn_p90, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "usp"))
+                else if (szWeapon == "usp")
                     g_Utils.GetTextureInfo(wpn_usp, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "xm1014"))
+                else if (szWeapon == "xm1014")
                     g_Utils.GetTextureInfo(wpn_xm1014, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "p228"))
+                else if (szWeapon == "p228")
                     g_Utils.GetTextureInfo(wpn_p228, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "sg550"))
+                else if (szWeapon == "sg550")
                     g_Utils.GetTextureInfo(wpn_sg550, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "sg552"))
+                else if (szWeapon == "sg552")
                     g_Utils.GetTextureInfo(wpn_sg552, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "m249"))
+                else if (szWeapon == "m249")
                     g_Utils.GetTextureInfo(wpn_m249, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "g3sg1"))
+                else if (szWeapon == "g3sg1")
                     g_Utils.GetTextureInfo(wpn_g3sg1, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "m3"))
+                else if (szWeapon == "m3")
                     g_Utils.GetTextureInfo(wpn_m3, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "elite"))
+                else if (szWeapon == "elite")
                     g_Utils.GetTextureInfo(wpn_elite, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "aug"))
+                else if (szWeapon == "aug")
                     g_Utils.GetTextureInfo(wpn_aug, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "mac10"))
+                else if (szWeapon == "mac10")
                     g_Utils.GetTextureInfo(wpn_mac10, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "fiveseven"))
+                else if (szWeapon == "fiveseven")
                     g_Utils.GetTextureInfo(wpn_fiveseven, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "ump45"))
+                else if (szWeapon == "ump45")
                     g_Utils.GetTextureInfo(wpn_ump45, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "tmp"))
+                else if (szWeapon == "tmp")
                     g_Utils.GetTextureInfo(wpn_tmp, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "galil"))
+                else if (szWeapon == "galil")
                     g_Utils.GetTextureInfo(wpn_galil, texture, w, h);
-                else if (!lstrcmpA(szWeapon, "famas"))
+                else if (szWeapon == "famas")
                     g_Utils.GetTextureInfo(wpn_famas, texture, w, h);
 
                 w /= 2;
