@@ -1422,10 +1422,15 @@ bool IsCurWeaponGun(void)
 
 bool IsCurWeaponNonAttack(void)
 {
-	if (g_Local.weapon.m_iWeaponID == WEAPON_HEGRENADE || g_Local.weapon.m_iWeaponID == WEAPON_FLASHBANG || g_Local.weapon.m_iWeaponID == WEAPON_C4 || g_Local.weapon.m_iWeaponID == WEAPON_SMOKEGRENADE)
-		return true;
-
-	return false;
+    switch (g_Local.weapon.m_iWeaponID) {
+    case WEAPON_HEGRENADE:
+    case WEAPON_FLASHBANG:
+    case WEAPON_C4:
+    case WEAPON_SMOKEGRENADE:
+        return true;
+    default:
+        return false;
+    }
 }
 
 bool IsCurWeaponNade(void)
