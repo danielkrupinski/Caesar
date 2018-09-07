@@ -1,5 +1,4 @@
-enum ClipSizeType
-{
+enum class ClipSizeType {
 	P228_MAX_CLIP = 13,
 	GLOCK18_MAX_CLIP = 20,
 	SCOUT_MAX_CLIP = 10,
