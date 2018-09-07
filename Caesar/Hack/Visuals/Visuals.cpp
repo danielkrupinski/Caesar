@@ -553,7 +553,7 @@ void CVisuals::PlayerESP(unsigned int i)
         if (config.esp_box)
             g_Drawing.DrawPlayerBox(ScreenTop[0], ScreenTop[1], box_width, box_height, r, g, b, 255);
 
-        char *szWeapon = g_PlayerExtraInfoList[i].szWeaponName;
+        std::string szWeapon = g_PlayerExtraInfoList[i].szWeaponName;
 
         if (config.esp_weapon > 0 && szWeapon)
         {
