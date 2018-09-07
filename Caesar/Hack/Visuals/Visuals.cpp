@@ -5,11 +5,6 @@
 extern Config config;
 CVisuals g_Visuals;
 
-using grenadetracer_t = struct {
-    deque<Vector> vPoints;
-    DWORD dwUpdated;
-};
-
 struct {
     deque<Vector> vPoints;
     DWORD dwUpdated;
