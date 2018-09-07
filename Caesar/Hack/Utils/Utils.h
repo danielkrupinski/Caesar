@@ -17,7 +17,7 @@ public:
 	void StringReplace(char* buf, const char* search, const char* replace);
 
 	bool bFileExists(const char *cFileName);
-	char *szDirFile(const char* pszName);
+	// char *szDirFile(const char* pszName);
 	char *cIniRead(char *cFileName, char *cSection, char *cKey, char *cDef);
 
 	bool bCalcScreen(float *pflOrigin, float *pflVecScreen);
