@@ -92,10 +92,14 @@ bool CUtils::bCalcScreen(float *pflOrigin, float *pflVecScreen)
 
 bool CUtils::bFileExists(const char *cFileName) { return _access(cFileName, 0) != -1; }
 
+/*
+
 void CUtils::cIniWrite(char *cFileName, char *cSection, char *cKey, char *cValue)
 {
 	WritePrivateProfileStringA((LPCSTR)cSection, (LPCSTR)cKey, cValue, (LPCSTR)cFileName);
 }
+
+*/
 
 char *CUtils::cIniRead(char *cFileName, char *cSection, char *cKey, char *cDef)
 {
