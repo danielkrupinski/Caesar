@@ -20,8 +20,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 
 			g_Player[entid].iShotsFired++;
 
-			if (g_Player[entid].iShotsFired > AK47_MAX_CLIP) 
-				g_Player[entid].iShotsFired -= AK47_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::AK47_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::AK47_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "aug-1"))
 		{
@@ -33,8 +33,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 
 			g_Player[entid].iShotsFired++;
 
-			if (g_Player[entid].iShotsFired > AUG_MAX_CLIP) 
-				g_Player[entid].iShotsFired -= AUG_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::AUG_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::AUG_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "awp1"))
 		{
@@ -45,8 +45,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > AWP_MAX_CLIP) 
-				g_Player[entid].iShotsFired -= AWP_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::AWP_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::AWP_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "deagle-1") || strstr(szSoundFile, "deagle-2"))
 		{
@@ -57,8 +57,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > DEAGLE_MAX_CLIP) 
-				g_Player[entid].iShotsFired -= DEAGLE_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::DEAGLE_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::DEAGLE_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "elite_fire"))
 		{
@@ -69,8 +69,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > ELITE_MAX_CLIP) 
-				g_Player[entid].iShotsFired -= ELITE_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::ELITE_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::ELITE_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "famas-1") || strstr(szSoundFile, "famas-2"))
 		{
@@ -81,8 +81,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > FAMAS_MAX_CLIP) 
-				g_Player[entid].iShotsFired -= FAMAS_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::FAMAS_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::FAMAS_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "fiveseven-1"))
 		{
@@ -93,8 +93,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > FIVESEVEN_MAX_CLIP)
-				g_Player[entid].iShotsFired -= FIVESEVEN_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::FIVESEVEN_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::FIVESEVEN_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "g3gs1-1"))
 		{
@@ -105,8 +105,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > G3SG1_MAX_CLIP)
-				g_Player[entid].iShotsFired -= G3SG1_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::G3SG1_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::G3SG1_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "galil-1") || strstr(szSoundFile, "galil-2"))
 		{
@@ -117,8 +117,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > GALIL_MAX_CLIP)
-				g_Player[entid].iShotsFired -= GALIL_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::GALIL_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::GALIL_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "glock18-1") || strstr(szSoundFile, "glock18-2"))
 		{
@@ -129,8 +129,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > GLOCK18_MAX_CLIP)
-				g_Player[entid].iShotsFired -= GLOCK18_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::GLOCK18_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::GLOCK18_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "m3-1"))
 		{
@@ -141,8 +141,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > M3_MAX_CLIP) 
-				g_Player[entid].iShotsFired -= M3_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::M3_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::M3_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "m4a1_unsil-1") || strstr(szSoundFile, "m4a1_unsil-2") || strstr(szSoundFile, "m4a1-2"))
 		{
@@ -153,8 +153,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > M4A1_MAX_CLIP)
-				g_Player[entid].iShotsFired -= M4A1_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::M4A1_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::M4A1_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "m249-1") || strstr(szSoundFile, "m249-2"))
 		{
@@ -165,8 +165,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > M249_MAX_CLIP) 
-				g_Player[entid].iShotsFired -= M249_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::M249_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::M249_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "mac10-1"))
 		{
@@ -177,8 +177,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > MAC10_MAX_CLIP)
-				g_Player[entid].iShotsFired -= MAC10_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::MAC10_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::MAC10_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "mp5-1") || strstr(szSoundFile, "mp5-2"))
 		{
@@ -189,8 +189,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > MP5N_MAX_CLIP) 
-				g_Player[entid].iShotsFired -= MP5N_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::MP5N_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::MP5N_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "p90-1"))
 		{
@@ -201,8 +201,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > P90_MAX_CLIP)
-				g_Player[entid].iShotsFired -= P90_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::P90_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::P90_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "p228-1"))
 		{
@@ -213,8 +213,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > P228_MAX_CLIP)
-				g_Player[entid].iShotsFired -= P228_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::P228_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::P228_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "scout_fire-1"))
 		{
@@ -225,8 +225,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > SCOUT_MAX_CLIP)
-				g_Player[entid].iShotsFired -= SCOUT_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::SCOUT_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::SCOUT_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "sg550-1"))
 		{
@@ -237,8 +237,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > SG550_MAX_CLIP)
-				g_Player[entid].iShotsFired -= SG550_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::SG550_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::SG550_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "sg552-1") || strstr(szSoundFile, "sg552-2"))
 		{
@@ -249,8 +249,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > SG552_MAX_CLIP)
-				g_Player[entid].iShotsFired -= SG552_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::SG552_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::SG552_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "tmp-1") || strstr(szSoundFile, "tmp-2"))
 		{
@@ -261,8 +261,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > TMP_MAX_CLIP)
-				g_Player[entid].iShotsFired -= TMP_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::TMP_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::TMP_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "ump45-1"))
 		{
@@ -273,8 +273,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > UMP45_MAX_CLIP)
-				g_Player[entid].iShotsFired -= UMP45_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::UMP45_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::UMP45_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "usp_unsil-1") || strstr(szSoundFile, "usp1") || strstr(szSoundFile, "usp2"))
 		{
@@ -285,8 +285,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > USP_MAX_CLIP)
-				g_Player[entid].iShotsFired -= USP_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::USP_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::USP_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "xm1014-1"))
 		{
@@ -297,8 +297,8 @@ void ShotsFiredCounter(int entid, char *szSoundFile)
 			}
 
 			g_Player[entid].iShotsFired++;
-			if (g_Player[entid].iShotsFired > XM1014_MAX_CLIP)
-				g_Player[entid].iShotsFired -= XM1014_MAX_CLIP;
+			if (g_Player[entid].iShotsFired > static_cast<int>(ClipSizeType::XM1014_MAX_CLIP))
+				g_Player[entid].iShotsFired -= static_cast<int>(ClipSizeType::XM1014_MAX_CLIP);
 		}
 		else if (strstr(szSoundFile, "reload")) 
 		{
