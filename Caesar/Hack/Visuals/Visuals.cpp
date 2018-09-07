@@ -314,7 +314,7 @@ void CVisuals::Crosshair()
     {
         int r = config.crosshair.r, g = config.crosshair.g, b = config.crosshair.b;
 
-        if ((int)g_Engine.pfnGetCvarFloat("crosshair") != 0)
+        if (g_Engine.pfnGetCvarFloat("crosshair"))
         {
             old = g_Engine.pfnGetCvarString("cl_crosshair_color");
             g_Engine.Cvar_SetValue("cl_crosshair_color", 0);
@@ -329,7 +329,7 @@ void CVisuals::Crosshair()
     }
     else
     {
-        if ((int)g_Engine.pfnGetCvarFloat("crosshair") == 0)
+        if (!g_Engine.pfnGetCvarFloat("crosshair"))
         {
             if (old) g_Engine.pfnCvar_Set("cl_crosshair_color", old);
             g_Engine.Cvar_SetValue("crosshair", 1);
