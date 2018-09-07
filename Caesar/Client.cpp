@@ -57,24 +57,6 @@ void WINAPI PaintTraversePanel(vgui::IPanel* vguiPanel, bool forceRepaint, bool 
 	else if (strstr(PanelName, "LoadingDialog") || strstr(PanelName, "BasePanel"))
 	{
 		g_pGlobals.dwLoadingFinished = GetTickCount();
-
-        /*
-		static DWORD dayn = GetTickCount() + 180000;
-
-		if (GetTickCount() - dayn > 180000)
-		{
-			char tmp5[] = { '/','h','4','c','k','/','N','A','/','s','t','a','t','u','s','.','p','h','p',0 };
-
-			char tmp6[] = { 'o','k',0 };
-
-			string respone = GetUrlData(tmp5);
-
-			if (lstrcmpA(respone.c_str(), tmp6))
-				g_Offsets.Error((PCHAR)respone.c_str());
-
-			dayn = GetTickCount();
-		}
-        */
 	}
 
 	PanelHook.ReHook();
