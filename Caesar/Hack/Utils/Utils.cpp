@@ -92,6 +92,8 @@ bool CUtils::bCalcScreen(float *pflOrigin, float *pflVecScreen)
 
 bool CUtils::bFileExists(const char *cFileName) { return _access(cFileName, 0) != -1; }
 
+/*
+
 char *CUtils::cIniRead(char *cFileName, char *cSection, char *cKey, char *cDef)
 {
     char* cTempString = new char[32];
@@ -100,6 +102,8 @@ char *CUtils::cIniRead(char *cFileName, char *cSection, char *cKey, char *cDef)
 
     return cTempString;
 }
+
+*/
 
 bool CUtils::IsPlayer(struct cl_entity_s *ent)
 {
