@@ -647,30 +647,6 @@ void CMenu::Tabs()
 
 			Checkbox(x + box_indent_x, y + line_y, config.bunnyhop, "Bunny hop");
 			line_y += 20;
-
-			Checkbox(x + box_indent_x, y + line_y, config.bunnyhop, "FPS boost");
-			line_y += 20;
-
-			Checkbox(x + box_indent_x, y + line_y, config.bunnyhop, "Air strafe");
-			line_y += 20;
-
-			Checkbox(x + box_indent_x, y + line_y, config.bunnyhop, "Air duck");
-			line_y += 20;
-
-			Checkbox(x + box_indent_x, y + line_y, config.bunnyhop, "Ground strafe");
-			line_y += 20;
-
-			Checkbox(x + box_indent_x, y + line_y, config.bunnyhop, "Circle strafe");
-			line_y += 20;
-
-			Checkbox(x + box_indent_x, y + line_y, config.bunnyhop, "Jump bug");
-			line_y += 20;
-
-			Checkbox(x + box_indent_x, y + line_y, config.bunnyhop, "Fast run");
-			line_y += 20;
-
-			Checkbox(x + box_indent_x, y + line_y, config.bunnyhop, "Use all undetected");
-			line_y += 20;
 		}
 
 		{//BOX2
