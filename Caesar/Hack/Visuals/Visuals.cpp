@@ -634,7 +634,7 @@ void CVisuals::PlayerESP(unsigned int i)
             default_draw_weapon:
                 unsigned int y = ScreenBot[1] + (8 - _h);
 
-                g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, 255, FONT_CENTER, "%s", szWeapon);
+                g_Drawing.DrawString(ESP, ScreenTop[0], y, 255, 255, 255, 255, FONT_CENTER, "%s", szWeapon.c_str());
             }
         }
 
