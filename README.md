@@ -1,6 +1,6 @@
 # Caesar
 
-Open source cheat for Steam version of **Counter-Strike 1.6**
+Open source cheat for Steam version of **Counter-Strike 1.6**. It is an enhanced version of [NorAdrenaline](https://github.com/hackovh/NorAdrenaline).
 
 
 ## License
